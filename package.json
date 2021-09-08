@@ -1,0 +1,28 @@
+{
+  "name": "PBL_MI_CC",
+  "version": "1.0.0",
+  "description": "Problema 1 da matéria do MI de Concorrência e Conectividade.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node node_modules/nodemon/bin/nodemon bin/server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexkidthunder/PBL_MI_CC.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexkidthunder/PBL_MI_CC/issues"
+  },
+  "homepage": "https://github.com/alexkidthunder/PBL_MI_CC#readme",
+  "dependencies": {
+    "debug": "^4.3.2",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
