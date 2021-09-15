@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
-const paciente = mongoose.model('saturacao');
+const Mentions = mongoose.model('Mentions');
 
 // list
-exports.listSaturacao = async (req, res) => {
+exports.listMentions = async (req, res) => {
   try {
-    const data = await paciente.find({});
+    const data = await Mentions.find({});
     res.status(200).send(data);
   } catch (e) {
     res.status(500).send({message: 'Falha ao carregar as menções.'});
@@ -14,7 +14,7 @@ exports.listSaturacao = async (req, res) => {
 // create
 exports.createMention = async (req, res) => {
   try {
-    const mention = new paciente({
+    const mention = new Mentions({
       friend: req.body.friend,
       mention: req.body.mention
     });

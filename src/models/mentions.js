@@ -2,15 +2,15 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const schema = new Schema({
-  paciente: {
+  friend: {
     type: String,
     required: true,
     trim: true
   },
-  saturacao: {
-    type: Number,
+  mention: {
+    type: String,
     required: true
   }
 });
 
-module.exports = mongoose.model('saturacao', schema);
+module.exports = mongoose.model('Mentions', schema);
