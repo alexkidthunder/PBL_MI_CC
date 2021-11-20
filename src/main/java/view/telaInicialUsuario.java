@@ -35,6 +35,7 @@ public class telaInicialUsuario extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("telaUsuario");
@@ -56,29 +57,39 @@ public class telaInicialUsuario extends javax.swing.JFrame {
 
         jLabel3.setText("Quantidade de Passageiros");
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel4.setText("MalhAerea");
+
         javax.swing.GroupLayout painelInicialLayout = new javax.swing.GroupLayout(painelInicial);
         painelInicial.setLayout(painelInicialLayout);
         painelInicialLayout.setHorizontalGroup(
             painelInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelInicialLayout.createSequentialGroup()
-                .addGap(89, 89, 89)
+                .addContainerGap(79, Short.MAX_VALUE)
                 .addGroup(painelInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1)
-                    .addGroup(painelInicialLayout.createSequentialGroup()
-                        .addGroup(painelInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(origemTexto)
-                            .addComponent(destinoTexto)
-                            .addComponent(passageirosQnt, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE))
-                        .addGap(118, 118, 118)
-                        .addComponent(botaoBuscar)))
-                .addContainerGap(453, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelInicialLayout.createSequentialGroup()
+                        .addGroup(painelInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1)
+                            .addGroup(painelInicialLayout.createSequentialGroup()
+                                .addGroup(painelInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(origemTexto)
+                                    .addComponent(destinoTexto)
+                                    .addComponent(passageirosQnt, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(118, 118, 118)
+                                .addComponent(botaoBuscar)))
+                        .addGap(63, 63, 63))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelInicialLayout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(210, 210, 210))))
         );
         painelInicialLayout.setVerticalGroup(
             painelInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelInicialLayout.createSequentialGroup()
-                .addGap(203, 203, 203)
+                .addGap(54, 54, 54)
+                .addComponent(jLabel4)
+                .addGap(135, 135, 135)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(origemTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -92,7 +103,7 @@ public class telaInicialUsuario extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(5, 5, 5)
                 .addComponent(passageirosQnt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(243, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -162,6 +173,7 @@ public class telaInicialUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField origemTexto;
     private javax.swing.JPanel painelInicial;
     private javax.swing.JTextField passageirosQnt;
