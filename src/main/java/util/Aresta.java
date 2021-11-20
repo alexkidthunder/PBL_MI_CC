@@ -5,7 +5,10 @@
  */
 package util;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+import model.Bilhete;
 
 /**
  *
@@ -13,12 +16,24 @@ import java.util.Objects;
  */
 public class Aresta {
 
+    private String peso;
     private Vertice origem;
     private Vertice destino;
+    private List<Bilhete> Bilhetes;
 
-    public Aresta(Vertice origem, Vertice destino) {
+    public Aresta(String peso, Vertice origem, Vertice destino, List<Bilhete> Bilhetes) {
+        this.peso = peso;
         this.origem = origem;
         this.destino = destino;
+        this.Bilhetes = new ArrayList<>();
+    }
+
+    public String getPeso() {
+        return peso;
+    }
+
+    public void setPeso(String peso) {
+        this.peso = peso;
     }
 
     public Vertice getOrigem() {
@@ -37,6 +52,14 @@ public class Aresta {
         this.destino = destino;
     }
 
+    public List<Bilhete> getBilhetes() {
+        return Bilhetes;
+    }
+
+    public void setBilhetes(List<Bilhete> Bilhetes) {
+        this.Bilhetes = Bilhetes;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -49,10 +72,16 @@ public class Aresta {
             return false;
         }
         final Aresta other = (Aresta) obj;
+        if (!Objects.equals(this.peso, other.peso)) {
+            return false;
+        }
         if (!Objects.equals(this.origem, other.origem)) {
             return false;
         }
         if (!Objects.equals(this.destino, other.destino)) {
+            return false;
+        }
+        if (!Objects.equals(this.Bilhetes, other.Bilhetes)) {
             return false;
         }
         return true;
