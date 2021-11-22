@@ -15,76 +15,96 @@ import model.Bilhete;
  * @author ribei
  */
 public class Aresta {
+    private float peso;
+    private Vertice v1;
+    private Vertice v2;
+    private boolean visitado = false;
 
-    private String peso;
-    private Vertice origem;
-    private Vertice destino;
-    private List<Bilhete> Bilhetes;
-
-    public Aresta(String peso, Vertice origem, Vertice destino, List<Bilhete> Bilhetes) {
-        this.peso = peso;
-        this.origem = origem;
-        this.destino = destino;
-        this.Bilhetes = new ArrayList<>();
+    /**
+     * Método construtor, da classe Aresta.
+     * @param peso
+     * @param origem
+     * @param destino
+     */
+    public Aresta(float peso, Vertice origem, Vertice destino) {
+        this.setPeso(peso);
+        this.setV1(origem);
+        this.setV2(destino);
     }
 
-    public String getPeso() {
+    /**
+     * Método getPeso, da classe Aresta.
+     * @return int
+     */
+    public float getPeso() {
         return peso;
     }
 
-    public void setPeso(String peso) {
+    /**
+     * Método setPeso, da classe Aresta.
+     * @param peso
+     */
+    public void setPeso(float peso) {
         this.peso = peso;
     }
 
-    public Vertice getOrigem() {
-        return origem;
+    /**
+     * Método getV1, da classe Aresta.
+     * @return Vertice
+     */
+    public Vertice getV1() {
+        return v1;
     }
 
-    public void setOrigem(Vertice origem) {
-        this.origem = origem;
+    /**
+     * Método setV1, da classe Aresta.
+     * @param v1
+     */
+    public void setV1(Vertice v1) {
+        this.v1 = v1;
     }
 
-    public Vertice getDestino() {
-        return destino;
+    /**
+     * Método getV2, da classe Aresta.
+     * @return Vertice
+     */
+    public Vertice getV2() {
+        return v2;
     }
 
-    public void setDestino(Vertice destino) {
-        this.destino = destino;
+    /**
+     * Método setV2, da classe Aresta.
+     * @param v2
+     */
+    public void setV2(Vertice v2) {
+        this.v2 = v2;
     }
 
-    public List<Bilhete> getBilhetes() {
-        return Bilhetes;
+    /**
+     * Método isVisitado, da classe Aresta.
+     * @return boolean 
+     */
+    public boolean isVisitado() {
+        return visitado;
     }
 
-    public void setBilhetes(List<Bilhete> Bilhetes) {
-        this.Bilhetes = Bilhetes;
+    /**
+     * Método setVisitado, da classe Aresta.
+     * @param visitado
+     */
+    public void setVisitado(boolean visitado) {
+        this.visitado = visitado;
     }
 
+    /**
+     * Método toString, da classe Aresta.
+     * @return String
+     */
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Aresta other = (Aresta) obj;
-        if (!Objects.equals(this.peso, other.peso)) {
-            return false;
-        }
-        if (!Objects.equals(this.origem, other.origem)) {
-            return false;
-        }
-        if (!Objects.equals(this.destino, other.destino)) {
-            return false;
-        }
-        if (!Objects.equals(this.Bilhetes, other.Bilhetes)) {
-            return false;
-        }
-        return true;
+    public String toString() {
+        String s = " ";
+        s+= this.v1.getNome()+ this.v2.getNome();
+        return s;
     }
-
+   
 }

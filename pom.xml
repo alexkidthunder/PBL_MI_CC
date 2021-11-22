@@ -10,5 +10,15 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
+     <!-- library dependencies -->
+    <dependencies> 
+        <dependency>
+            <groupId>com.jtransc</groupId>
+            <artifactId>jtransc-rt</artifactId>
+            <version>0.6.1</version>
+        </dependency>
+    </dependencies>
     <name>pblCC3MalhaAerea</name>
 </project>
+
+   
