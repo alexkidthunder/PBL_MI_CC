@@ -1,0 +1,27 @@
+1;GRU;Aeroporto Internacional de Guarulhos;São Paulo
+2;SDU;Aeroporto Santos Dumont;Rio de Janeiro
+3;CWB;Aeroporto Internacional Afonso Pena;Paraná 
+4;BSB;Aeroporto Internacional Presidente Juscelino Kubitschek;Distrito Federal
+5;BSB;Aeroporto Presidente João Suassuna;Paraíba
+6;REC;Aeroporto Internacional dos Guararapes Gilberto Freyre;Pernambuco 
+7;POA;Aeroporto Internacional Salgado Filho;Rio Grande do Sul
+8;FOR;Aeroporto Internacional Pinto Martins;Ceará
+9;SSA;Aeroporto Internacional de Salvador - Dep. Luís Eduardo Magalhães;Bahia
+10;BEL;Aeroporto Internacional de Belém;Pará
+11;MAO;Aeroporto Internacional de Manaus - Eduardo Gomes;Amazonas
+12;VIX;Aeroporto Eurico de Aguiar Salles;Espírito Santo
+13;CNF;Aeroporto Internacional de Belo Horizonte-Confins;Minas Gerais
+14;FLN;Aeroporto Internacional de Florianópolis;Santa Catarina
+15;CGR;Aeroporto Internacional de Campo Grande;Mato Grosso do Sul
+16;GYN;Aeroporto de Goiânia - Santa Genoveva;Goiás
+17;CGB;Aeroporto Internacional de Cuiabá - Marechal Rondon;Mato Grosso
+18;MCZ;Aeroporto Internacional de Maceió - Zumbi dos Palmares;Alagoas
+19;SLZ;Aeroporto Internacional de São Luís - Marechal Cunha Machado;Maranhão
+20;THE;Aeroporto  de Teresina;Piauí
+21;NAT;Aeroporto Internacional de Natal;Rio Grande do Norte
+22;PVH;Aeroporto Internacional de Porto Velho - Gov. Jorge Teixeira de Oliveira;Rondônia
+23;PMW;Aeroporto de Palmas - Brigadeiro Lysias Rodrigues;Tocantins
+24;RBR;Aeroporto de Rio Branco - Plácido de Castro;Acre
+25;MCP;Aeroporto Internacional de Macapá - Alberto Alcolumbre;Amapá
+
+
