@@ -7,7 +7,7 @@ package controller;
 
 /**
  *
- * @author ribei
+ * @authors Alexandre & Bianca
  */
 public class CompanhiaController {
     

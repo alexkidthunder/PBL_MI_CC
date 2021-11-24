@@ -12,7 +12,7 @@ import util.Vertice;
 
 /**
  *
- * @author ribei
+ * @authors Alexandre & Bianca
  */
 /*public class Companhia {
 

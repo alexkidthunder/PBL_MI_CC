@@ -12,7 +12,7 @@ import model.IdAeroportos;
 
 /**
  *
- * @author ribei
+ * @authors Alexandre & Bianca
  */
 public class Vertice implements Comparable<Vertice> {
 

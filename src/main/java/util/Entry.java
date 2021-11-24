@@ -10,9 +10,7 @@ import java.util.Objects;
 
 /**
  *
- * @author ribei
- * @param <K>
- * @param <V>
+ * @authors Alexandre & Bianca
  */
 public class Entry<K, V> implements Map.Entry<K, V> {
 

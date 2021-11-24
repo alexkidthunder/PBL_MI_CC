@@ -9,7 +9,7 @@ import java.util.Objects;
 
 /**
  *
- * @author ribei
+ * @authors Alexandre & Bianca
  */
 public class IdAeroportos {
 

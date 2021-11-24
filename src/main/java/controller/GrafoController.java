@@ -19,11 +19,18 @@ import util.Vertice;
 
 /**
  *
- * @author bianc
+ * @authors Alexandre & Bianca
  */
 public class GrafoController {
+
+    /**
+     *
+     */
     public Grafo grafo; 
 
+    /**
+     *
+     */
     public GrafoController(){
         this.grafo = new Grafo();
     }
@@ -31,6 +38,7 @@ public class GrafoController {
     /**
      *
      * @param nome
+     * @param aeroporto
      */
     public void addVertice(String nome, IdAeroportos aeroporto){
         this.grafo.addVertice(nome,aeroporto);
@@ -112,6 +120,7 @@ public class GrafoController {
 //                linha = br.readLine();
 //                if (linha != null){
 //                    linhaCortada = linha.split(";");
+//                      linhaCortada = linha.split(";|;\\s");//Lidar com ; com ou sem espaço depois
 //                    if (!"Sigla".equals(linhaCortada[0])){
 //                            String aux = linhaCortada[1];
 //                            IdAeroportos aeroporto = new IdAeroportos();
@@ -145,7 +154,8 @@ public class GrafoController {
             do{
                 linha = br.readLine();
                 if (linha != null){
-                    linhaCortada = linha.split(";");
+                    linhaCortada = linha.split(";|;\\s");//Lidar com ; com ou sem espaço depois
+                    //linhaCortada = linha.split(";");
                     if (!"vertice1".equals(linhaCortada[0])){
                         String aux1 = linhaCortada[2];                     
                         int peso = Integer.parseInt(linhaCortada[2]);
@@ -208,7 +218,10 @@ public class GrafoController {
         }
     }
    
-    
+    /**
+     *
+     * @param args
+     */
     public static void main(String args[]) {
         GrafoController grafo = new GrafoController();
         IdAeroportos aeroporto = new IdAeroportos(2453, "BB", "Aeroporto B", "Fortaleza");
@@ -220,6 +233,6 @@ public class GrafoController {
         grafo.addAresta(100, "Recife", "Alagoas");
         grafo.addAresta(500, "Salvador", "Alagoas");
         System.out.println(grafo.indentificarCaminhos("Salvador"));
-//        System.out.println(grafo.encontrarMenorCaminhoDijkstra("Salvador", "Alagoas").toString());
+        System.out.println(grafo.encontrarMenorCaminhoDijkstra("Salvador", "Alagoas").toString());
     }
 }

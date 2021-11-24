@@ -10,7 +10,7 @@ import util.Aresta;
 
 /**
  *
- * @author ribei
+ * @authors Alexandre & Bianca
  */
 public class Caminho {
 

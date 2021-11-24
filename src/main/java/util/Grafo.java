@@ -11,7 +11,7 @@ import model.IdAeroportos;
 
 /**
  *
- * @author bianc
+ * @authors Alexandre & Bianca
  */
 public class Grafo {
     private IdAeroportos aeroporto;
@@ -65,12 +65,9 @@ public class Grafo {
     }
 
     /**
-     * Método addVertice, da classe Grafo.
-     * Esse método adiciona os vértices na lista de vértices.
+     * Método addVertice, da classe Grafo.Esse método adiciona os vértices na lista de vértices.
      * @param nome
-     * @param terminal
-     * @param x
-     * @param y
+     * @param aeroporto
      * @return int
      */
     public int addVertice(String nome, IdAeroportos aeroporto){
@@ -140,6 +137,11 @@ public class Grafo {
         return null;
     }
     
+    /**
+     *
+     * @param chave
+     * @return
+     */
     public Vertice acharVertice(String chave){
         Vertice encontrado = null;
         for (int i = 0; i < this.vertices.size(); i++) {

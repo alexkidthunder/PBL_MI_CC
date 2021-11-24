@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * Teste de Hashtable. Disponivel em: https://mauricio.github.io/2020/10/15/implementando-uma-hashtable-em-java.html
- * @author ribei
+ * @authors Alexandre & Bianca
  */
 public class HashTable<K, V> { 
 

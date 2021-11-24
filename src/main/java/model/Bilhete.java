@@ -7,7 +7,7 @@ package model;
 
 /**
  *
- * @author ribei
+ * @authors Alexandre & Bianca
  */
 public class Bilhete {
 

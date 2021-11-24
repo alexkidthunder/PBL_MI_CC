@@ -1,5 +1,9 @@
+package model;
 
-
+/**
+ *
+ * @authors Alexandre & Bianca
+ */
 public class Passageiro {
     private String nome;
     private String cpf;

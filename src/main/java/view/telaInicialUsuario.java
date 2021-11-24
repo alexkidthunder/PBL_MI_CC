@@ -7,7 +7,7 @@ package view;
 
 /**
  *
- * @author ribei
+ * @authors Alexandre & Bianca
  */
 public class telaInicialUsuario extends javax.swing.JFrame {
 

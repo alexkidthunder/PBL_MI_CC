@@ -5,14 +5,11 @@
  */
 package util;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
 import model.Bilhete;
 
 /**
  *
- * @author ribei
+ * @authors Alexandre & Bianca
  */
 public class Aresta {
     private float peso;
