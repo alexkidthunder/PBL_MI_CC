@@ -5,8 +5,6 @@
  */
 package util;
 
-import model.Bilhete;
-
 /**
  *
  * @authors Alexandre & Bianca

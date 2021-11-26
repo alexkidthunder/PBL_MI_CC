@@ -5,23 +5,38 @@
  */
 package model;
 
-import java.util.List;
-import util.Aresta;
-
 /**
  *
  * @authors Alexandre & Bianca
  */
 public class Caminho {
 
-    private List<List<Aresta>> rotas;
+    private final String companhiAerea;
+    private final double precoBilhete;
+    private final int destino;
+    private final int origem;
 
-    public Caminho(List<List<Aresta>> rotas) {
-        this.rotas = rotas;
+    public Caminho(String companhiAerea, double precoBilhete, int destino, int origem) {
+        this.companhiAerea = companhiAerea;
+        this.precoBilhete = precoBilhete;
+        this.destino = destino;
+        this.origem = origem;
     }
 
-    public List<List<Aresta>> getRotas() {
-        return rotas;
+    public String getCompanhiAerea() {
+        return companhiAerea;
+    }
+
+    public double getPrecoBilhete() {
+        return precoBilhete;
+    }
+
+    public int getDestino() {
+        return destino;
+    }
+
+    public int getOrigem() {
+        return origem;
     }
 
 }

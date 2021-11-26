@@ -6,8 +6,6 @@
 package util;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
 import model.IdAeroportos;
 
 /**
@@ -23,7 +21,7 @@ public class Vertice implements Comparable<Vertice> {
     private ArrayList<Aresta> arestaConectada = new ArrayList<Aresta>();
     private ArrayList<Vertice> verticeVizinho = new ArrayList<Vertice>();
     private boolean visitado = false;
-    private boolean terminal;
+    //private boolean terminal;
     IdAeroportos aeroporto;
 
     /**

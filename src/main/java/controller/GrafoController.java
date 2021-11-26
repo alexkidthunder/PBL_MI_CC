@@ -16,6 +16,7 @@ import model.IdAeroportos;
 import util.Aresta;
 import util.Grafo;
 import util.Vertice;
+import util.configInicial;
 
 /**
  *
@@ -23,10 +24,8 @@ import util.Vertice;
  */
 public class GrafoController {
 
-    /**
-     *
-     */
     public Grafo grafo; 
+    private configInicial.aeroportosEnumeracao aeroportos;
 
     /**
      *
@@ -234,5 +233,9 @@ public class GrafoController {
         grafo.addAresta(500, "Salvador", "Alagoas");
         System.out.println(grafo.indentificarCaminhos("Salvador"));
         System.out.println(grafo.encontrarMenorCaminhoDijkstra("Salvador", "Alagoas").toString());
+        System.out.println(grafo.encontrarMenorCaminhoDijkstra("Salvador", "Alagoas").get(0).getDistancia());
+        System.out.println(grafo.encontrarMenorCaminhoDijkstra("Salvador", "Alagoas").get(1).getDistancia());
+        System.out.println(grafo.encontrarMenorCaminhoDijkstra("Salvador", "Alagoas").get(2).getDistancia());
+        System.out.println(grafo.encontrarMenorCaminhoDijkstra("Salvador", "Alagoas").size());
     }
 }
