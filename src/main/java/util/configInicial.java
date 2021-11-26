@@ -164,5 +164,12 @@ public class configInicial {
         public int getPorta() {
             return porta;
         }
+
+        @Override
+        public String toString() {
+            return "Servidores{" + "id= " + id + ", iphost= " + iphost + ", "
+                    + "nomeCompanhia= " + nomeCompanhia + ", porta= " + porta + '}';
+        }
+        
     }
 }
