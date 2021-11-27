@@ -5,14 +5,16 @@
  */
 package model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @authors Alexandre & Bianca
  */
-public class IdAeroportos {
-
+public class IdAeroportos implements Serializable {
+    
+    private static final long serialVersionUID = 10L;
     private int identificador;
     private String codigoIATA;
     private String nomeAeroporto;

@@ -135,6 +135,7 @@ public class configInicial {
 
         /**
          * Pega a identificação da Companhia
+         *
          * @return
          */
         public int getId() {
@@ -143,6 +144,7 @@ public class configInicial {
 
         /**
          * Pega o host/ip da Companhia
+         *
          * @return
          */
         public String getIphost() {
@@ -151,6 +153,7 @@ public class configInicial {
 
         /**
          * Pega o nome da Companhia
+         *
          * @return
          */
         public String getNomeCompanhia() {
@@ -159,6 +162,7 @@ public class configInicial {
 
         /**
          * Pega a porta padrão da Companhia
+         *
          * @return
          */
         public int getPorta() {
@@ -170,6 +174,52 @@ public class configInicial {
             return "Servidores{" + "id= " + id + ", iphost= " + iphost + ", "
                     + "nomeCompanhia= " + nomeCompanhia + ", porta= " + porta + '}';
         }
-        
+    }
+
+    /**
+     * Lista de valores pré-definidos do Caminho de uma companhia
+     */
+    public enum CaminhoCompanhia {
+        CaminhoA(5, 20, 1178.00),
+        CaminhoB(20, 19, 1883.00),
+        CaminhoC(19, 14, 609.00);
+
+        private final int origem;
+        private final int destino;
+        private final double preco;
+
+        private CaminhoCompanhia(int origem, int destino, double preco) {
+            this.origem = origem;
+            this.destino = destino;
+            this.preco = preco;
+        }
+
+        /**
+         * Pega a origem do caminho
+         *
+         * @return
+         */
+        public int getOrigem() {
+            return origem;
+        }
+
+        /**
+         * Pega o destino do Caminho
+         *
+         * @return
+         */
+        public int getDestino() {
+            return destino;
+        }
+
+        /**
+         * Pega o preço do bilhete
+         *
+         * @return
+         */
+        public double getPreco() {
+            return preco;
+        }
+
     }
 }

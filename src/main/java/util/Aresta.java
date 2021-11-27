@@ -5,11 +5,15 @@
  */
 package util;
 
+import java.io.Serializable;
+
 /**
  *
  * @authors Alexandre & Bianca
  */
-public class Aresta {
+public class Aresta implements Serializable{
+    
+    private static final long serialVersionUID = 13L;
     private float peso;
     private Vertice v1;
     private Vertice v2;

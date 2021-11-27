@@ -5,6 +5,7 @@
  */
 package util;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import model.IdAeroportos;
 
@@ -12,8 +13,9 @@ import model.IdAeroportos;
  *
  * @authors Alexandre & Bianca
  */
-public class Vertice implements Comparable<Vertice> {
+public class Vertice implements Serializable,Comparable<Vertice> {
 
+    private static final long serialVersionUID = 14L;
     private String nome;
     private float distancia = 0;
     private Vertice antecessor;

@@ -5,12 +5,15 @@
  */
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @authors Alexandre & Bianca
  */
-public class Bilhete {
+public class Bilhete implements Serializable {
 
+    private static final long serialVersionUID = 12L;
     private String companhia;
     private double precoBilhete;
     private int totalVagas;
