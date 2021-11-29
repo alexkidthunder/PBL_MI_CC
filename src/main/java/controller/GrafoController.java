@@ -12,10 +12,12 @@ import java.io.FileOutputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import model.IdAeroportos;
 import util.Aresta;
 import util.Grafo;
 import util.Vertice;
+import util.configInicial;
 
 /**
  *
@@ -238,7 +240,16 @@ public class GrafoController {
         System.out.println(grafo.encontrarMenorCaminhoDijkstra("Salvador", "Alagoas").get(2).getDistancia());
         System.out.println(grafo.encontrarMenorCaminhoDijkstra("Salvador", "Alagoas").size());
 
+        
+        /* Pegar as informações de um servidor em específico "AZUL", "GOL", 
+         * qualquer outro valor pra "TAM" */
         CompanhiaControllerServer servidores = new CompanhiaControllerServer();
         System.out.println(servidores.PegarInformacoesServidores(""));
+
+        //Pegar informações diretas do Enum na classe configInicial
+        System.out.println(Arrays.toString(configInicial.aeroportosEnumeracao.values()));
+        
+        //Pegar informações diretas do Enum especifica da classe configInicial
+        System.out.println(configInicial.aeroportosEnumeracao.ACRE);
     }
 }

@@ -95,6 +95,11 @@ public class configInicial {
             return estado;
         }
 
+        //@Override
+        // public String toString() {
+        //     return "aeroportosEnumeracao{" + "id= " + id + ", codigoIATA= " + codigoIATA + ", nomeAeroporto= " + nomeAeroporto + ", estado= " + estado + '}';
+        // }
+        
         /**
          * Retorna uma lista com as informações dos aeroportos
          *
