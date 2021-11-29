@@ -5,15 +5,35 @@
  */
 package metodoRemoto;
 
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
- * Classe servidor RMI que define as configurações do sistema, salva a porta do
- * servidor, define os serviços que serão acessados.
+ * Classe servidor RMI.
  *
  * @authors Alexandre & Bianca
  */
 public class servidorRMI {
 
-    public servidorRMI(String host, int port, String companhia) {
+    /**
+     * servidor RMI que define as configurações do sistema, salva a porta do
+     * servidor, define os serviços que serão acessados.
+     *
+     * @param companhia
+     * @param host
+     * @param port
+     */
+    public servidorRMI(String companhia, String host, int port) {
+        try {
+            //System.setProperty("java.rmi.server.hostname", host);// Configura o nome do host
+            LocateRegistry.createRegistry(port);// Cria um registro rmi com a porta port
+            
+            
+        } catch (RemoteException ex) {
+            Logger.getLogger(servidorRMI.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 

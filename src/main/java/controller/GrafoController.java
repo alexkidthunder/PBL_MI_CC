@@ -240,15 +240,14 @@ public class GrafoController {
         System.out.println(grafo.encontrarMenorCaminhoDijkstra("Salvador", "Alagoas").get(2).getDistancia());
         System.out.println(grafo.encontrarMenorCaminhoDijkstra("Salvador", "Alagoas").size());
 
-        
-        /* Pegar as informações de um servidor em específico "AZUL", "GOL", 
-         * qualquer outro valor pra "TAM" */
+        /* Pegar as informações de um servidor em específico "AZUL", "GOL",qualquer 
+        outro valor pra "TAM" atravez de uma classe que pega as informações do Enum*/
         CompanhiaControllerServer servidores = new CompanhiaControllerServer();
         System.out.println(servidores.PegarInformacoesServidores(""));
 
         //Pegar informações diretas do Enum na classe configInicial
         System.out.println(Arrays.toString(configInicial.aeroportosEnumeracao.values()));
-        
+
         //Pegar informações diretas do Enum especifica da classe configInicial
         System.out.println(configInicial.aeroportosEnumeracao.ACRE);
     }

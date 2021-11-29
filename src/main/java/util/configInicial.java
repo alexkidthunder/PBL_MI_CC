@@ -99,7 +99,6 @@ public class configInicial {
         // public String toString() {
         //     return "aeroportosEnumeracao{" + "id= " + id + ", codigoIATA= " + codigoIATA + ", nomeAeroporto= " + nomeAeroporto + ", estado= " + estado + '}';
         // }
-        
         /**
          * Retorna uma lista com as informações dos aeroportos
          *
@@ -119,7 +118,8 @@ public class configInicial {
     }
 
     /**
-     * Lista de valores pré-definidos dos Servidores
+     * Lista de valores pré-definidos dos Servidores. O número-padrão da porta
+     * para o rmi é 1099
      */
     public enum Servidores {
         AZUL(1, "192.168.102.1", "Azul", 1099),

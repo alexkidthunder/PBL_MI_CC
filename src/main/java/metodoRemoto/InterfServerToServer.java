@@ -21,10 +21,10 @@ public interface InterfServerToServer extends Remote {
 
     public String getNomeCompanhia() throws RemoteException;
 
-    public boolean solicitacaoComprarTrecho(String companhia) throws RemoteException;
+    public boolean solicitacaoComprarCaminho(String companhia) throws RemoteException;
 
-    public boolean comprarRotaCompanhia(List<String> idCidades, String companhia) throws RemoteException;
+    public boolean comprarCaminhoCompanhia(List<String> idCidades, String companhia) throws RemoteException;
 
-    public void semaforoTirarPerm(String companhia) throws RemoteException;
+    public void semaforoPermis(String companhia) throws RemoteException;
 
 }
