@@ -8,12 +8,12 @@ package model;
 import java.io.Serializable;
 
 /**
+ * Classe Caminho que guarda as informações dele de uma companhia
  *
  * @authors Alexandre & Bianca
  */
-public class Caminho implements Serializable{
+public class Caminho implements Serializable {
 
-    private static final long serialVersionUID = 11L;
     private final String companhiAerea;
     private final double precoBilhete;
     private final int destino;

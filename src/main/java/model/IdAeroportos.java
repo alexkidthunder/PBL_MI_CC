@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- *
+ * Classe IdAeroportos que guarda as informações 
  * @authors Alexandre & Bianca
  */
 public class IdAeroportos implements Serializable {

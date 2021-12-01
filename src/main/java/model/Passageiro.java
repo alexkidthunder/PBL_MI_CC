@@ -1,7 +1,7 @@
 package model;
 
 /**
- *
+ * Classe Passageiro que guarda as informações do nome e CPF
  * @authors Alexandre & Bianca
  */
 public class Passageiro {

@@ -10,6 +10,7 @@ import java.util.List;
 import util.configInicial;
 
 /**
+ * Classe Server do sistema
  *
  * @authors Alexandre & Bianca
  */

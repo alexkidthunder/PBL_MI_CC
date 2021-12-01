@@ -11,7 +11,7 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
 /**
- *
+ * Classe teste do servidor RMI
  * @author ribei
  */
 public class server extends UnicastRemoteObject implements adder {

@@ -9,7 +9,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 /**
- *
+ * Teste interface RMI
  * @author ribei
  */
 public interface adder extends Remote{

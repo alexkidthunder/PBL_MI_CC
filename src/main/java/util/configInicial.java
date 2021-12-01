@@ -7,6 +7,7 @@ package util;
 
 import java.util.ArrayList;
 import java.util.List;
+import model.Caminho;
 import model.IdAeroportos;
 
 /**
@@ -102,17 +103,17 @@ public class configInicial {
         /**
          * Retorna uma lista com as informações dos aeroportos
          *
-         * @return
+         * @return listAeroportos
          */
         public static List<IdAeroportos> getAeroportos() {
-            List<IdAeroportos> list = new ArrayList<>();
+            List<IdAeroportos> listAeroportos = new ArrayList<>();
             aeroportosEnumeracao[] aeroportos = aeroportosEnumeracao.values();
 
             for (aeroportosEnumeracao aeroEnum : aeroportos) {
-                list.add(new IdAeroportos(aeroEnum.getId(), aeroEnum.getCodigoIATA(),
+                listAeroportos.add(new IdAeroportos(aeroEnum.getId(), aeroEnum.getCodigoIATA(),
                         aeroEnum.getNomeAeroporto(), aeroEnum.getEstado()));
             }
-            return list;
+            return listAeroportos;
         }
 
     }
@@ -141,7 +142,7 @@ public class configInicial {
         /**
          * Pega a identificação da Companhia
          *
-         * @return
+         * @return id
          */
         public int getId() {
             return id;
@@ -150,7 +151,7 @@ public class configInicial {
         /**
          * Pega o host/ip da Companhia
          *
-         * @return
+         * @return iphost
          */
         public String getIphost() {
             return iphost;
@@ -159,7 +160,7 @@ public class configInicial {
         /**
          * Pega o nome da Companhia
          *
-         * @return
+         * @return nomeCompanhia
          */
         public String getNomeCompanhia() {
             return nomeCompanhia;
@@ -168,7 +169,7 @@ public class configInicial {
         /**
          * Pega a porta padrão da Companhia
          *
-         * @return
+         * @return porta
          */
         public int getPorta() {
             return porta;
@@ -182,18 +183,22 @@ public class configInicial {
     }
 
     /**
-     * Lista de valores pré-definidos do Caminho de uma companhia
+     * Lista de valores pré-definidos do Caminho da companhia AZUL
      */
-    public enum CaminhoCompanhia {
-        CaminhoA(5, 20, 1178.00),
-        CaminhoB(20, 19, 1883.00),
-        CaminhoC(19, 14, 609.00);
+    public enum CaminhoAZUL {
+        caminhoA(5, 17, 180.00),
+        caminhoB(17, 6, 168.00),
+        caminhoC(6, 10, 429.00),
+        caminhoD(13, 19, 345.00),
+        caminhoE(9, 12, 1185.00),
+        caminhoF(12, 24, 897.00);
 
         private final int origem;
         private final int destino;
         private final double preco;
+        private final String NomeCompanhia = "Azul";
 
-        private CaminhoCompanhia(int origem, int destino, double preco) {
+        private CaminhoAZUL(int origem, int destino, double preco) {
             this.origem = origem;
             this.destino = destino;
             this.preco = preco;
@@ -202,7 +207,7 @@ public class configInicial {
         /**
          * Pega a origem do caminho
          *
-         * @return
+         * @return origem
          */
         public int getOrigem() {
             return origem;
@@ -211,7 +216,7 @@ public class configInicial {
         /**
          * Pega o destino do Caminho
          *
-         * @return
+         * @return destino
          */
         public int getDestino() {
             return destino;
@@ -220,11 +225,187 @@ public class configInicial {
         /**
          * Pega o preço do bilhete
          *
-         * @return
+         * @return preco
          */
         public double getPreco() {
             return preco;
         }
 
+        /**
+         * Pega o nome fixo da Companhia
+         *
+         * @return NomeCompanhia
+         */
+        public String getNomeCompanhia() {
+            return NomeCompanhia;
+        }
+
     }
+
+    /**
+     * Pega as informações dos caminhos da companhia AZUL e adiciona numa lista.
+     *
+     * @return caminho
+     */
+    public static List<Caminho> getRotasAzul() {
+        List<Caminho> caminho = new ArrayList<>();
+        CaminhoAZUL[] trajeto = CaminhoAZUL.values();
+        for (CaminhoAZUL caminhoAzul : trajeto) {
+            caminho.add(new Caminho(caminhoAzul.getNomeCompanhia(), caminhoAzul.getPreco(),
+                    caminhoAzul.getDestino(), caminhoAzul.getOrigem()));
+        }
+        return caminho;
+    }
+
+    /**
+     * Lista de valores pré-definidos do Caminho da companhia TAM
+     */
+    public enum CaminhoTAM {
+        caminhoA(21, 17, 2196.00),
+        caminhoB(14, 6, 559.00),
+        caminhoC(13, 5, 431.00),
+        caminhoD(13, 9, 892.00),
+        caminhoE(9, 11, 582.00),
+        caminhoF(24, 16, 370.00);
+
+        private final int origem;
+        private final int destino;
+        private final double preco;
+        private final String NomeCompanhia = "TAM";
+
+        private CaminhoTAM(int origem, int destino, double preco) {
+            this.origem = origem;
+            this.destino = destino;
+            this.preco = preco;
+        }
+
+        /**
+         * Pega a origem do caminho
+         *
+         * @return origem
+         */
+        public int getOrigem() {
+            return origem;
+        }
+
+        /**
+         * Pega o destino do Caminho
+         *
+         * @return destino
+         */
+        public int getDestino() {
+            return destino;
+        }
+
+        /**
+         * Pega o preço do bilhete
+         *
+         * @return preco
+         */
+        public double getPreco() {
+            return preco;
+        }
+
+        /**
+         * Pega o nome fixo da Companhia
+         *
+         * @return NomeCompanhia
+         */
+        public String getNomeCompanhia() {
+            return NomeCompanhia;
+        }
+
+    }
+
+    /**
+     * Pega as informações dos caminhos da companhia TAM e adiciona numa lista.
+     *
+     * @return caminho
+     */
+    public static List<Caminho> getRotasTam() {
+        List<Caminho> caminho = new ArrayList<>();
+        CaminhoTAM[] trajeto = CaminhoTAM.values();
+        for (CaminhoTAM caminhoTam : trajeto) {
+            caminho.add(new Caminho(caminhoTam.getNomeCompanhia(), caminhoTam.getPreco(),
+                    caminhoTam.getDestino(), caminhoTam.getOrigem()));
+        }
+        return caminho;
+    }
+
+    /**
+     * Lista de valores pré-definidos do Caminho da companhia GOL
+     */
+    public enum CaminhoGOL {
+        caminhoA(5, 20, 1178.00),
+        caminhoB(20, 10, 1883.00),
+        caminhoC(10, 14, 609.00),
+        caminhoD(5, 13, 652.00),
+        caminhoE(13, 24, 284.00),
+        caminhoF(24, 19, 396.00),
+        caminhoG(23, 16, 648.00),
+        caminhoH(16, 12, 983.00);
+
+        private final int origem;
+        private final int destino;
+        private final double preco;
+        private final String NomeCompanhia = "GOL";
+
+        private CaminhoGOL(int origem, int destino, double preco) {
+            this.origem = origem;
+            this.destino = destino;
+            this.preco = preco;
+        }
+
+        /**
+         * Pega a origem do caminho
+         *
+         * @return origem
+         */
+        public int getOrigem() {
+            return origem;
+        }
+
+        /**
+         * Pega o destino do Caminho
+         *
+         * @return destino
+         */
+        public int getDestino() {
+            return destino;
+        }
+
+        /**
+         * Pega o preço do bilhete
+         *
+         * @return preco
+         */
+        public double getPreco() {
+            return preco;
+        }
+
+        /**
+         * Pega o nome fixo da Companhia
+         *
+         * @return NomeCompanhia
+         */
+        public String getNomeCompanhia() {
+            return NomeCompanhia;
+        }
+    }
+
+    /**
+     * Pega as informações dos caminhos da companhia GOL e adiciona numa lista.
+     *
+     * @return caminho
+     */
+    public static List<Caminho> getRotasGol() {
+        List<Caminho> caminho = new ArrayList<>();
+        CaminhoGOL[] trajeto = CaminhoGOL.values();
+        for (CaminhoGOL caminhoGol : trajeto) {
+            caminho.add(new Caminho(caminhoGol.getNomeCompanhia(), caminhoGol.getPreco(),
+                    caminhoGol.getDestino(), caminhoGol.getOrigem()));
+        }
+        return caminho;
+    }
+
 }

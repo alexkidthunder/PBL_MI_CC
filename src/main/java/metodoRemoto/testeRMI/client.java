@@ -11,7 +11,7 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
 /**
- *
+ * Classe teste do cliente RMI
  * @author ribei
  */
 public class client {

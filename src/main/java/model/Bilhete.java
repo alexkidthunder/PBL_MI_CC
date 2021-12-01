@@ -8,6 +8,7 @@ package model;
 import java.io.Serializable;
 
 /**
+ * Classe Bilhete que guarda as informações
  *
  * @authors Alexandre & Bianca
  */

@@ -15,7 +15,7 @@ import util.Grafo;
  * UnicastRemoteObject is used for exporting a remote object with Java Remote
  * Method Protocol (JRMP)
  *
- * @author ribei
+ * @authors Alexandre & Bianca
  */
 public class ServicesServer extends UnicastRemoteObject implements InterfServerToServer {
 
