@@ -7,7 +7,12 @@ package controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import metodoRemoto.ClienteAcessoServer;
+import model.Caminho;
 import util.configInicial;
+import static util.configInicial.Servidores.AZUL;
+import static util.configInicial.Servidores.GOL;
+import static util.configInicial.Servidores.TAM;
 
 /**
  * Classe Server do sistema
@@ -16,25 +21,61 @@ import util.configInicial;
  */
 public class CompanhiaControllerServer {
 
-    private configInicial.Servidores myServer;
+    private configInicial.Servidores initServer;
+    private ClienteAcessoServer serverUm;
+    private ClienteAcessoServer serverDois;
 
+    /**
+     * Construtor da classe
+     */
     public CompanhiaControllerServer() {
     }
 
-    public List<String> PegarInformacoesServidores(String servidor) {
-        switch (servidor) {
+    public ClienteAcessoServer getServerUm() {
+        return serverUm;
+    }
+
+    public ClienteAcessoServer getServerDois() {
+        return serverDois;
+    }
+
+    public String getInitServerHost() {
+        return initServer.getIphost();
+    }
+
+    public String getInitServerNome() {
+        return initServer.getNomeCompanhia();
+    }
+
+    public int getInitServerPorta() {
+        return initServer.getPorta();
+    }
+
+    /**
+     * Da inicio aos servidores
+     *
+     * @param server
+     * @return
+     */
+    public List<Caminho> PegarInformacoesServidores(String server) {
+        switch (server) {
             case "AZUL":
-                List<String> inforAzul = new ArrayList<>();
-                inforAzul.add(configInicial.Servidores.AZUL.toString());
-                return inforAzul;
+                serverUm = new ClienteAcessoServer(GOL.getIphost(), GOL.getNomeCompanhia(), GOL.getPorta());
+                serverDois = new ClienteAcessoServer(TAM.getIphost(), TAM.getNomeCompanhia(), TAM.getPorta());
+                initServer = configInicial.Servidores.AZUL;
+                return configInicial.getCaminhosAzul();
+
             case "GOL":
-                List<String> inforGOL = new ArrayList<>();
-                inforGOL.add(configInicial.Servidores.GOL.toString());
-                return inforGOL;
+                serverUm = new ClienteAcessoServer(AZUL.getIphost(), AZUL.getNomeCompanhia(), AZUL.getPorta());
+                serverDois = new ClienteAcessoServer(TAM.getIphost(), TAM.getNomeCompanhia(), TAM.getPorta());
+                initServer = configInicial.Servidores.GOL;
+                return configInicial.getCaminhosGol();
+
             default:
-                List<String> inforTAM = new ArrayList<>();
-                inforTAM.add(configInicial.Servidores.TAM.toString());
-                return inforTAM;
+                serverUm = new ClienteAcessoServer(GOL.getIphost(), GOL.getNomeCompanhia(), GOL.getPorta());
+                serverDois = new ClienteAcessoServer(AZUL.getIphost(), AZUL.getNomeCompanhia(), AZUL.getPorta());
+                initServer = configInicial.Servidores.TAM;
+                return configInicial.getCaminhosTam();
         }
     }
 

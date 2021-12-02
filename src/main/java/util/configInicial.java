@@ -247,7 +247,7 @@ public class configInicial {
      *
      * @return caminho
      */
-    public static List<Caminho> getRotasAzul() {
+    public static List<Caminho> getCaminhosAzul() {
         List<Caminho> caminho = new ArrayList<>();
         CaminhoAZUL[] trajeto = CaminhoAZUL.values();
         for (CaminhoAZUL caminhoAzul : trajeto) {
@@ -322,7 +322,7 @@ public class configInicial {
      *
      * @return caminho
      */
-    public static List<Caminho> getRotasTam() {
+    public static List<Caminho> getCaminhosTam() {
         List<Caminho> caminho = new ArrayList<>();
         CaminhoTAM[] trajeto = CaminhoTAM.values();
         for (CaminhoTAM caminhoTam : trajeto) {
@@ -398,7 +398,7 @@ public class configInicial {
      *
      * @return caminho
      */
-    public static List<Caminho> getRotasGol() {
+    public static List<Caminho> getCaminhosGol() {
         List<Caminho> caminho = new ArrayList<>();
         CaminhoGOL[] trajeto = CaminhoGOL.values();
         for (CaminhoGOL caminhoGol : trajeto) {

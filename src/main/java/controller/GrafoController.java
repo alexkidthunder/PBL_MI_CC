@@ -243,12 +243,23 @@ public class GrafoController {
         /* Pegar as informações de um servidor em específico "AZUL", "GOL",qualquer 
         outro valor pra "TAM" atravez de uma classe que pega as informações do Enum*/
         CompanhiaControllerServer servidores = new CompanhiaControllerServer();
-        System.out.println(servidores.PegarInformacoesServidores(""));
+        System.out.println(servidores.PegarInformacoesServidores("") + "\n");        
+
+        //Representação das informações da função de pegar os caminhos
+        System.out.println(configInicial.getCaminhosAzul().get(0));
+        System.out.println(configInicial.getCaminhosAzul().get(0).getCompanhiAerea());
+        System.out.println(configInicial.getCaminhosAzul().get(0).getDestino());
+        System.out.println(configInicial.getCaminhosAzul().get(0).getOrigem());
+        System.out.println(configInicial.getCaminhosAzul().get(0).getPrecoBilhete());
+        
+        // Pega as informações do servidor 
+        System.out.println(configInicial.Servidores.AZUL);
 
         //Pegar informações diretas do Enum na classe configInicial
         System.out.println(Arrays.toString(configInicial.aeroportosEnumeracao.values()));
 
         //Pegar informações diretas do Enum especifica da classe configInicial
-        System.out.println(configInicial.aeroportosEnumeracao.ACRE);
+        System.out.println(configInicial.aeroportosEnumeracao.ACRE.getNomeAeroporto());
+
     }
 }
