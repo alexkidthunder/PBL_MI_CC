@@ -13,6 +13,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import model.Caminho;
 import model.IdAeroportos;
 import util.Aresta;
 import util.Grafo;
@@ -217,6 +218,21 @@ public class GrafoController {
         }
     }
 
+    public Grafo pegarInformações() {
+        GrafoController grafo = new GrafoController();
+        configInicial.CaminhoAZUL[] cam = configInicial.CaminhoAZUL.values();
+
+
+        grafo.addVertice("Salvador", aeroporto2);
+        grafo.addVertice("Recife", aeroporto);
+        grafo.addVertice("Alagoas", aeroporto);
+        grafo.addAresta(200, "Salvador", "Recife");
+        grafo.addAresta(100, "Recife", "Alagoas");
+        grafo.addAresta(500, "Salvador", "Alagoas");
+
+        return;
+    }
+
     /**
      *
      * @param args
@@ -243,15 +259,15 @@ public class GrafoController {
         /* Pegar as informações de um servidor em específico "AZUL", "GOL",qualquer 
         outro valor pra "TAM" atravez de uma classe que pega as informações do Enum*/
         CompanhiaControllerServer servidores = new CompanhiaControllerServer();
-        System.out.println(servidores.PegarInformacoesServidores("") + "\n");        
+        System.out.println(servidores.PegarInformacoesServidores("") + "\n");
 
         //Representação das informações da função de pegar os caminhos
-        System.out.println(configInicial.getCaminhosAzul().get(0));
+        System.out.println(configInicial.getCaminhosAzul().size());
         System.out.println(configInicial.getCaminhosAzul().get(0).getCompanhiAerea());
         System.out.println(configInicial.getCaminhosAzul().get(0).getDestino());
         System.out.println(configInicial.getCaminhosAzul().get(0).getOrigem());
         System.out.println(configInicial.getCaminhosAzul().get(0).getPrecoBilhete());
-        
+
         // Pega as informações do servidor 
         System.out.println(configInicial.Servidores.AZUL);
 

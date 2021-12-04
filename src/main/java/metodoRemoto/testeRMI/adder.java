@@ -5,13 +5,17 @@
  */
 package metodoRemoto.testeRMI;
 
+import controller.CompanhiaControllerServer;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.List;
+import model.Caminho;
 
 /**
  * Teste interface RMI
  * @author ribei
  */
 public interface adder extends Remote{
-    public int add(int n1,int n2) throws RemoteException;
+    public List<Caminho> add(String texto) throws RemoteException;
 }

@@ -5,7 +5,6 @@
  */
 package controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import metodoRemoto.ClienteAcessoServer;
 import model.Caminho;
@@ -71,11 +70,14 @@ public class CompanhiaControllerServer {
                 initServer = configInicial.Servidores.GOL;
                 return configInicial.getCaminhosGol();
 
-            default:
+            case "TAM":         
                 serverUm = new ClienteAcessoServer(GOL.getIphost(), GOL.getNomeCompanhia(), GOL.getPorta());
                 serverDois = new ClienteAcessoServer(AZUL.getIphost(), AZUL.getNomeCompanhia(), AZUL.getPorta());
                 initServer = configInicial.Servidores.TAM;
                 return configInicial.getCaminhosTam();
+                
+             default:
+                 return null;
         }
     }
 

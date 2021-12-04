@@ -19,12 +19,12 @@ public interface InterfServerToServer extends Remote {
 
     public ArrayList<Grafo> getGrafoCompanhia() throws RemoteException;
 
-    public String getNomeCompanhia() throws RemoteException;
+    //public String getNomeCompanhia() throws RemoteException;
 
     public boolean solicitacaoComprarCaminho(String companhia) throws RemoteException;
 
     public boolean comprarCaminhoCompanhia(List<String> idCidades, String companhia) throws RemoteException;
 
-    public void semaforoPermis(String companhia) throws RemoteException;
+    //public void semaforoPermis(String companhia) throws RemoteException;
 
 }

@@ -5,33 +5,91 @@
  */
 package metodoRemoto.testeRMI;
 
+import controller.CompanhiaControllerServer;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.List;
+import metodoRemoto.ClienteAcessoServer;
+import model.Caminho;
+import util.configInicial;
+import static util.configInicial.Servidores.AZUL;
+import static util.configInicial.Servidores.GOL;
+import static util.configInicial.Servidores.TAM;
 
 /**
  * Classe teste do servidor RMI
+ *
  * @author ribei
  */
 public class server extends UnicastRemoteObject implements adder {
 
-    public server() throws RemoteException {
+    private static String companhia;
+
+    public server(String company) throws RemoteException {
         super();
+        this.companhia = company;
     }
 
+   /* @Override
+    public List<Caminho> add() throws RemoteException {
+        CompanhiaControllerServer server = new CompanhiaControllerServer();
+
+        if (companhia == "AZUL") {
+            System.out.println("No AZUL");
+            return server.PegarInformacoesServidores("AZUL");
+        } else if (companhia == "GOL") {
+            System.out.println("Na GOL");
+            return server.PegarInformacoesServidores("GOL");
+        } else if (companhia == "TAM") {
+            System.out.println("Na TAM");
+            return server.PegarInformacoesServidores("TAM");
+        } else //return  configInicial.getCaminhosAzul();  
+        {
+            return null;
+        }
+    }*/
+    
     @Override
-    public int add(int n1, int n2) throws RemoteException {
-        return n1 + n2;
+    public List<Caminho> add(String texto) throws RemoteException {
+        CompanhiaControllerServer server = new CompanhiaControllerServer();
+
+        switch (texto) {
+            case "AZUL":
+
+               System.out.println("No AZUL");
+            return server.PegarInformacoesServidores("AZUL");
+
+            case "GOL":
+
+                System.out.println("Na GOL");
+            return server.PegarInformacoesServidores("GOL");
+
+            case "TAM":         
+
+               System.out.println("Na TAM");
+            return server.PegarInformacoesServidores("TAM");
+                
+             default:
+                 return null;
+        }
     }
+    
+    
 
     public static void main(String[] args) {
         try {
             Registry reg = LocateRegistry.createRegistry(4444);
-            reg.rebind("Oi server!", new server());
-            System.out.println("Server está pronto...");
+            
+            reg.rebind("Oi server!", new server("AZUL"));
+            System.out.println("Server está pronto..." + companhia);
+            reg.rebind("Oi server2!", new server("GOL"));
+            System.out.println("Server está pronto..." + companhia);
+            reg.rebind("Oi server3!", new server("TAM"));            
+            System.out.println("Server está pronto..." + companhia);
         } catch (RemoteException e) {
-            System.out.println("Exception"+e);
+            System.out.println("Exception" + e);
         }
     }
 }

@@ -39,7 +39,7 @@ public class ServicesServer extends UnicastRemoteObject implements InterfServerT
 
     @Override
     public boolean solicitacaoComprarCaminho(String companhia) throws RemoteException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
