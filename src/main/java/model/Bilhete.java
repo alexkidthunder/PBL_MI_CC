@@ -20,6 +20,7 @@ public class Bilhete implements Serializable {
     private int totalVagas;
 
     public Bilhete(String companhia, double precoBilhete) {
+        this.totalVagas = 50;
         this.companhia = companhia;
         this.precoBilhete = precoBilhete;
     }
@@ -48,4 +49,11 @@ public class Bilhete implements Serializable {
         this.totalVagas = totalVagas;
     }
 
+    public boolean comprarPassagem() {
+        if (totalVagas > 0) {
+            totalVagas = totalVagas - 1;
+            return true;
+        }
+        return false;
+    }
 }

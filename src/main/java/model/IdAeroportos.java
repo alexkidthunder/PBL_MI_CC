@@ -9,11 +9,12 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * Classe IdAeroportos que guarda as informações 
+ * Classe IdAeroportos que guarda as informações
+ *
  * @authors Alexandre & Bianca
  */
 public class IdAeroportos implements Serializable {
-    
+
     private static final long serialVersionUID = 10L;
     private int identificador;
     private String codigoIATA;
@@ -94,7 +95,7 @@ public class IdAeroportos implements Serializable {
 
     @Override
     public String toString() {
-        return "IdAeroportos{" + "identificador=" + identificador + ", codigoIATA=" + codigoIATA + ", nomeAeroporto=" + nomeAeroporto + ", Estado=" + Estado + '}';
+        return "nomeAeroporto= " + nomeAeroporto + ", Estado= " + Estado;
     }
 
 }

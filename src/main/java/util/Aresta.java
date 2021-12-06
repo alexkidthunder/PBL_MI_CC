@@ -11,9 +11,10 @@ import java.io.Serializable;
  *
  * @authors Alexandre & Bianca
  */
-public class Aresta implements Serializable{
-    
+public class Aresta implements Serializable {
+
     private static final long serialVersionUID = 13L;
+    private final String id;
     private float peso;
     private Vertice v1;
     private Vertice v2;
@@ -21,6 +22,7 @@ public class Aresta implements Serializable{
 
     /**
      * Método construtor, da classe Aresta.
+     *
      * @param peso
      * @param origem
      * @param destino
@@ -29,10 +31,21 @@ public class Aresta implements Serializable{
         this.setPeso(peso);
         this.setV1(origem);
         this.setV2(destino);
+        id = origem.getAeroporto().getEstado() + "-" + destino.getAeroporto().getEstado();
+    }
+
+    /**
+     * Método getId, da classe Aresta.
+     *
+     * @return
+     */
+    public String getId() {
+        return id;
     }
 
     /**
      * Método getPeso, da classe Aresta.
+     *
      * @return int
      */
     public float getPeso() {
@@ -41,6 +54,7 @@ public class Aresta implements Serializable{
 
     /**
      * Método setPeso, da classe Aresta.
+     *
      * @param peso
      */
     public void setPeso(float peso) {
@@ -49,6 +63,7 @@ public class Aresta implements Serializable{
 
     /**
      * Método getV1, da classe Aresta.
+     *
      * @return Vertice
      */
     public Vertice getV1() {
@@ -57,6 +72,7 @@ public class Aresta implements Serializable{
 
     /**
      * Método setV1, da classe Aresta.
+     *
      * @param v1
      */
     public void setV1(Vertice v1) {
@@ -65,6 +81,7 @@ public class Aresta implements Serializable{
 
     /**
      * Método getV2, da classe Aresta.
+     *
      * @return Vertice
      */
     public Vertice getV2() {
@@ -73,6 +90,7 @@ public class Aresta implements Serializable{
 
     /**
      * Método setV2, da classe Aresta.
+     *
      * @param v2
      */
     public void setV2(Vertice v2) {
@@ -81,7 +99,8 @@ public class Aresta implements Serializable{
 
     /**
      * Método isVisitado, da classe Aresta.
-     * @return boolean 
+     *
+     * @return boolean
      */
     public boolean isVisitado() {
         return visitado;
@@ -89,6 +108,7 @@ public class Aresta implements Serializable{
 
     /**
      * Método setVisitado, da classe Aresta.
+     *
      * @param visitado
      */
     public void setVisitado(boolean visitado) {
@@ -97,13 +117,14 @@ public class Aresta implements Serializable{
 
     /**
      * Método toString, da classe Aresta.
+     *
      * @return String
      */
     @Override
     public String toString() {
         String s = " ";
-        s+= this.v1.getNome()+ this.v2.getNome();
+        s += this.v1.getNome() + this.v2.getNome();
         return s;
     }
-   
+
 }

@@ -5,6 +5,7 @@
  */
 package metodoRemoto;
 
+import controller.CompanhiaControllerServer;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
@@ -31,10 +32,10 @@ public class ServicesServer extends UnicastRemoteObject implements InterfServerT
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
+    /*@Override
     public String getNomeCompanhia() throws RemoteException {
         return companhia;
-    }
+    }*/
 
     @Override
     public boolean solicitacaoComprarCaminho(String companhia) throws RemoteException {
@@ -44,11 +45,21 @@ public class ServicesServer extends UnicastRemoteObject implements InterfServerT
 
     @Override
     public boolean comprarCaminhoCompanhia(List<String> idCidades, String companhia) throws RemoteException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      
+        InterfServerToServer lookupMethod = null;
+        InterfServerToServer lookupMethodTwo = null;
+        
+        try{
+                lookupMethod = CompanhiaControllerServer.getserverUmLookupMethod();
+            }
+
+            try{
+                lookupMethodTwo = CompanhiaControllerServer.getserverUmLookupMethod();
+            }
     }
 
-    @Override
+    /*@Override
     public void semaforoPermis(String companhia) throws RemoteException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    }*/
 }

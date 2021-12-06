@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import model.IdAeroportos;
 
 /**
- *
+ * Classe Vertice
  * @authors Alexandre & Bianca
  */
 public class Vertice implements Serializable,Comparable<Vertice> {
