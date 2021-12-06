@@ -5,6 +5,7 @@
  */
 package metodoRemoto.testeRMI;
 
+import controller.GrafoController;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -42,13 +43,18 @@ public class client {
             array.addAll(ad.add("TAM"));
             System.out.println("addition 1:" + a3.add("TAM").get(0).getPrecoBilhete());
 
-            System.out.println(array.size());
-            System.out.println(array.get(0).getCompanhiAerea());
-            System.out.println(array.get(0).getOrigem());
-            System.out.println(array.get(0).getPrecoBilhete());
+            GrafoController cont = new GrafoController();
+            cont.pegarInformações(array);
+                    
+//            System.out.println(array.size());
+//            System.out.println(array.get(0).getCompanhiAerea());
+//            System.out.println(array.get(0).getOrigem());
+//            System.out.println(array.get(0).getPrecoBilhete());
 
         } catch (NotBoundException | RemoteException e) {
             System.out.println("Exception:" + e);
         }
+        
+        
     }
 }

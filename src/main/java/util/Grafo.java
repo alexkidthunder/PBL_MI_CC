@@ -94,7 +94,9 @@ public class Grafo {
         int aux1,aux2,aux3;
         //adiciona vertices e retorna sua posicao salvando nas variavei
         aux1 = this.posicaoVertice(v1); // aux1 armazena origem
+        System.out.println(aux1);
         aux2 = this.posicaoVertice(v2); // aux2 armazena destino
+        System.out.println(aux2);
         if(this.acharAresta(this.acharVertice(v1), this.acharVertice(v2)) != null){
             System.out.println("Aresta ja existente");
             return;
@@ -134,6 +136,7 @@ public class Grafo {
                 return this.arestas.get(i);
             }
         }
+        //System.out.println("Não achou a Aresta");
         return null;
     }
     
