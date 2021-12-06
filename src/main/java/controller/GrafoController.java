@@ -5,14 +5,8 @@
  */
 package controller;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import model.Caminho;
 import model.IdAeroportos;
@@ -97,36 +91,23 @@ public class GrafoController {
             grafoC.addVertice(a.getEstado(), 
                     new IdAeroportos(a.getId(), a.getCodigoIATA(), a.getNomeAeroporto(), a.getEstado()));       
         }
-//            System.out.println(configInicial.getCaminhosAzul().get(i).getOrigem());
-//            System.out.println(configInicial.getCaminhosAzul().get(i).getDestino());
-               grafoC.addAresta(caminho.get(0).getPrecoBilhete(),caminho.get(0).getOrigem(), caminho.get(0).getDestino());
+
+        for( int i = 0; i < caminho.size(); i++){
+            grafoC.addAresta(caminho.get(i).getPrecoBilhete(),caminho.get(i).getOrigem(), caminho.get(i).getDestino());
+        }
         System.out.println(grafoC.grafo.getArestas().size());
         System.out.println(caminho.size());
 
-//        for(int j = 0; j < configInicial.getCaminhosGol().size(); j++){
-//                grafoC.addAresta(configInicial.getCaminhosGol().get(j).getPrecoBilhete(),
-//                    configInicial.getCaminhosGol().get(j).getOrigem(), 
-//                    configInicial.getCaminhosGol().get(j).getDestino());
-//        }
-//        for(int k = 0; k < configInicial.getCaminhosTam().size(); k++){
-//                grafoC.addAresta(configInicial.getCaminhosTam().get(k).getPrecoBilhete(),
-//                    configInicial.getCaminhosTam().get(k).getOrigem(), 
-//                    configInicial.getCaminhosTam().get(k).getDestino());
-//        }
-        //for (configInicial.CaminhoAZUL a : configInicial.CaminhoAZUL.values()) {
-//        for(configInicial.aeroportosEnumeracao a : configInicial.aeroportosEnumeracao.values()){
-//          
-//
-//            //grafoC.addAresta(a.getPreco(), a.getOrigem(), a.getDestino());
-//        }
-
-//        grafoC.addAresta(200, "Bahia", "Acre");
-//        grafoC.addAresta(100, "Acre", "Ceará");
-//        grafoC.addAresta(500, "Bahia", "Ceará");
-
-        //grafoC.grafo.imprimeGrafo();
         //System.out.println(grafo.indentificarCaminhos("Bahia"));
         //System.out.println(grafo.encontrarMenorCaminhoDijkstra("Bahia", "Ceará"));
+        
+        
+
+//        System.out.println(caminho.size());
+//        System.out.println(caminho.get(0).getPrecoBilhete());
+//        System.out.println(caminho.get(0).getOrigem());
+//        
+//        grafoC.addAresta(caminho.get(0).getPrecoBilhete(), caminho.get(0).getOrigem(), caminho.get(0).getDestino());
         return grafoC;
     }
 
@@ -135,7 +116,9 @@ public class GrafoController {
      * @param args
      */
     public static void main(String args[]) {
-       GrafoController grafoX = new GrafoController();
+
+        GrafoController grafo = new GrafoController();
+
 //        IdAeroportos aeroporto = new IdAeroportos(2453, "BB", "Aeroporto B", "Fortaleza");
 //        IdAeroportos aeroporto2 = new IdAeroportos(2073, "AA", "Aeroporto A", "Bahia");
 //
@@ -145,10 +128,11 @@ public class GrafoController {
 //        grafo.addAresta(200, "Salvador", "Recife");
 //        grafo.addAresta(100, "Recife", "Alagoas");
 //        grafo.addAresta(500, "Salvador", "Alagoas");
-        
-//        System.out.println(teste.grafo.getVertices().size());
-//        System.out.println(configInicial.getCaminhosAzul().size());
-//        System.out.println(teste.grafo.getArestas());
+
+        //grafo.pegarInformações();
+        //System.out.println(grafo.pegarInformações().grafo.getVertices());
+        //System.out.println(grafo.pegarInformações().grafo.getArestas());
+
 
         //System.out.println(grafo.indentificarCaminhos("Salvador"));
         //System.out.println(grafo.encontrarMenorCaminhoDijkstra("Salvador", "Alagoas").toString());

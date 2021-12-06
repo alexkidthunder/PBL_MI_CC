@@ -29,7 +29,7 @@ public class configInicial {
         BAHIA(5, "SSA", "Aeroporto Internacional de Salvador - Dep. Luís Eduardo Magalhães", "Bahia"),
         CEARA(6, "FOR", "Aeroporto Internacional Pinto Martins", "Ceará"),
         DISTRITO_FEDERAL(7, "BSB", "Aeroporto Internacional Presidente Juscelino Kubitschek", "Distrito Federal"),
-        ESPÍRITO_SANTO(8, "VIX", "Aeroporto Eurico de Aguiar Salles", "Espírito Santo"),
+        ESPIRITO_SANTO(8, "VIX", "Aeroporto Eurico de Aguiar Salles", "Espírito Santo"),
         GOIAS(9, "GYN", "Aeroporto de Goiânia - Santa Genoveva", "Goiás"),
         MARANHAO(10, "SLZ", "Aeroporto Internacional de São Luís - Marechal Cunha Machado", "Maranhão"),
         MATO_GROSSO(11, "CGB", "Aeroporto Internacional de Cuiabá - Marechal Rondon", "Mato Grosso"),
@@ -186,11 +186,11 @@ public class configInicial {
      * Lista de valores pré-definidos do Caminho da companhia AZUL
      */
     public enum CaminhoAZUL {
-        caminhoA("Bahia", "Pernanbuco", (float) 180.00),
-        caminhoB("Pernanbuco", "Ceara", (float) 168.00),
-        caminhoC("Ceara", "Maranhão", (float) 429.00),
+        caminhoA("Bahia", "Pernambuco", (float) 180.00),
+        caminhoB("Pernambuco", "Ceará", (float) 168.00),
+        caminhoC("Ceará", "Maranhão", (float) 429.00),
         caminhoD("Minas Gerais", "Rio de Janeiro", (float) 345.00),
-        caminhoE("Goiais", "Mato Grosso do Sul", (float) 1185.00),
+        caminhoE("Goiás", "Mato Grosso do Sul", (float) 1185.00),
         caminhoF("Mato Grosso do Sul", "São Paulo", (float) 897.00);
 
         private final String origem;
@@ -261,12 +261,12 @@ public class configInicial {
      * Lista de valores pré-definidos do Caminho da companhia TAM
      */
     public enum CaminhoTAM {
-        caminhoA("Rio Grande do Sul", "Pernanbuco", (float) 2196.00),
-        caminhoB("Pará", "Ceara", (float) 559.00),
-        caminhoC("Minas Gerais", "Bahia", (float) 431.00),
-        caminhoD("Minas Gerais", "Goiais", (float) 892.00),
-        caminhoE("Goiais", "Mato Grosso", (float) 582.00),
-        caminhoF("São Paulo", "Parana", (float) 370.00);
+        caminhoA("Rio Grande do Norte", "Pernambuco", (float) 2196.00),
+        caminhoB("Pará", "Ceará", (float) 559.00),
+        caminhoC("Minas Gerais", "Espírito Santo", (float) 431.00),
+        caminhoD("Minas Gerais", "Goiás", (float) 892.00),
+        caminhoE("Goiás", "Mato Grosso", (float) 582.00),
+        caminhoF("São Paulo", "Paraná", (float) 370.00);
 
         private final String origem;
         private final String destino;

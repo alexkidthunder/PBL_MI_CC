@@ -29,7 +29,6 @@ public class client {
     private void connectRemote() throws RemoteException {
         try {
             Registry reg = LocateRegistry.getRegistry("localhost", 4444);
-            GrafoController g = new GrafoController();
             List<Caminho> array = new ArrayList<Caminho>();
             
             adder ad = (adder) reg.lookup("Oi server!");
@@ -43,14 +42,17 @@ public class client {
             adder a3 = (adder) reg.lookup("Oi server3!");
             array.addAll(ad.add("TAM"));
             System.out.println("addition 1:" + a3.add("TAM").get(0).getPrecoBilhete());
-            g.pegarInformações(array);
-            System.out.println(array.size());
-            System.out.println(array.get(0).getCompanhiAerea());
-            System.out.println(array.get(0).getOrigem());
-            System.out.println(array.get(0).getPrecoBilhete());
+
+
+            GrafoController cont = new GrafoController();
+            cont.pegarInformações(array);
+            
+           
 
         } catch (NotBoundException | RemoteException e) {
             System.out.println("Exception:" + e);
         }
+        
+        
     }
 }

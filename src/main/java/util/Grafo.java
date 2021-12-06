@@ -134,6 +134,7 @@ public class Grafo {
                 return this.arestas.get(i);
             }
         }
+        //System.out.println("Não achou a Aresta");
         return null;
     }
     

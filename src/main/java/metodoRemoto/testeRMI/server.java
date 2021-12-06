@@ -27,24 +27,6 @@ public class server extends UnicastRemoteObject implements adder {
         this.companhia = company;
     }
 
-   /* @Override
-    public List<Caminho> add() throws RemoteException {
-        CompanhiaControllerServer server = new CompanhiaControllerServer();
-
-        if (companhia == "AZUL") {
-            System.out.println("No AZUL");
-            return server.PegarInformacoesServidores("AZUL");
-        } else if (companhia == "GOL") {
-            System.out.println("Na GOL");
-            return server.PegarInformacoesServidores("GOL");
-        } else if (companhia == "TAM") {
-            System.out.println("Na TAM");
-            return server.PegarInformacoesServidores("TAM");
-        } else //return  configInicial.getCaminhosAzul();  
-        {
-            return null;
-        }
-    }*/
     
     @Override
     public List<Caminho> add(String texto) throws RemoteException {
@@ -70,7 +52,6 @@ public class server extends UnicastRemoteObject implements adder {
                  return null;
         }
     }
-    
     
 
     public static void main(String[] args) {
