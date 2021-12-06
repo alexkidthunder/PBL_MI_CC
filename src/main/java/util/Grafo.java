@@ -43,7 +43,7 @@ public class Grafo {
     }
 
     /**
-     * Método getArestas, da classe Grafo.
+     * Método setVertices, da classe Grafo.
      * @param vertices
      */
     public void setVertices(ArrayList<Vertice> vertices) {

@@ -12,8 +12,7 @@ import java.util.List;
 import util.Grafo;
 
 /**
- * UnicastRemoteObject is used for exporting a remote object with Java Remote
- * Method Protocol (JRMP)
+ * Classe das funções principais que o Servidor tem no sistema.
  *
  * @authors Alexandre & Bianca
  */
@@ -39,7 +38,8 @@ public class ServicesServer extends UnicastRemoteObject implements InterfServerT
 
     @Override
     public boolean solicitacaoComprarCaminho(String companhia) throws RemoteException {
-        
+        return false;
+
     }
 
     @Override

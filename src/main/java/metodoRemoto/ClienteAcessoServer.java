@@ -22,15 +22,30 @@ public class ClienteAcessoServer {
     private final String nome;
     private final int port;
 
+    /**
+     * Construtor da classe ClienteAcessoServer
+     *
+     * @param host Endereço
+     * @param nome Nome da Companhia
+     * @param port Porta utilizada
+     */
     public ClienteAcessoServer(String host, String nome, int port) {
         this.host = host;
         this.nome = nome;
         this.port = port;
     }
 
+    /**
+     * Método LookUp utilizado para pagar as informações
+     *
+     * @return
+     * @throws MalformedURLException
+     * @throws NotBoundException
+     * @throws RemoteException
+     */
     public InterfServerToServer lookupMethod() throws MalformedURLException, NotBoundException, RemoteException {
         try {
-            return (InterfServerToServer) Naming.lookup("rmi://" + host + ":" + port + "/ServicoServer" + nome);
+            return (InterfServerToServer) Naming.lookup("rmi://" + host + ":" + port + "/ServiceServer" + nome);
         } catch (ConnectException e) {
             System.err.println("Não foi possível fazer este procedimento no momento ou não teve a devida configuração"
                     + " verifique os parâmetros.");
@@ -38,6 +53,11 @@ public class ClienteAcessoServer {
         return null;
     }
 
+    /**
+     * Pega o nome da Companhia
+     *
+     * @return
+     */
     public String getNome() {
         return nome;
     }

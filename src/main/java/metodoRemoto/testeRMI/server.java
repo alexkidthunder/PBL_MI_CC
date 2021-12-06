@@ -11,12 +11,7 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
-import metodoRemoto.ClienteAcessoServer;
 import model.Caminho;
-import util.configInicial;
-import static util.configInicial.Servidores.AZUL;
-import static util.configInicial.Servidores.GOL;
-import static util.configInicial.Servidores.TAM;
 
 /**
  * Classe teste do servidor RMI

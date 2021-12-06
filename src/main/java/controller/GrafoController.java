@@ -218,19 +218,36 @@ public class GrafoController {
         }
     }
 
-    public Grafo pegarInformações() {
-        GrafoController grafo = new GrafoController();
-        configInicial.CaminhoAZUL[] cam = configInicial.CaminhoAZUL.values();
+    /**
+     * Função para popular o grafo
+     *
+     * @return
+     */
+    public GrafoController pegarInformações() {
+        GrafoController grafoC = new GrafoController();
 
+        for (configInicial.aeroportosEnumeracao a : configInicial.aeroportosEnumeracao.values()) {
+            grafoC.addVertice(a.getEstado(), new IdAeroportos(a.getId(), a.getCodigoIATA(), a.getNomeAeroporto(), a.getEstado()));
 
-        grafo.addVertice("Salvador", aeroporto2);
-        grafo.addVertice("Recife", aeroporto);
-        grafo.addVertice("Alagoas", aeroporto);
-        grafo.addAresta(200, "Salvador", "Recife");
-        grafo.addAresta(100, "Recife", "Alagoas");
-        grafo.addAresta(500, "Salvador", "Alagoas");
+        }
+        //for (configInicial.CaminhoAZUL a : configInicial.CaminhoAZUL.values()) {
+        for(configInicial.aeroportosEnumeracao a : configInicial.aeroportosEnumeracao.values()){
+            if (a.getId() == ) {
+                
+            } else {
+            }
 
-        return;
+            //grafoC.addAresta(a.getPreco(), a.getOrigem(), a.getDestino());
+        }
+
+        grafoC.addAresta(200, "Bahia", "Acre");
+        grafoC.addAresta(100, "Acre", "Ceará");
+        grafoC.addAresta(500, "Bahia", "Ceará");
+
+        //grafoC.grafo.imprimeGrafo();
+        //System.out.println(grafo.indentificarCaminhos("Bahia"));
+        //System.out.println(grafo.encontrarMenorCaminhoDijkstra("Bahia", "Ceará"));
+        return grafoC;
     }
 
     /**
@@ -249,33 +266,30 @@ public class GrafoController {
         grafo.addAresta(100, "Recife", "Alagoas");
         grafo.addAresta(500, "Salvador", "Alagoas");
 
-        System.out.println(grafo.indentificarCaminhos("Salvador"));
-        System.out.println(grafo.encontrarMenorCaminhoDijkstra("Salvador", "Alagoas").toString());
-        System.out.println(grafo.encontrarMenorCaminhoDijkstra("Salvador", "Alagoas").get(0).getDistancia());
-        System.out.println(grafo.encontrarMenorCaminhoDijkstra("Salvador", "Alagoas").get(1).getDistancia());
-        System.out.println(grafo.encontrarMenorCaminhoDijkstra("Salvador", "Alagoas").get(2).getDistancia());
-        System.out.println(grafo.encontrarMenorCaminhoDijkstra("Salvador", "Alagoas").size());
+        grafo.pegarInformações();
+
+        //System.out.println(grafo.indentificarCaminhos("Salvador"));
+        //System.out.println(grafo.encontrarMenorCaminhoDijkstra("Salvador", "Alagoas").toString());
+        //System.out.println(grafo.encontrarMenorCaminhoDijkstra("Salvador", "Alagoas").get(0).getDistancia());
+        //System.out.println(grafo.encontrarMenorCaminhoDijkstra("Salvador", "Alagoas").get(1).getDistancia());
+        //System.out.println(grafo.encontrarMenorCaminhoDijkstra("Salvador", "Alagoas").get(2).getDistancia());
+        //System.out.println(grafo.encontrarMenorCaminhoDijkstra("Salvador", "Alagoas").size());
 
         /* Pegar as informações de um servidor em específico "AZUL", "GOL",qualquer 
         outro valor pra "TAM" atravez de uma classe que pega as informações do Enum*/
-        CompanhiaControllerServer servidores = new CompanhiaControllerServer();
-        System.out.println(servidores.PegarInformacoesServidores("") + "\n");
-
+        //CompanhiaControllerServer servidores = new CompanhiaControllerServer();
+        //System.out.println(servidores.PegarInformacoesServidores("") + "\n");
         //Representação das informações da função de pegar os caminhos
-        System.out.println(configInicial.getCaminhosAzul().size());
-        System.out.println(configInicial.getCaminhosAzul().get(0).getCompanhiAerea());
-        System.out.println(configInicial.getCaminhosAzul().get(0).getDestino());
-        System.out.println(configInicial.getCaminhosAzul().get(0).getOrigem());
-        System.out.println(configInicial.getCaminhosAzul().get(0).getPrecoBilhete());
-
+        //System.out.println(configInicial.getCaminhosAzul().size());
+        //System.out.println(configInicial.getCaminhosAzul().get(0).getCompanhiAerea());
+        //System.out.println(configInicial.getCaminhosAzul().get(0).getDestino());
+        //System.out.println(configInicial.getCaminhosAzul().get(0).getOrigem());
+        //System.out.println(configInicial.getCaminhosAzul().get(0).getPrecoBilhete());
         // Pega as informações do servidor 
-        System.out.println(configInicial.Servidores.AZUL);
-
+        //System.out.println(configInicial.Servidores.AZUL);
         //Pegar informações diretas do Enum na classe configInicial
-        System.out.println(Arrays.toString(configInicial.aeroportosEnumeracao.values()));
-
+        //System.out.println(Arrays.toString(configInicial.aeroportosEnumeracao.values()));
         //Pegar informações diretas do Enum especifica da classe configInicial
-        System.out.println(configInicial.aeroportosEnumeracao.ACRE.getNomeAeroporto());
-
+        //System.out.println(configInicial.aeroportosEnumeracao.ACRE.getNomeAeroporto());
     }
 }

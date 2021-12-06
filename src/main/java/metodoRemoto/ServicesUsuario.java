@@ -11,6 +11,7 @@ import java.util.List;
 import model.Caminho;
 
 /**
+ * Classe das funções principais que o Usuário tem no sistema.
  *
  * @authors Alexandre & Bianca
  */

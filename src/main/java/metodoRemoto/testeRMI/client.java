@@ -5,7 +5,6 @@
  */
 package metodoRemoto.testeRMI;
 
-import java.lang.reflect.Array;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -16,6 +15,7 @@ import model.Caminho;
 
 /**
  * Classe teste do cliente RMI
+ *
  * @author ribei
  */
 public class client {
@@ -28,26 +28,24 @@ public class client {
     private void connectRemote() throws RemoteException {
         try {
             Registry reg = LocateRegistry.getRegistry("localhost", 4444);
-            List<Caminho> array = new ArrayList<Caminho>(); 
+            List<Caminho> array = new ArrayList<Caminho>();
 
             adder ad = (adder) reg.lookup("Oi server!");
             array.addAll(ad.add("AZUL"));
             System.out.println("addition 1:" + ad.add("AZUL").get(0).getPrecoBilhete());
-            
+
             adder a2 = (adder) reg.lookup("Oi server2!");
             array.addAll(ad.add("GOL"));
             System.out.println("addition 1:" + a2.add("GOL").get(0).getPrecoBilhete());
-            
-            adder a3 = (adder) reg.lookup("Oi server3!");     
+
+            adder a3 = (adder) reg.lookup("Oi server3!");
             array.addAll(ad.add("TAM"));
             System.out.println("addition 1:" + a3.add("TAM").get(0).getPrecoBilhete());
-            
+
             System.out.println(array.size());
             System.out.println(array.get(0).getCompanhiAerea());
             System.out.println(array.get(0).getOrigem());
             System.out.println(array.get(0).getPrecoBilhete());
-
-            
 
         } catch (NotBoundException | RemoteException e) {
             System.out.println("Exception:" + e);

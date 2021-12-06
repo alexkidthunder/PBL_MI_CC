@@ -24,7 +24,7 @@ public class Vertice implements Serializable,Comparable<Vertice> {
     private ArrayList<Vertice> verticeVizinho = new ArrayList<Vertice>();
     private boolean visitado = false;
     //private boolean terminal;
-    IdAeroportos aeroporto;
+    private final IdAeroportos aeroporto;
 
     /**
      * Método construtor, da classe Vertice.
@@ -33,8 +33,13 @@ public class Vertice implements Serializable,Comparable<Vertice> {
     public Vertice(String nome, IdAeroportos aeroporto) {
         this.nome = nome;
         this.antecessor = antecessor;
+        this.aeroporto = aeroporto;
         
     }
+
+    public IdAeroportos getAeroporto() {
+        return aeroporto;
+    }   
 
     /**
      * Método getX, da classe Vertice.

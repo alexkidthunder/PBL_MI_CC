@@ -5,10 +5,11 @@
  */
 package metodoRemoto;
 
+import java.rmi.Naming;
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.net.MalformedURLException;
 
 /**
  * Classe servidor RMI.
@@ -18,21 +19,31 @@ import java.util.logging.Logger;
 public class servidorRMI {
 
     /**
-     * servidor RMI que define as configurações do sistema, salva a porta do
-     * servidor, define os serviços que serão acessados.
+     * Servidor RMI que define as configurações do sistema, salva a porta do
+     * servidor, define os serviços que serão acessados. Ele faz a chamadas das
+     * classes usadas entre servidot-servidor e cliente-servidor
      *
      * @param companhia
      * @param host
      * @param port
      */
-    public servidorRMI(String companhia, String host, int port) {
+    public servidorRMI(String companhia, String host, int port) throws MalformedURLException {
         try {
-            //System.setProperty("java.rmi.server.hostname", host);// Configura o nome do host
+            System.setProperty("java.rmi.server.hostname", host);// Configura o nome do host
             LocateRegistry.createRegistry(port);// Cria um registro rmi com a porta port
-            
-            
+
+            ServicesServer InterServers = new ServicesServer(companhia);
+            //método vincula o nome da companhia com o objeto remoto
+            Naming.rebind("ServiceServer" + companhia, (Remote) InterServers);
+
+            ServicesUsuario user = new ServicesUsuario();
+            Naming.rebind("ServiceUser" + companhia, (Remote) user);
+            System.out.println("Foi realizado o bind no registro com sucesso.");
+
+            System.out.println("O servidor da companhia " + companhia + " está pronto para trocar informações.");
+
         } catch (RemoteException ex) {
-            Logger.getLogger(servidorRMI.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
         }
 
     }
