@@ -95,54 +95,26 @@ public class GrafoController {
         
 
         for (configInicial.aeroportosEnumeracao a : configInicial.aeroportosEnumeracao.values()) {
-            grafoC.addVertice(a.getEstado(), new IdAeroportos(a.getId(), a.getCodigoIATA(), a.getNomeAeroporto(), a.getEstado()));
+            grafoC.addVertice(a.getEstado(), 
+                    new IdAeroportos(a.getId(), a.getCodigoIATA(), a.getNomeAeroporto(), a.getEstado()));       
+        }
+//            System.out.println(configInicial.getCaminhosAzul().get(i).getOrigem());
+//            System.out.println(configInicial.getCaminhosAzul().get(i).getDestino());
+               grafoC.addAresta(caminho.get(0).getPrecoBilhete(),caminho.get(0).getOrigem(), caminho.get(0).getDestino());
+        System.out.println(grafoC.grafo.getArestas().size());
+        System.out.println(caminho.size());
 
-//            for(int i = 0; i > configInicial.getCaminhosAzul().size(); i++){
-//                grafoC.addAresta(configInicial.getCaminhosAzul().get(i).getPrecoBilhete(),
-//                    configInicial.getCaminhosAzul().get(i).getOrigem(), 
-//                    configInicial.getCaminhosAzul().get(i).getDestino());
-//            }
-//            for(int j = 0; j > configInicial.getCaminhosGol().size(); j++){
+//        for(int j = 0; j < configInicial.getCaminhosGol().size(); j++){
 //                grafoC.addAresta(configInicial.getCaminhosGol().get(j).getPrecoBilhete(),
 //                    configInicial.getCaminhosGol().get(j).getOrigem(), 
 //                    configInicial.getCaminhosGol().get(j).getDestino());
-//            }
-//            for(int k = 0; k > configInicial.getCaminhosTam().size(); k++){
+//        }
+//        for(int k = 0; k < configInicial.getCaminhosTam().size(); k++){
 //                grafoC.addAresta(configInicial.getCaminhosTam().get(k).getPrecoBilhete(),
 //                    configInicial.getCaminhosTam().get(k).getOrigem(), 
 //                    configInicial.getCaminhosTam().get(k).getDestino());
-//            }
-        }
-//        System.out.println(configInicial.getCaminhosAzul().size());
-//        System.out.println(configInicial.getCaminhosAzul().get(0).getPrecoBilhete());
-//        System.out.println(configInicial.getCaminhosAzul().get(0).getOrigem());
-//        System.out.println(configInicial.getCaminhosAzul().get(0).getDestino());
+//        }
 
-
-
-//        grafoC.addAresta(configInicial.getCaminhosAzul().get(5).getPrecoBilhete(),
-//                configInicial.getCaminhosAzul().get(5).getOrigem(),
-//                configInicial.getCaminhosAzul().get(5).getDestino());
-//
-//        System.out.println(grafoC.grafo.getArestas());
-//        System.out.println(grafoC.grafo.getArestas().size());
-//
-//        grafoC.addAresta(configInicial.getCaminhosGol().get(5).getPrecoBilhete(),
-//                configInicial.getCaminhosGol().get(5).getOrigem(),
-//                configInicial.getCaminhosGol().get(5).getDestino());
-//
-//        System.out.println(grafoC.grafo.getArestas());
-//        System.out.println(grafoC.grafo.getArestas().size());
-//
-//        grafoC.addAresta(configInicial.getCaminhosTam().get(5).getPrecoBilhete(),
-//                configInicial.getCaminhosTam().get(5).getOrigem(),
-//                configInicial.getCaminhosTam().get(5).getDestino());
-//
-//        System.out.println(grafoC.grafo.getArestas());
-//        System.out.println(grafoC.grafo.getArestas().size());
-
-        //System.out.println(grafoC.grafo.getArestas().size());
-        //System.out.println(grafoC.grafo.getArestas().get(24));
         //for (configInicial.CaminhoAZUL a : configInicial.CaminhoAZUL.values()) {
 //        for(configInicial.aeroportosEnumeracao a : configInicial.aeroportosEnumeracao.values()){
 //          
@@ -172,19 +144,23 @@ public class GrafoController {
      * @param args
      */
     public static void main(String args[]) {
+
         GrafoController grafo = new GrafoController();
+
 //        IdAeroportos aeroporto = new IdAeroportos(2453, "BB", "Aeroporto B", "Fortaleza");
 //        IdAeroportos aeroporto2 = new IdAeroportos(2073, "AA", "Aeroporto A", "Bahia");
 //
 //        grafo.addVertice("Salvador", aeroporto2);
 //        grafo.addVertice("Recife", aeroporto);
-//        grafo.addVertice("Alagoas", aeroporto);
+////        grafo.addVertice("Alagoas", aeroporto);
 //        grafo.addAresta(200, "Salvador", "Recife");
 //        grafo.addAresta(100, "Recife", "Alagoas");
 //        grafo.addAresta(500, "Salvador", "Alagoas");
+
         //grafo.pegarInformações();
         //System.out.println(grafo.pegarInformações().grafo.getVertices());
         //System.out.println(grafo.pegarInformações().grafo.getArestas());
+
 
         //System.out.println(grafo.indentificarCaminhos("Salvador"));
         //System.out.println(grafo.encontrarMenorCaminhoDijkstra("Salvador", "Alagoas").toString());
