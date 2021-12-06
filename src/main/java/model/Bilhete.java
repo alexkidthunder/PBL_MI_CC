@@ -16,10 +16,10 @@ public class Bilhete implements Serializable {
 
     private static final long serialVersionUID = 12L;
     private String companhia;
-    private double precoBilhete;
+    private float precoBilhete;
     private int totalVagas;
 
-    public Bilhete(String companhia, double precoBilhete) {
+    public Bilhete(String companhia, float precoBilhete) {
         this.totalVagas = 50;
         this.companhia = companhia;
         this.precoBilhete = precoBilhete;
@@ -33,11 +33,11 @@ public class Bilhete implements Serializable {
         this.companhia = companhia;
     }
 
-    public double getPrecoBilhete() {
+    public float getPrecoBilhete() {
         return precoBilhete;
     }
 
-    public void setPrecoBilhete(double precoBilhete) {
+    public void setPrecoBilhete(float precoBilhete) {
         this.precoBilhete = precoBilhete;
     }
 

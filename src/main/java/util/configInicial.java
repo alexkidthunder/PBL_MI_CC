@@ -186,19 +186,19 @@ public class configInicial {
      * Lista de valores pré-definidos do Caminho da companhia AZUL
      */
     public enum CaminhoAZUL {
-        caminhoA(5, 17, 180.00),
-        caminhoB(17, 6, 168.00),
-        caminhoC(6, 10, 429.00),
-        caminhoD(13, 19, 345.00),
-        caminhoE(9, 12, 1185.00),
-        caminhoF(12, 24, 897.00);
+        caminhoA("Bahia", "Pernanbuco", (float) 180.00),
+        caminhoB("Pernanbuco", "Ceara", (float) 168.00),
+        caminhoC("Ceara", "Maranhão", (float) 429.00),
+        caminhoD("Minas Gerais", "Rio de Janeiro", (float) 345.00),
+        caminhoE("Goiais", "Mato Grosso do Sul", (float) 1185.00),
+        caminhoF("Mato Grosso do Sul", "São Paulo", (float) 897.00);
 
-        private final int origem;
-        private final int destino;
-        private final double preco;
+        private final String origem;
+        private final String destino;
+        private final float preco;
         private final String NomeCompanhia = "Azul";
 
-        private CaminhoAZUL(int origem, int destino, double preco) {
+        private CaminhoAZUL(String origem, String destino, float preco) {
             this.origem = origem;
             this.destino = destino;
             this.preco = preco;
@@ -209,7 +209,7 @@ public class configInicial {
          *
          * @return origem
          */
-        public int getOrigem() {
+        public String getOrigem() {
             return origem;
         }
 
@@ -218,7 +218,7 @@ public class configInicial {
          *
          * @return destino
          */
-        public int getDestino() {
+        public String getDestino() {
             return destino;
         }
 
@@ -227,7 +227,7 @@ public class configInicial {
          *
          * @return preco
          */
-        public double getPreco() {
+        public float getPreco() {
             return preco;
         }
 
@@ -261,19 +261,19 @@ public class configInicial {
      * Lista de valores pré-definidos do Caminho da companhia TAM
      */
     public enum CaminhoTAM {
-        caminhoA(21, 17, 2196.00),
-        caminhoB(14, 6, 559.00),
-        caminhoC(13, 5, 431.00),
-        caminhoD(13, 9, 892.00),
-        caminhoE(9, 11, 582.00),
-        caminhoF(24, 16, 370.00);
+        caminhoA("Rio Grande do Sul", "Pernanbuco", (float) 2196.00),
+        caminhoB("Pará", "Ceara", (float) 559.00),
+        caminhoC("Minas Gerais", "Bahia", (float) 431.00),
+        caminhoD("Minas Gerais", "Goiais", (float) 892.00),
+        caminhoE("Goiais", "Mato Grosso", (float) 582.00),
+        caminhoF("São Paulo", "Parana", (float) 370.00);
 
-        private final int origem;
-        private final int destino;
-        private final double preco;
+        private final String origem;
+        private final String destino;
+        private final float preco;
         private final String NomeCompanhia = "TAM";
 
-        private CaminhoTAM(int origem, int destino, double preco) {
+        private CaminhoTAM(String origem, String destino, float preco) {
             this.origem = origem;
             this.destino = destino;
             this.preco = preco;
@@ -284,7 +284,7 @@ public class configInicial {
          *
          * @return origem
          */
-        public int getOrigem() {
+        public String getOrigem() {
             return origem;
         }
 
@@ -293,7 +293,7 @@ public class configInicial {
          *
          * @return destino
          */
-        public int getDestino() {
+        public String getDestino() {
             return destino;
         }
 
@@ -302,7 +302,7 @@ public class configInicial {
          *
          * @return preco
          */
-        public double getPreco() {
+        public float getPreco() {
             return preco;
         }
 
@@ -336,21 +336,21 @@ public class configInicial {
      * Lista de valores pré-definidos do Caminho da companhia GOL
      */
     public enum CaminhoGOL {
-        caminhoA(5, 20, 1178.00),
-        caminhoB(20, 10, 1883.00),
-        caminhoC(10, 14, 609.00),
-        caminhoD(5, 13, 652.00),
-        caminhoE(13, 24, 284.00),
-        caminhoF(24, 19, 396.00),
-        caminhoG(23, 16, 648.00),
-        caminhoH(16, 12, 983.00);
+        caminhoA("Bahia", "Rio Grande do Norte", (float) 1178.00),
+        caminhoB("Rio Grande do Norte", "Maranhão", (float) 1883.00),
+        caminhoC("Maranhão", "Pará", (float) 609.00),
+        caminhoD("Bahia", "Minas Gerais", (float) 652.00),
+        caminhoE("Minas Gerais", "São Paulo", (float) 284.00),
+        caminhoF("São Paulo", "Rio de Janeiro", (float) 396.00),
+        caminhoG("Santa Catarina", "Pará", (float) 648.00),
+        caminhoH("Pará", "Mato Grosso do Sul", (float) 983.00);
 
-        private final int origem;
-        private final int destino;
-        private final double preco;
+        private final String origem;
+        private final String destino;
+        private final float preco;
         private final String NomeCompanhia = "GOL";
 
-        private CaminhoGOL(int origem, int destino, double preco) {
+        private CaminhoGOL(String origem, String destino, float preco) {
             this.origem = origem;
             this.destino = destino;
             this.preco = preco;
@@ -361,7 +361,7 @@ public class configInicial {
          *
          * @return origem
          */
-        public int getOrigem() {
+        public String getOrigem() {
             return origem;
         }
 
@@ -370,7 +370,7 @@ public class configInicial {
          *
          * @return destino
          */
-        public int getDestino() {
+        public String getDestino() {
             return destino;
         }
 
@@ -379,7 +379,7 @@ public class configInicial {
          *
          * @return preco
          */
-        public double getPreco() {
+        public float getPreco() {
             return preco;
         }
 

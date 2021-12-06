@@ -15,11 +15,11 @@ import java.io.Serializable;
 public class Caminho implements Serializable {
 
     private final String companhiAerea;
-    private final double precoBilhete;
-    private final int destino;
-    private final int origem;
+    private final float precoBilhete;
+    private final String destino;
+    private final String origem;
 
-    public Caminho(String companhiAerea, double precoBilhete, int destino, int origem) {
+    public Caminho(String companhiAerea, float precoBilhete, String destino, String origem) {
         this.companhiAerea = companhiAerea;
         this.precoBilhete = precoBilhete;
         this.destino = destino;
@@ -30,15 +30,15 @@ public class Caminho implements Serializable {
         return companhiAerea;
     }
 
-    public double getPrecoBilhete() {
+    public float getPrecoBilhete() {
         return precoBilhete;
     }
 
-    public int getDestino() {
+    public String getDestino() {
         return destino;
     }
 
-    public int getOrigem() {
+    public String getOrigem() {
         return origem;
     }
 

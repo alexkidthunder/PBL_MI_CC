@@ -85,140 +85,6 @@ public class GrafoController {
     }
 
     /**
-     *
-     * @param fileNameVertice
-     * @param fileNameAresta
-     */
-    public void readFile(String fileNameVertice, String fileNameAresta) {
-//        this.readFileVertice(fileNameVertice);
-        this.readFileAresta(fileNameAresta);
-    }
-
-    /**
-     *
-     * @param fileNameVertice
-     * @param fileNameAresta
-     */
-    public void saveFile(String fileNameVertice, String fileNameAresta) {
-        this.saveFileVertice(fileNameVertice);
-        this.saveFileAresta(fileNameAresta);
-    }
-
-//    /**
-//     *
-//     * @param fileName
-//     */
-//    public void readFileVertice(String fileName){   
-//        try{
-//            FileInputStream file = new FileInputStream(fileName+".txt");
-//            InputStreamReader input = new InputStreamReader(file, "ISO-8859-1");
-//            BufferedReader br = new BufferedReader(input);
-//            
-//            String linha;
-//            String[] linhaCortada;
-//
-//            do{
-//                linha = br.readLine();
-//                if (linha != null){
-//                    linhaCortada = linha.split(";");
-//                      linhaCortada = linha.split(";|;\\s");//Lidar com ; com ou sem espaço depois
-//                    if (!"Sigla".equals(linhaCortada[0])){
-//                            String aux = linhaCortada[1];
-//                            IdAeroportos aeroporto = new IdAeroportos();
-//                            this.addVertice(linhaCortada[0], aeroporto);
-//                    }
-//                }
-//                
-//            }while(linha != null);
-//            br.close();
-//            input.close();
-//            file.close();
-//        
-//        }catch (Exception e){
-//            System.out.println("*Erro na leitura");
-//        }    
-//    }
-    /**
-     *
-     * @param fileName
-     */
-    public void readFileAresta(String fileName) {
-        try {
-            FileInputStream file = new FileInputStream(fileName + ".txt");
-            InputStreamReader input = new InputStreamReader(file, "ISO-8859-1");
-            BufferedReader br = new BufferedReader(input);
-
-            String linha;
-            String[] linhaCortada;
-
-            do {
-                linha = br.readLine();
-                if (linha != null) {
-                    linhaCortada = linha.split(";|;\\s");//Lidar com ; com ou sem espaço depois
-                    //linhaCortada = linha.split(";");
-                    if (!"vertice1".equals(linhaCortada[0])) {
-                        String aux1 = linhaCortada[2];
-                        int peso = Integer.parseInt(linhaCortada[2]);
-                        this.addAresta(peso, linhaCortada[0], linhaCortada[1]);
-                    }
-                }
-            } while (linha != null);
-            br.close();
-            input.close();
-            file.close();
-
-        } catch (Exception e) {
-            System.out.println("*Erro na leitura");
-        }
-    }
-
-    /**
-     *
-     * @param fileName
-     */
-    public void saveFileVertice(String fileName) {
-        try {
-            File f2 = new File("vertice.txt");
-            f2.delete();
-            FileOutputStream file = new FileOutputStream(fileName + ".txt");
-            PrintWriter pw = new PrintWriter(file);
-            //Coloca a linha padrão do arquivo
-            pw.println("Sigla;X;Y;Terminal");
-            for (int i = 0; i < grafo.getVertices().size(); i++) {
-                Vertice aux = grafo.getVertices().get(i);
-                pw.println(aux.getNome() + ";" + aux.getX() + ";" + aux.getY());
-            }
-            pw.close();
-            file.close();
-        } catch (Exception e) {
-            System.out.println("Erro ao gravar");
-        }
-    }
-
-    /**
-     *
-     * @param fileName
-     */
-    public void saveFileAresta(String fileName) {
-        try {
-            File f2 = new File("aresta.txt");
-            f2.delete();
-            FileOutputStream file = new FileOutputStream(fileName + ".txt");
-            PrintWriter pw = new PrintWriter(file);
-            //Coloca a linha padrão do arquivo
-            pw.println("vertice1;vertice2;peso");
-            for (int i = 0; i < grafo.getArestas().size(); i++) {
-                Aresta aux = grafo.getArestas().get(i);
-                pw.println(aux.getV1() + ";" + aux.getV2() + ";" + aux.getPeso());
-            }
-            pw.close();
-            file.close();
-        } catch (Exception e) {
-            System.out.println("Erro ao gravar");
-        }
-    }
-
-    /**
      * Função para popular o grafo
      *
      * @return
@@ -228,21 +94,32 @@ public class GrafoController {
 
         for (configInicial.aeroportosEnumeracao a : configInicial.aeroportosEnumeracao.values()) {
             grafoC.addVertice(a.getEstado(), new IdAeroportos(a.getId(), a.getCodigoIATA(), a.getNomeAeroporto(), a.getEstado()));
-
+            for(int i = 0; i > configInicial.getCaminhosAzul().size(); i++){
+                grafoC.addAresta(configInicial.getCaminhosAzul().get(i).getPrecoBilhete(),
+                    configInicial.getCaminhosAzul().get(i).getOrigem(), 
+                    configInicial.getCaminhosAzul().get(i).getDestino());
+            }
+            for(int j = 0; j > configInicial.getCaminhosGol().size(); j++){
+                grafoC.addAresta(configInicial.getCaminhosGol().get(j).getPrecoBilhete(),
+                    configInicial.getCaminhosGol().get(j).getOrigem(), 
+                    configInicial.getCaminhosGol().get(j).getDestino());
+            }
+            for(int k = 0; k > configInicial.getCaminhosTam().size(); k++){
+                grafoC.addAresta(configInicial.getCaminhosTam().get(k).getPrecoBilhete(),
+                    configInicial.getCaminhosTam().get(k).getOrigem(), 
+                    configInicial.getCaminhosTam().get(k).getDestino());
+            }
         }
         //for (configInicial.CaminhoAZUL a : configInicial.CaminhoAZUL.values()) {
-        for(configInicial.aeroportosEnumeracao a : configInicial.aeroportosEnumeracao.values()){
-            if (a.getId() == ) {
-                
-            } else {
-            }
+//        for(configInicial.aeroportosEnumeracao a : configInicial.aeroportosEnumeracao.values()){
+//          
+//
+//            //grafoC.addAresta(a.getPreco(), a.getOrigem(), a.getDestino());
+//        }
 
-            //grafoC.addAresta(a.getPreco(), a.getOrigem(), a.getDestino());
-        }
-
-        grafoC.addAresta(200, "Bahia", "Acre");
-        grafoC.addAresta(100, "Acre", "Ceará");
-        grafoC.addAresta(500, "Bahia", "Ceará");
+//        grafoC.addAresta(200, "Bahia", "Acre");
+//        grafoC.addAresta(100, "Acre", "Ceará");
+//        grafoC.addAresta(500, "Bahia", "Ceará");
 
         //grafoC.grafo.imprimeGrafo();
         //System.out.println(grafo.indentificarCaminhos("Bahia"));
@@ -255,18 +132,18 @@ public class GrafoController {
      * @param args
      */
     public static void main(String args[]) {
-        GrafoController grafo = new GrafoController();
-        IdAeroportos aeroporto = new IdAeroportos(2453, "BB", "Aeroporto B", "Fortaleza");
-        IdAeroportos aeroporto2 = new IdAeroportos(2073, "AA", "Aeroporto A", "Bahia");
-
-        grafo.addVertice("Salvador", aeroporto2);
-        grafo.addVertice("Recife", aeroporto);
-        grafo.addVertice("Alagoas", aeroporto);
-        grafo.addAresta(200, "Salvador", "Recife");
-        grafo.addAresta(100, "Recife", "Alagoas");
-        grafo.addAresta(500, "Salvador", "Alagoas");
-
-        grafo.pegarInformações();
+       GrafoController grafo = new GrafoController();
+//        IdAeroportos aeroporto = new IdAeroportos(2453, "BB", "Aeroporto B", "Fortaleza");
+//        IdAeroportos aeroporto2 = new IdAeroportos(2073, "AA", "Aeroporto A", "Bahia");
+//
+//        grafo.addVertice("Salvador", aeroporto2);
+//        grafo.addVertice("Recife", aeroporto);
+//        grafo.addVertice("Alagoas", aeroporto);
+//        grafo.addAresta(200, "Salvador", "Recife");
+//        grafo.addAresta(100, "Recife", "Alagoas");
+//        grafo.addAresta(500, "Salvador", "Alagoas");
+        System.out.println(grafo.pegarInformações().grafo.getVertices());
+        System.out.println(grafo.pegarInformações().grafo.getArestas());
 
         //System.out.println(grafo.indentificarCaminhos("Salvador"));
         //System.out.println(grafo.encontrarMenorCaminhoDijkstra("Salvador", "Alagoas").toString());
