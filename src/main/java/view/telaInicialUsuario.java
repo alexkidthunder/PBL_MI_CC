@@ -5,17 +5,20 @@
  */
 package view;
 
+import util.Grafo;
+
 /**
  *
  * @authors Alexandre & Bianca
  */
 public class telaInicialUsuario extends javax.swing.JFrame {
-
+    Grafo grafo = new Grafo();
     /**
      * Creates new form telaUsuario
      */
     public telaInicialUsuario() {
         initComponents();
+        
     }
 
     /**
@@ -129,6 +132,7 @@ public class telaInicialUsuario extends javax.swing.JFrame {
 
     private void origemTextoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_origemTextoActionPerformed
         // TODO add your handling code here:
+        System.out.println(grafo.getArestas());
     }//GEN-LAST:event_origemTextoActionPerformed
 
     /**

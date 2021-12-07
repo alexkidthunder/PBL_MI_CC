@@ -48,7 +48,8 @@ public class client {
 
             GrafoController cont = new GrafoController();
             cont.pegarInformações(array);
-
+            
+            System.out.println(cont.grafo.getArestas());
         } catch (NotBoundException | RemoteException e) {
             System.out.println("Exception:" + e);
         }
