@@ -11,6 +11,7 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
+import java.util.Scanner;
 import model.Caminho;
 
 /**
@@ -27,7 +28,6 @@ public class server extends UnicastRemoteObject implements adder {
         this.companhia = company;
     }
 
-    
     @Override
     public List<Caminho> add(String texto) throws RemoteException {
         CompanhiaControllerServer server = new CompanhiaControllerServer();
@@ -35,37 +35,76 @@ public class server extends UnicastRemoteObject implements adder {
         switch (texto) {
             case "AZUL":
 
-               System.out.println("No AZUL");
-            return server.PegarInformacoesServidores("AZUL");
+                System.out.println("No AZUL");
+                return server.PegarInformacoesServidores("AZUL");
 
             case "GOL":
 
                 System.out.println("Na GOL");
-            return server.PegarInformacoesServidores("GOL");
+                return server.PegarInformacoesServidores("GOL");
 
-            case "TAM":         
+            case "TAM":
 
-               System.out.println("Na TAM");
-            return server.PegarInformacoesServidores("TAM");
-                
-             default:
-                 return null;
+                System.out.println("Na TAM");
+                return server.PegarInformacoesServidores("TAM");
+
+            default:
+                return null;
         }
     }
-    
+
+    public static String init() {
+        System.out.println("********************Seja bem vindo ao sistema********************");
+        System.out.println("\n Digite a companhia para iniciar o servidor \n");
+        System.out.println(" AZUL para o servidor AZUL ");
+        System.out.println(" GOL para o servidor GOL ");
+        System.out.println(" TAM para o servidor TAM ");
+
+        Scanner in = new Scanner(System.in);
+        return in.next();
+    }
 
     public static void main(String[] args) {
+//        try {
+//            Registry reg = LocateRegistry.createRegistry(4444);
+//            
+//            reg.rebind("Oi server!", new server("AZUL"));
+//            System.out.println("Server está pronto..." + companhia);
+//            reg.rebind("Oi server2!", new server("GOL"));
+//            System.out.println("Server está pronto..." + companhia);
+//            reg.rebind("Oi server3!", new server("TAM"));            
+//            System.out.println("Server está pronto..." + companhia);
+//        } catch (RemoteException e) {
+//            System.out.println("Exception" + e);
+//        }
+
         try {
             Registry reg = LocateRegistry.createRegistry(4444);
-            
-            reg.rebind("Oi server!", new server("AZUL"));
-            System.out.println("Server está pronto..." + companhia);
-            reg.rebind("Oi server2!", new server("GOL"));
-            System.out.println("Server está pronto..." + companhia);
-            reg.rebind("Oi server3!", new server("TAM"));            
-            System.out.println("Server está pronto..." + companhia);
+
+            switch (init()) {
+                case "AZUL":
+                    reg.rebind("Oi server!", new server("AZUL"));
+                    System.out.println("Server está pronto..." + companhia);
+                    break;
+
+                case "GOL":
+                    reg.rebind("Oi server2!", new server("GOL"));
+                    System.out.println("Server está pronto..." + companhia);
+                    break;
+
+                case "TAM":
+                    reg.rebind("Oi server3!", new server("TAM"));
+                    System.out.println("Server está pronto..." + companhia);
+                    break;
+
+                default:
+                    System.out.println("Ocorreu algum problema na inicialização");
+                    break;
+
+            }
         } catch (RemoteException e) {
             System.out.println("Exception" + e);
         }
+
     }
 }

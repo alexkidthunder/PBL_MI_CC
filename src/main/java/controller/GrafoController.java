@@ -87,6 +87,7 @@ public class GrafoController {
     public GrafoController pegarInformações(List<Caminho> caminho) {
         GrafoController grafoC = new GrafoController();
 
+        // Todos os servidores conhecem todos os aeroportos. Aqui pega essas informações
         for (configInicial.aeroportosEnumeracao a : configInicial.aeroportosEnumeracao.values()) {
             grafoC.addVertice(a.getEstado(), 
                     new IdAeroportos(a.getId(), a.getCodigoIATA(), a.getNomeAeroporto(), a.getEstado()));       
@@ -95,10 +96,11 @@ public class GrafoController {
         for( int i = 0; i < caminho.size(); i++){
             grafoC.addAresta(caminho.get(i).getPrecoBilhete(),caminho.get(i).getOrigem(), caminho.get(i).getDestino());
         }
-        System.out.println(grafoC.grafo.getArestas().size());
+
+        //System.out.println(grafoC.grafo.getArestas().size());
         System.out.println(caminho.size());
 
-        System.out.println(grafo.indentificarCaminhos("Bahia"));
+        //System.out.println(grafo.indentificarCaminhos("Bahia"));
         //System.out.println(grafo.encontrarMenorCaminhoDijkstra("Bahia", "Ceará"));
 
         return grafoC;
@@ -113,7 +115,7 @@ public class GrafoController {
         GrafoController grafo = new GrafoController();
 
 
-        //grafo.pegarInformações();
+        //grafo.pegarInformações(configInicial.getCaminhosAzul());
         //System.out.println(grafo.pegarInformações().grafo.getVertices());
         //System.out.println(grafo.pegarInformações().grafo.getArestas());
 
