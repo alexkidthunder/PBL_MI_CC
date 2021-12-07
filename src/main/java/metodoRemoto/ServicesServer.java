@@ -6,10 +6,15 @@
 package metodoRemoto;
 
 import controller.CompanhiaControllerServer;
+import controller.auxSys;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 import util.Grafo;
 
 /**
@@ -21,10 +26,12 @@ public class ServicesServer extends UnicastRemoteObject implements InterfServerT
 
     private static final long serialVersionUID = 15L;
     private final String companhia;
+    private final Lock lock;
 
     public ServicesServer(String companhia) throws RemoteException {
         super();
         this.companhia = companhia;
+        lock = new ReentrantLock();//trava para garantir a exclusão mutua
     }
 
     @Override
@@ -36,26 +43,31 @@ public class ServicesServer extends UnicastRemoteObject implements InterfServerT
     public String getNomeCompanhia() throws RemoteException {
         return companhia;
     }*/
-
     @Override
     public boolean solicitacaoComprarCaminho(String companhia) throws RemoteException {
+        Condition myCondition = lock.newCondition();
+        try {
+            //condição de acesso para esse método = 30 segundos
+            myCondition.await(30000L, TimeUnit.MILLISECONDS);
+            synchronized (this) {
+                if (!facade.alguemQuer()) {
+                    facade.setPermissão(companhia);
+                    return true;
+                }
+            }
+        } catch (InterruptedException e) {
+            return false;
+        } finally {
+            lock.unlock();
+        }
         return false;
 
     }
 
     @Override
     public boolean comprarCaminhoCompanhia(List<String> idCidades, String companhia) throws RemoteException {
-      
-        InterfServerToServer lookupMethod = null;
-        InterfServerToServer lookupMethodTwo = null;
-        
-        try{
-                lookupMethod = CompanhiaControllerServer.getserverUmLookupMethod();
-            }
 
-            try{
-                lookupMethodTwo = CompanhiaControllerServer.getserverUmLookupMethod();
-            }
+        return auxSys;
     }
 
     /*@Override
