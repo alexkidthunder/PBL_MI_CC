@@ -181,7 +181,13 @@ public class ClientView extends javax.swing.JFrame {
         String origem = jTextField1.getText();
         String destino = jTextField2.getText();
         ArrayList<Vertice> vertice = cont.encontrarMenorCaminhoDijkstra(origem, destino);
-        model.addElement(vertice.get(0).getNome());
+        ArrayList caminho = new ArrayList();
+        String aux = "";
+        for(int i = 0; i < vertice.size(); i ++){
+             aux = aux + " - " + vertice.get(i).getNome();
+        }
+       
+        model.addElement( aux );
         jList2.setModel(model);
     }//GEN-LAST:event_jButton2ActionPerformed
 
