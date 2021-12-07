@@ -5,11 +5,10 @@
  */
 package metodoRemoto;
 
+import controller.GrafoController;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 import java.util.List;
-import util.Grafo;
 
 /**
  *
@@ -17,14 +16,12 @@ import util.Grafo;
  */
 public interface InterfServerToServer extends Remote {
 
-    public ArrayList<Grafo> getGrafoCompanhia() throws RemoteException;
+    public GrafoController getGrafoCompanhia() throws RemoteException;
 
     //public String getNomeCompanhia() throws RemoteException;
-
     public boolean solicitacaoComprarCaminho(String companhia) throws RemoteException;
 
     public boolean comprarCaminhoCompanhia(List<String> idCidades, String companhia) throws RemoteException;
 
     //public void semaforoPermis(String companhia) throws RemoteException;
-
 }

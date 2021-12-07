@@ -123,9 +123,13 @@ public class configInicial {
      * para o rmi é 1099
      */
     public enum Servidores {
-        AZUL(1, "192.168.102.1", "Azul", 1099),
-        GOL(2, "192.168.102.3", "Gol", 1099),
-        TAM(3, "192.168.102.5", "Tam", 1099);
+//        AZUL(1, "192.168.102.1", "Azul", 1099),
+//        GOL(2, "192.168.102.3", "Gol", 1099),
+//        TAM(3, "192.168.102.5", "Tam", 1099);
+
+        AZUL(1, "localhost", "Azul", 1099),
+        GOL(2, "localhost", "Gol", 1099),
+        TAM(3, "localhost", "Tam", 1099);
 
         private final int id;
         private final String iphost;

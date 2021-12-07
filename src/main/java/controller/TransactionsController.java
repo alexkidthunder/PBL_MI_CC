@@ -32,7 +32,6 @@ public class TransactionsController {
 
         //Percorrer as arestas e checar quem disponibiliza o bilhete e com isso colocar o id da aresta na lista
         arestas.forEach((aresta) -> {
-            String companhia = aresta.getNomeCompanhia();
             if (companhia.equals(serverUm.getNome())) {
                 compUm.add(aresta.getId());
             } else if (companhia.equals(serverDois.getNome())) {

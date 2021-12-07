@@ -5,17 +5,15 @@
  */
 package metodoRemoto;
 
-import controller.CompanhiaControllerServer;
+import controller.GrafoController;
 import controller.auxSys;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-import util.Grafo;
 
 /**
  * Classe das funções principais que o Servidor tem no sistema.
@@ -27,16 +25,18 @@ public class ServicesServer extends UnicastRemoteObject implements InterfServerT
     private static final long serialVersionUID = 15L;
     private final String companhia;
     private final Lock lock;
+    private final auxSys auxsys;
 
     public ServicesServer(String companhia) throws RemoteException {
         super();
         this.companhia = companhia;
+        auxsys = auxSys.getAuxSys();
         lock = new ReentrantLock();//trava para garantir a exclusão mutua
     }
 
     @Override
-    public ArrayList<Grafo> getGrafoCompanhia() throws RemoteException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public GrafoController getGrafoCompanhia() throws RemoteException {
+        return auxsys.getGrafo();
     }
 
     /*@Override
@@ -50,8 +50,8 @@ public class ServicesServer extends UnicastRemoteObject implements InterfServerT
             //condição de acesso para esse método = 30 segundos
             myCondition.await(30000L, TimeUnit.MILLISECONDS);
             synchronized (this) {
-                if (!facade.alguemQuer()) {
-                    facade.setPermissão(companhia);
+                if (!auxsys.alguemQuer()) {
+                    auxsys.setPermissao(companhia);
                     return true;
                 }
             }
@@ -67,7 +67,7 @@ public class ServicesServer extends UnicastRemoteObject implements InterfServerT
     @Override
     public boolean comprarCaminhoCompanhia(List<String> idCidades, String companhia) throws RemoteException {
 
-        return auxSys;
+        return auxsys.comprarTrechos(idCidades, companhia);
     }
 
     /*@Override

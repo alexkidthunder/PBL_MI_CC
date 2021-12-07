@@ -5,6 +5,7 @@
  */
 package metodoRemoto;
 
+import controller.auxSys;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
@@ -16,6 +17,13 @@ import model.Caminho;
  * @authors Alexandre & Bianca
  */
 public class ServicesUsuario extends UnicastRemoteObject implements InterfServerToUser {
+
+    private final auxSys auxsys;
+
+    public ServicesUsuario() throws RemoteException {
+        super();
+        auxsys = auxSys.getAuxSys();
+    }
 
     @Override
     public Caminho getCaminhos(String origem, String destino) throws RemoteException {
