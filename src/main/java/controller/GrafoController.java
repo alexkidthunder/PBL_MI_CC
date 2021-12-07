@@ -95,11 +95,11 @@ public class GrafoController {
         for( int i = 0; i < caminho.size(); i++){
             grafoC.addAresta(caminho.get(i).getPrecoBilhete(),caminho.get(i).getOrigem(), caminho.get(i).getDestino());
         }
-        System.out.println(grafoC.grafo.getArestas().size());
-        System.out.println(caminho.size());
-
-        System.out.println(grafo.indentificarCaminhos("Bahia"));
-        //System.out.println(grafo.encontrarMenorCaminhoDijkstra("Bahia", "Ceará"));
+//        System.out.println(grafoC.grafo.getArestas().size());
+//        System.out.println(caminho.size());
+//
+//        System.out.println(grafoC.grafo.indentificarCaminhos("Bahia"));
+//        System.out.println(grafoC.grafo.encontrarMenorCaminhoDijkstra("Bahia", "Ceará"));
 
         return grafoC;
     }
@@ -135,7 +135,7 @@ public class GrafoController {
         //System.out.println(configInicial.getCaminhosAzul().get(0).getDestino());
         //System.out.println(configInicial.getCaminhosAzul().get(0).getOrigem());
         //System.out.println(configInicial.getCaminhosAzul().get(0).getPrecoBilhete());
-        // Pega as informações do servidor 
+        // Pega as informações do servidor
         //System.out.println(configInicial.Servidores.AZUL);
         //Pegar informações diretas do Enum na classe configInicial
         //System.out.println(Arrays.toString(configInicial.aeroportosEnumeracao.values()));
