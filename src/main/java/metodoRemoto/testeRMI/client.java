@@ -30,29 +30,28 @@ public class client {
         try {
             Registry reg = LocateRegistry.getRegistry("localhost", 4444);
             List<Caminho> array = new ArrayList<Caminho>();
-            
+
+            // Pegar informações da companhia AZUL
             adder ad = (adder) reg.lookup("Oi server!");
             array.addAll(ad.add("AZUL"));
-            System.out.println("addition 1:" + ad.add("AZUL").get(0).getPrecoBilhete());
+            //System.out.println("addition 1:" + ad.add("AZUL").get(0).getPrecoBilhete());
 
-            adder a2 = (adder) reg.lookup("Oi server2!");
-            array.addAll(ad.add("GOL"));
-            System.out.println("addition 1:" + a2.add("GOL").get(0).getPrecoBilhete());
-
-            adder a3 = (adder) reg.lookup("Oi server3!");
-            array.addAll(ad.add("TAM"));
-            System.out.println("addition 1:" + a3.add("TAM").get(0).getPrecoBilhete());
-
+            // Pegar informações da companhia GOL
+//            adder a2 = (adder) reg.lookup("Oi server2!");
+//            array.addAll(ad.add("GOL"));
+//            System.out.println("addition 1:" + a2.add("GOL").get(0).getPrecoBilhete());
+//
+            // Pegar informações da companhia TAM
+//            adder a3 = (adder) reg.lookup("Oi server3!");
+//            array.addAll(ad.add("TAM"));
+//            System.out.println("addition 1:" + a3.add("TAM").get(0).getPrecoBilhete());
 
             GrafoController cont = new GrafoController();
             cont.pegarInformações(array);
-            
-           
 
         } catch (NotBoundException | RemoteException e) {
             System.out.println("Exception:" + e);
         }
-        
-        
+
     }
 }
