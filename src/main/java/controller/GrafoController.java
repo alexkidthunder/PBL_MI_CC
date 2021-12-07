@@ -84,24 +84,24 @@ public class GrafoController {
      *
      * @return
      */
-    public GrafoController pegarInformações(List<Caminho> caminho) {
-        GrafoController grafoC = new GrafoController();
+    public Grafo pegarInformações(List<Caminho> caminho) {
+      //  GrafoController grafoC = new GrafoController();
 
         for (configInicial.aeroportosEnumeracao a : configInicial.aeroportosEnumeracao.values()) {
-            grafoC.addVertice(a.getEstado(), 
+            this.addVertice(a.getEstado(), 
                     new IdAeroportos(a.getId(), a.getCodigoIATA(), a.getNomeAeroporto(), a.getEstado()));       
         }
 
         for( int i = 0; i < caminho.size(); i++){
-            grafoC.addAresta(caminho.get(i).getPrecoBilhete(),caminho.get(i).getOrigem(), caminho.get(i).getDestino());
+            this.addAresta(caminho.get(i).getPrecoBilhete(),caminho.get(i).getOrigem(), caminho.get(i).getDestino());
         }
 //        System.out.println(grafoC.grafo.getArestas().size());
 //        System.out.println(caminho.size());
 //
-//        System.out.println(grafoC.grafo.indentificarCaminhos("Bahia"));
-//        System.out.println(grafoC.grafo.encontrarMenorCaminhoDijkstra("Bahia", "Ceará"));
+        System.out.println(grafo.indentificarCaminhos("Bahia"));
+        System.out.println(grafo.encontrarMenorCaminhoDijkstra("Bahia", "Ceará"));
 
-        return grafoC;
+        return grafo;
     }
 
     /**
