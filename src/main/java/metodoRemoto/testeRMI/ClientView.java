@@ -198,7 +198,14 @@ public class ClientView extends javax.swing.JFrame {
 //        System.out.println(cont.grafo.acharVertice(destino));
 //        System.out.println(cont.grafo.acharAresta(cont.grafo.acharVertice(origem), cont.grafo.acharVertice(destino)));
 //        ares.add(a);
-
+        Aresta aux1 = cont.grafo.acharAresta(cont.grafo.acharVertice("Bahia"), cont.grafo.acharVertice("Pernambuco"));
+        Aresta aux2 = cont.grafo.acharAresta(cont.grafo.acharVertice("Pernambuco"), cont.grafo.acharVertice("Ceará"));
+        System.out.println(aux1);
+        System.out.println(aux1.getBilhete().getPrecoBilhete());
+        System.out.println(aux2);
+        System.out.println(aux2.getBilhete().getPrecoBilhete());
+        float aux3 = aux1.getBilhete().getPrecoBilhete() + aux2.getBilhete().getPrecoBilhete();
+        System.out.println(aux3);
         Float aux;
         //aux = aux + " - " + ares.get(0).toString();
 //        for(int i = 0; i < vertice.size(); i ++){
@@ -207,14 +214,14 @@ public class ClientView extends javax.swing.JFrame {
         //aux = cont.grafo.acharAresta(cont.grafo.acharVertice(origem),
         //        cont.grafo.acharVertice(destino)).getBilhete().getPrecoBilhete();
 
-        ArrayList<ArrayList<Vertice>> arr = cont.grafo.indentificarCaminhos(origem);
-        System.out.println(cont.grafo.indentificarCaminhos(origem));
-        for (int i = 0; i < arr.size(); i++) {
-            if (arr.get(i).get(i).getNome() == destino) {
-                System.out.println("Achou o destino" + destino);
-            }
-
-        }
+//        ArrayList<ArrayList<Vertice>> arr = cont.grafo.indentificarCaminhos(origem);
+//        System.out.println(cont.grafo.indentificarCaminhos(origem));
+//        for (int i = 0; i < arr.size(); i++) {
+//            if (arr.get(i).get(i).getNome() == destino) {
+//                System.out.println("Achou o destino" + destino);
+//            }
+//
+//        }
 
         //model2.addElement(aux.toString());
         jList2.setModel(model2);
