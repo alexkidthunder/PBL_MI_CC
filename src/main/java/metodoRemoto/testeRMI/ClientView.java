@@ -170,8 +170,18 @@ public class ClientView extends javax.swing.JFrame {
             adder ad = (adder) reg.lookup("Oi server!");
             array.addAll(ad.add("AZUL"));
             cont.pegarInformações(array);
+            
+//             Pegar informações da companhia GOL
+            adder a2 = (adder) reg.lookup("Oi server2!");
+            array.addAll(ad.add("GOL"));
+            System.out.println("addition 1:" + a2.add("GOL").get(0).getPrecoBilhete());
 
-            //System.out.println(cont.grafo.getArestas());
+//             Pegar informações da companhia TAM
+            adder a3 = (adder) reg.lookup("Oi server3!");
+            array.addAll(ad.add("TAM"));
+            System.out.println("addition 1:" + a3.add("TAM").get(0).getPrecoBilhete());
+            System.out.println(cont.grafo.getArestas());
+            
             for (int i = 0; i < cont.grafo.getVertices().size(); i++) {
                 model.addElement(cont.grafo.getVertices().get(i).getNome());
                 jList1.setModel(model);
@@ -199,8 +209,10 @@ public class ClientView extends javax.swing.JFrame {
 //        System.out.println(cont.grafo.acharAresta(cont.grafo.acharVertice(origem), cont.grafo.acharVertice(destino)));
 //        ares.add(a);
 
-//        Aresta aux1 = cont.grafo.acharAresta(cont.grafo.acharVertice("Bahia"), cont.grafo.acharVertice("Pernambuco"));
-//        Aresta aux2 = cont.grafo.acharAresta(cont.grafo.acharVertice("Pernambuco"), cont.grafo.acharVertice("Ceará"));
+        Aresta aux1 = cont.grafo.acharAresta(cont.grafo.acharVertice("Bahia"), cont.grafo.acharVertice("Pernambuco"));
+        Aresta aux2 = cont.grafo.acharAresta(cont.grafo.acharVertice("Pernambuco"), cont.grafo.acharVertice("Ceará"));
+        Aresta aux3 = cont.grafo.acharAresta(cont.grafo.acharVertice("Bahia"), cont.grafo.acharVertice("Pernambuco"));
+        Aresta aux4 = cont.grafo.acharAresta(cont.grafo.acharVertice("Pernambuco"), cont.grafo.acharVertice("Ceará"));
 //        System.out.println(aux1);
 //        System.out.println(aux1.getBilhete().getPrecoBilhete());
 //        System.out.println(aux2);
