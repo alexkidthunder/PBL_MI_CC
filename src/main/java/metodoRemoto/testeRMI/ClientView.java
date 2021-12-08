@@ -11,6 +11,9 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -207,8 +210,15 @@ public class ClientView extends javax.swing.JFrame {
         //aux = cont.grafo.acharAresta(cont.grafo.acharVertice(origem),
         //        cont.grafo.acharVertice(destino)).getBilhete().getPrecoBilhete();
 
+        Collection lista = new ArrayList();
+        lista.addAll(cont.grafo.indentificarCaminhos(origem));
+        lista = Collections.singleton(new HashSet(lista));
+        for (Object object : lista) {
+            System.out.println(object.toString());
+        }
+
         ArrayList<ArrayList<Vertice>> arr = cont.grafo.indentificarCaminhos(origem);
-        System.out.println(cont.grafo.indentificarCaminhos(origem));
+        //System.out.println(cont.grafo.indentificarCaminhos(origem));
         for (int i = 0; i < arr.size(); i++) {
             if (arr.get(i).get(i).getNome() == destino) {
                 System.out.println("Achou o destino" + destino);
