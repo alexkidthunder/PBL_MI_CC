@@ -164,6 +164,9 @@ public class ClientView extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             Registry reg = LocateRegistry.getRegistry("localhost", 4444);
+            Registry re = LocateRegistry.getRegistry("localhost",4445);
+            Registry r = LocateRegistry.getRegistry("localhost",4446);
+            
             List<Caminho> array = new ArrayList<Caminho>();
 
             // Pegar informações da companhia AZUL
@@ -172,12 +175,12 @@ public class ClientView extends javax.swing.JFrame {
             cont.pegarInformações(array);
             
 //             Pegar informações da companhia GOL
-            adder a2 = (adder) reg.lookup("Oi server2!");
+            adder a2 = (adder) re.lookup("Oi server2!");
             array.addAll(ad.add("GOL"));
             System.out.println("addition 1:" + a2.add("GOL").get(0).getPrecoBilhete());
 
 //             Pegar informações da companhia TAM
-            adder a3 = (adder) reg.lookup("Oi server3!");
+            adder a3 = (adder) r.lookup("Oi server3!");
             array.addAll(ad.add("TAM"));
             System.out.println("addition 1:" + a3.add("TAM").get(0).getPrecoBilhete());
             System.out.println(cont.grafo.getArestas());

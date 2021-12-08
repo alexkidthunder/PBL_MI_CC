@@ -79,21 +79,24 @@ public class server extends UnicastRemoteObject implements adder {
 //        }
 
         try {
-            Registry reg = LocateRegistry.createRegistry(4444);
+            //Registry reg = LocateRegistry.createRegistry(4444);
 
             switch (init()) {
                 case "AZUL":
+                    Registry reg = LocateRegistry.createRegistry(4444);
                     reg.rebind("Oi server!", new server("AZUL"));
                     System.out.println("Server está pronto..." + companhia);
                     break;
 
                 case "GOL":
-                    reg.rebind("Oi server2!", new server("GOL"));
+                    Registry re = LocateRegistry.createRegistry(4445);
+                    re.rebind("Oi server2!", new server("GOL"));
                     System.out.println("Server está pronto..." + companhia);
                     break;
 
                 case "TAM":
-                    reg.rebind("Oi server3!", new server("TAM"));
+                    Registry r = LocateRegistry.createRegistry(4446);
+                    r.rebind("Oi server3!", new server("TAM"));
                     System.out.println("Server está pronto..." + companhia);
                     break;
 
