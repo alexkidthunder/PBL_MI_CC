@@ -84,13 +84,13 @@ public class Grafo {
     }
     
     /**
-     * Método addAresta, da classe Grafo.
-     * Esse método adiciona as arestas na lista de arestas.
+     * Método addAresta, da classe Grafo.Esse método adiciona as arestas na lista de arestas.
      * @param peso
      * @param v1
      * @param v2
+     * @param companhia
      */
-    public void addAresta(float peso, String v1, String v2){
+    public void addAresta(float peso, String v1, String v2, String companhia){
         int aux1,aux2,aux3;
         //adiciona vertices e retorna sua posicao salvando nas variavei
         aux1 = this.posicaoVertice(v1); // aux1 armazena origem
@@ -104,7 +104,7 @@ public class Grafo {
                 System.out.println("Não é possível selecionar o vértice de origem igual ao vértice destino");
             }
             else{
-                Aresta a = new Aresta(peso,this.vertices.get(aux1),this.vertices.get(aux2));
+                Aresta a = new Aresta(peso,this.vertices.get(aux1),this.vertices.get(aux2), companhia);
                 this.arestas.add(a); //adiciona aresta na lista
                 aux3 = this.arestas.size();// aux3 armazena a quantidade total de vertices
                 //adiciona aresta na lista de arestas conectada com cada vertice
@@ -132,9 +132,10 @@ public class Grafo {
                 ((this.arestas.get(i).getV1().getNome().equals(v2.getNome())) && // posição da aresta
                 (this.arestas.get(i).getV2().getNome().equals(v1.getNome()))) ){
                 return this.arestas.get(i);
-            }
+            }             
+
         }
-        //System.out.println("Não achou a Aresta");
+        System.out.println("Não achou a Aresta");
         return null;
     }
     
@@ -292,11 +293,10 @@ public ArrayList<Vertice> encontrarMenorCaminhoDijkstra(String ve1,String ve2) {
         for(int i = 0;i < this.vertices.size(); i ++){
 //            System.out.println(aux);
             String v2 = this.vertices.get(i).getNome();
-            aux = this.encontrarMenorCaminhoDijkstra(v1,v2);
-//            System.out.println(this.encontrarMenorCaminhoDijkstra(v1,v2));
-//            System.out.println(this.vertices.get(i).getNome());
+            aux = this.encontrarMenorCaminhoDijkstra(v1,v2);//            
             caminho.add(aux);
         }
+        caminho.removeAll(Collections.singleton(null));
         return caminho;
     }
      

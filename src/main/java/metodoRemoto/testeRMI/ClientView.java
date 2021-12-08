@@ -5,7 +5,6 @@
  */
 package metodoRemoto.testeRMI;
 
-
 import controller.GrafoController;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -17,15 +16,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import model.Caminho;
+import util.Aresta;
 import util.Vertice;
+
 /**
  *
  * @author bianc
  */
 public class ClientView extends javax.swing.JFrame {
+
     GrafoController cont = new GrafoController();
     DefaultListModel<String> model = new DefaultListModel<>();
     DefaultListModel<String> model2 = new DefaultListModel<>();
+
     /**
      * Creates new form ClientView
      */
@@ -160,16 +163,16 @@ public class ClientView extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             // TODO add your handling code here:
-             Registry reg = LocateRegistry.getRegistry("localhost", 4444);
+            Registry reg = LocateRegistry.getRegistry("localhost", 4444);
             List<Caminho> array = new ArrayList<Caminho>();
 
             // Pegar informações da companhia AZUL
             adder ad = (adder) reg.lookup("Oi server!");
             array.addAll(ad.add("AZUL"));
             cont.pegarInformações(array);
-               
-            System.out.println(cont.grafo.getArestas());
-            for(int i = 0; i < cont.grafo.getVertices().size(); i ++){
+
+            //System.out.println(cont.grafo.getArestas());
+            for (int i = 0; i < cont.grafo.getVertices().size(); i++) {
                 model.addElement(cont.grafo.getVertices().get(i).getNome());
                 jList1.setModel(model);
             }
@@ -189,13 +192,31 @@ public class ClientView extends javax.swing.JFrame {
         String origem = jTextField1.getText();
         String destino = jTextField2.getText();
         ArrayList<Vertice> vertice = cont.encontrarMenorCaminhoDijkstra(origem, destino);
-        
-        String aux = "";
-        for(int i = 0; i < vertice.size(); i ++){
-             aux = aux + " - " + vertice.get(i).getNome();
+//        ArrayList<Aresta> ares = null;
+//        Aresta  a = cont.grafo.acharAresta(cont.grafo.acharVertice(origem), cont.grafo.acharVertice(destino));
+//        System.out.println(cont.grafo.acharVertice(origem));
+//        System.out.println(cont.grafo.acharVertice(destino));
+//        System.out.println(cont.grafo.acharAresta(cont.grafo.acharVertice(origem), cont.grafo.acharVertice(destino)));
+//        ares.add(a);
+
+        Float aux;
+        //aux = aux + " - " + ares.get(0).toString();
+//        for(int i = 0; i < vertice.size(); i ++){
+//             aux = aux + " - " + vertice.get(i).getNome();
+//        }
+        //aux = cont.grafo.acharAresta(cont.grafo.acharVertice(origem),
+        //        cont.grafo.acharVertice(destino)).getBilhete().getPrecoBilhete();
+
+        ArrayList<ArrayList<Vertice>> arr = cont.grafo.indentificarCaminhos(origem);
+        System.out.println(cont.grafo.indentificarCaminhos(origem));
+        for (int i = 0; i < arr.size(); i++) {
+            if (arr.get(i).get(i).getNome() == destino) {
+                System.out.println("Achou o destino" + destino);
+            }
+
         }
-        
-        model2.addElement( aux );
+
+        //model2.addElement(aux.toString());
         jList2.setModel(model2);
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -229,7 +250,7 @@ public class ClientView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ClientView().setVisible(true); 
+                new ClientView().setVisible(true);
             }
         });
     }

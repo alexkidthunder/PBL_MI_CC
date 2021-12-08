@@ -6,6 +6,7 @@
 package util;
 
 import java.io.Serializable;
+import model.Bilhete;
 
 /**
  *
@@ -19,6 +20,8 @@ public class Aresta implements Serializable {
     private Vertice v1;
     private Vertice v2;
     private boolean visitado = false;
+    private final Bilhete bilhete;
+    private String companhia;
 
     /**
      * Método construtor, da classe Aresta.
@@ -26,12 +29,23 @@ public class Aresta implements Serializable {
      * @param peso
      * @param origem
      * @param destino
+     * @param companhia
      */
-    public Aresta(float peso, Vertice origem, Vertice destino) {
+    public Aresta(float peso, Vertice origem, Vertice destino, String companhia) {
         this.setPeso(peso);
         this.setV1(origem);
         this.setV2(destino);
+        this.bilhete = new Bilhete(companhia, peso);
         id = origem.getAeroporto().getEstado() + "-" + destino.getAeroporto().getEstado();
+
+    }
+
+    public Bilhete getBilhete() {
+        return bilhete;
+    }
+
+    public String getCompanhia() {
+        return companhia;
     }
 
     /**

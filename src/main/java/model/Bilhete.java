@@ -20,7 +20,7 @@ public class Bilhete implements Serializable {
     private int totalVagas;
 
     public Bilhete(String companhia, float precoBilhete) {
-        this.totalVagas = 50;
+        this.totalVagas = 3;
         this.companhia = companhia;
         this.precoBilhete = precoBilhete;
     }

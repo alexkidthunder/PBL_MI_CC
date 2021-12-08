@@ -5,7 +5,6 @@
  */
 package controller;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import model.Caminho;
@@ -47,8 +46,8 @@ public class GrafoController {
      * @param v1
      * @param v2
      */
-    public void addAresta(float peso, String v1, String v2) {
-        this.grafo.addAresta(peso, v1, v2);
+    public void addAresta(float peso, String v1, String v2, String company) {
+        this.grafo.addAresta(peso, v1, v2, company);
 
     }
 
@@ -85,21 +84,25 @@ public class GrafoController {
      * @return
      */
     public Grafo pegarInformações(List<Caminho> caminho) {
-      //  GrafoController grafoC = new GrafoController();
+        //  GrafoController grafoC = new GrafoController();
 
         for (configInicial.aeroportosEnumeracao a : configInicial.aeroportosEnumeracao.values()) {
-            this.addVertice(a.getEstado(), 
-                    new IdAeroportos(a.getId(), a.getCodigoIATA(), a.getNomeAeroporto(), a.getEstado()));       
+            this.addVertice(a.getEstado(),
+                    new IdAeroportos(a.getId(), a.getCodigoIATA(), a.getNomeAeroporto(), a.getEstado()));
         }
 
-        for( int i = 0; i < caminho.size(); i++){
-            this.addAresta(caminho.get(i).getPrecoBilhete(),caminho.get(i).getOrigem(), caminho.get(i).getDestino());
+        for (int i = 0; i < caminho.size(); i++) {
+            this.addAresta(caminho.get(i).getPrecoBilhete(), caminho.get(i).getOrigem(), 
+                    caminho.get(i).getDestino(), caminho.get(i).getCompanhiAerea());
         }
 //        System.out.println(grafoC.grafo.getArestas().size());
 //        System.out.println(caminho.size());
 //
-        System.out.println(grafo.indentificarCaminhos("Bahia"));
-        System.out.println(grafo.encontrarMenorCaminhoDijkstra("Bahia", "Ceará"));
+        //System.out.println(grafo.indentificarCaminhos("Bahia"));
+        //System.out.println(grafo.encontrarMenorCaminhoDijkstra("Bahia", "Ceará"));
+        //grafo.getArestas().get(0).getBilhete().comprarPassagem();
+        //System.out.println(grafo.getArestas().get(0).getBilhete().getTotalVagas());
+        
 
         return grafo;
     }
@@ -112,12 +115,9 @@ public class GrafoController {
 
         GrafoController grafo = new GrafoController();
 
-
-        //grafo.pegarInformações();
+        grafo.pegarInformações(configInicial.getCaminhosAzul());
         //System.out.println(grafo.pegarInformações().grafo.getVertices());
         //System.out.println(grafo.pegarInformações().grafo.getArestas());
-
-
         //System.out.println(grafo.indentificarCaminhos("Salvador"));
         //System.out.println(grafo.encontrarMenorCaminhoDijkstra("Salvador", "Alagoas").toString());
         //System.out.println(grafo.encontrarMenorCaminhoDijkstra("Salvador", "Alagoas").get(0).getDistancia());
