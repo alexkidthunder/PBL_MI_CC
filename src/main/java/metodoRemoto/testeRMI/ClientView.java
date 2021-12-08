@@ -198,15 +198,19 @@ public class ClientView extends javax.swing.JFrame {
 //        System.out.println(cont.grafo.acharVertice(destino));
 //        System.out.println(cont.grafo.acharAresta(cont.grafo.acharVertice(origem), cont.grafo.acharVertice(destino)));
 //        ares.add(a);
-        Aresta aux1 = cont.grafo.acharAresta(cont.grafo.acharVertice("Bahia"), cont.grafo.acharVertice("Pernambuco"));
-        Aresta aux2 = cont.grafo.acharAresta(cont.grafo.acharVertice("Pernambuco"), cont.grafo.acharVertice("Ceará"));
-        System.out.println(aux1);
-        System.out.println(aux1.getBilhete().getPrecoBilhete());
-        System.out.println(aux2);
-        System.out.println(aux2.getBilhete().getPrecoBilhete());
-        float aux3 = aux1.getBilhete().getPrecoBilhete() + aux2.getBilhete().getPrecoBilhete();
-        System.out.println(aux3);
-        Float aux;
+
+//        Aresta aux1 = cont.grafo.acharAresta(cont.grafo.acharVertice("Bahia"), cont.grafo.acharVertice("Pernambuco"));
+//        Aresta aux2 = cont.grafo.acharAresta(cont.grafo.acharVertice("Pernambuco"), cont.grafo.acharVertice("Ceará"));
+//        System.out.println(aux1);
+//        System.out.println(aux1.getBilhete().getPrecoBilhete());
+//        System.out.println(aux2);
+//        System.out.println(aux2.getBilhete().getPrecoBilhete());
+//        float aux3 = aux1.getBilhete().getPrecoBilhete() + aux2.getBilhete().getPrecoBilhete();
+//        System.out.println(aux3);
+//        Float aux;
+        
+        ArrayList<ArrayList<Vertice>> arestas = cont.grafo.indentificarCaminhos(origem);
+        
         //aux = aux + " - " + ares.get(0).toString();
 //        for(int i = 0; i < vertice.size(); i ++){
 //             aux = aux + " - " + vertice.get(i).getNome();
@@ -222,8 +226,8 @@ public class ClientView extends javax.swing.JFrame {
 //            }
 //
 //        }
-
-        //model2.addElement(aux.toString());
+       
+        model2.addElement(arestas.toString());
         jList2.setModel(model2);
     }//GEN-LAST:event_jButton2ActionPerformed
 
