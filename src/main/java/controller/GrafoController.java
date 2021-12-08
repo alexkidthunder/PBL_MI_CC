@@ -107,6 +107,21 @@ public class GrafoController {
         return grafo;
     }
 
+    public ArrayList<ArrayList<String>> getMenoresCaminhosParaGUI(String ve1){
+        ArrayList<ArrayList<String>> caminhos = new ArrayList();
+        ArrayList<ArrayList<Vertice>> caminhosVertices = this.grafo.indentificarCaminhos(ve1);
+        for (int i = 0; i < caminhosVertices.size(); i++) {
+            if(caminhosVertices.get(i)!=null){
+                ArrayList<String> novoCaminho = new ArrayList();
+                    for (int j = 0; j < caminhosVertices.get(i).size(); j++) {
+                        novoCaminho.add(caminhosVertices.get(i).get(j).getNome());
+                    }
+                    caminhos.add(novoCaminho);
+                
+            }
+        }
+        return caminhos;
+    }
     /**
      *
      * @param args
