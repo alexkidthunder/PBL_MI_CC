@@ -23,7 +23,7 @@ import util.Aresta;
 public class TransactionsController {
 
     public List<String> realizarCompraNosOutrosServidores(ClienteAcessoServer serverUm, ClienteAcessoServer serverDois,
-            List<Aresta> arestas, Concorrencia Concorrente, String companhia) throws MalformedURLException, NotBoundException, RemoteException {
+            List<Aresta> arestas, String companhia) throws MalformedURLException, NotBoundException, RemoteException {
 
         //Listas para conter as identificações dos caminhos em cada servidor
         List<String> comPrincipal = new ArrayList<>();

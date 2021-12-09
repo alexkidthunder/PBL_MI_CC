@@ -74,20 +74,20 @@ public class auxSys {
      */
     public ArrayList<Vertice> getPossiveisCaminhosCombinados(String inicio, String fim) throws NotBoundException, MalformedURLException, RemoteException {
         InterfServerToServer lookupMethod = null;
-        List<Caminho> array = new ArrayList<Caminho>();
+        List<Caminho> array = new ArrayList<>();
         InterfServerToServer lookupMethod2 = null;
-        List<Caminho> array2 = new ArrayList<Caminho>();
+        List<Caminho> array2 = new ArrayList<>();
 
         try {
             lookupMethod = companhiacontrollerServer.getserverUmLookupMethod();// Pear os caminhos do servidor Um            
-            array.addAll(lookupMethod.getGrafoCompanhia().grafo.getArestas());
+            //array.addAll(lookupMethod.getGrafoCompanhia().grafo.getArestas());
             grafo.pegarInformações(array);
         } catch (NullPointerException e) {
         }
 
         try {
             lookupMethod2 = companhiacontrollerServer.getserverDoisLookupMethod();// Pear os caminhos do servidor Dois
-            array2.addAll(lookupMethod.getGrafoCompanhia().grafo.getArestas());
+            //array2.addAll(lookupMethod.getGrafoCompanhia().grafo.getArestas());
             grafo.pegarInformações(array2);
         } catch (NullPointerException e) {
         }
@@ -115,14 +115,14 @@ public class auxSys {
 
     public boolean comprarTrechos(List<String> idCidades, String companhia) {
          if(semaforo.getPermissao().equalsIgnoreCase(companhia)){
-            List<Aresta> arestasByIds = grafo.grafo.indentificarCaminhos(idCidades);
-            
-            for (Aresta arestasById : arestasByIds) {
-                if(!arestasById.getPassagens().get(0).comprarPassagem()){
-                    return false;
-                }               
-            }
-            return true;
+//            List<Aresta> arestasByIds = grafo.grafo.indentificarCaminhos(idCidades);
+//            
+//            for (Aresta arestasById : arestasByIds) {
+//                if(!arestasById.getPassagens().get(0).comprarPassagem()){
+//                    return false;
+//                }               
+//            }
+//            return true;
         }
         return false;
     }  

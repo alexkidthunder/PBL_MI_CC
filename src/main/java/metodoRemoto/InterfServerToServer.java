@@ -9,6 +9,7 @@ import controller.GrafoController;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
+import model.Caminho;
 
 /**
  *
@@ -16,12 +17,15 @@ import java.util.List;
  */
 public interface InterfServerToServer extends Remote {
 
+    public List<Caminho> add(String texto) throws RemoteException;
+    
     public GrafoController getGrafoCompanhia() throws RemoteException;
 
-    //public String getNomeCompanhia() throws RemoteException;
+    public String getNomeCompanhia() throws RemoteException;
+    
     public boolean solicitacaoComprarCaminho(String companhia) throws RemoteException;
 
     public boolean comprarCaminhoCompanhia(List<String> idCidades, String companhia) throws RemoteException;
 
-    //public void semaforoPermis(String companhia) throws RemoteException;
+    public void semaforoPermis(String companhia) throws RemoteException;
 }

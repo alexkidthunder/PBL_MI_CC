@@ -164,27 +164,27 @@ public class ClientView extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             Registry reg = LocateRegistry.getRegistry("localhost", 4444);
-            Registry re = LocateRegistry.getRegistry("localhost",4445);
-            Registry r = LocateRegistry.getRegistry("localhost",4446);
-            
+            Registry re = LocateRegistry.getRegistry("localhost", 4445);
+            Registry r = LocateRegistry.getRegistry("localhost", 4446);
+
             List<Caminho> array = new ArrayList<Caminho>();
 
             // Pegar informações da companhia AZUL
-            adder ad = (adder) reg.lookup("Oi server!");
+            adder ad = (adder) reg.lookup("Registro 1");
             array.addAll(ad.add("AZUL"));
             cont.pegarInformações(array);
-            
+
 //             Pegar informações da companhia GOL
-            adder a2 = (adder) re.lookup("Oi server2!");
+            adder a2 = (adder) re.lookup("Registro 2");
             array.addAll(ad.add("GOL"));
             System.out.println("addition 1:" + a2.add("GOL").get(0).getPrecoBilhete());
 
 //             Pegar informações da companhia TAM
-            adder a3 = (adder) r.lookup("Oi server3!");
+            adder a3 = (adder) r.lookup("Registro 3");
             array.addAll(ad.add("TAM"));
             System.out.println("addition 1:" + a3.add("TAM").get(0).getPrecoBilhete());
             System.out.println(cont.grafo.getArestas());
-            
+
             for (int i = 0; i < cont.grafo.getVertices().size(); i++) {
                 model.addElement(cont.grafo.getVertices().get(i).getNome());
                 jList1.setModel(model);
@@ -223,16 +223,15 @@ public class ClientView extends javax.swing.JFrame {
 //        float aux3 = aux1.getBilhete().getPrecoBilhete() + aux2.getBilhete().getPrecoBilhete();
 //        System.out.println(aux3);
 //        Float aux;
-        
+
         ArrayList<ArrayList<Vertice>> arestas = cont.grafo.indentificarCaminhos(origem);
-        
+
         //aux = aux + " - " + ares.get(0).toString();
 //        for(int i = 0; i < vertice.size(); i ++){
 //             aux = aux + " - " + vertice.get(i).getNome();
 //        }
         //aux = cont.grafo.acharAresta(cont.grafo.acharVertice(origem),
         //        cont.grafo.acharVertice(destino)).getBilhete().getPrecoBilhete();
-
 //        ArrayList<ArrayList<Vertice>> arr = cont.grafo.indentificarCaminhos(origem);
 //        System.out.println(cont.grafo.indentificarCaminhos(origem));
 //        for (int i = 0; i < arr.size(); i++) {
@@ -241,7 +240,6 @@ public class ClientView extends javax.swing.JFrame {
 //            }
 //
 //        }
-       
         model2.addElement(arestas.toString());
         jList2.setModel(model2);
     }//GEN-LAST:event_jButton2ActionPerformed

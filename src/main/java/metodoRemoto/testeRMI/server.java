@@ -6,6 +6,8 @@
 package metodoRemoto.testeRMI;
 
 import controller.CompanhiaControllerServer;
+import controller.auxSys;
+import java.net.MalformedURLException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -17,20 +19,21 @@ import model.Caminho;
 /**
  * Classe teste do servidor RMI
  *
- * @author ribei
+ * @authors Alexandre & Bianca
  */
 public class server extends UnicastRemoteObject implements adder {
 
     private static String companhia;
+    CompanhiaControllerServer server;
 
     public server(String company) throws RemoteException {
         super();
         this.companhia = company;
+        this.server = new CompanhiaControllerServer();
     }
 
     @Override
     public List<Caminho> add(String texto) throws RemoteException {
-        CompanhiaControllerServer server = new CompanhiaControllerServer();
 
         switch (texto) {
             case "AZUL":
@@ -64,40 +67,28 @@ public class server extends UnicastRemoteObject implements adder {
         return in.next();
     }
 
-    public static void main(String[] args) {
-//        try {
-//            Registry reg = LocateRegistry.createRegistry(4444);
-//            
-//            reg.rebind("Oi server!", new server("AZUL"));
-//            System.out.println("Server está pronto..." + companhia);
-//            reg.rebind("Oi server2!", new server("GOL"));
-//            System.out.println("Server está pronto..." + companhia);
-//            reg.rebind("Oi server3!", new server("TAM"));            
-//            System.out.println("Server está pronto..." + companhia);
-//        } catch (RemoteException e) {
-//            System.out.println("Exception" + e);
-//        }
+    public static void main(String[] args) throws MalformedURLException {
+        auxSys auxiliar = auxSys.getAuxSys();
 
         try {
-            //Registry reg = LocateRegistry.createRegistry(4444);
-
+            //auxiliar.initServer(init());
             switch (init()) {
                 case "AZUL":
                     Registry reg = LocateRegistry.createRegistry(4444);
-                    reg.rebind("Oi server!", new server("AZUL"));
+                    reg.rebind("Registro 1", new server("AZUL"));
                     System.out.println("Server está pronto..." + companhia);
                     break;
 
                 case "GOL":
                     Registry re = LocateRegistry.createRegistry(4445);
-                    re.rebind("Oi server2!", new server("GOL"));
-                    System.out.println("Server está pronto..." + companhia);
+                    re.rebind("Registro 2", new server("GOL"));
+                    System.out.println("Server " + companhia + " está pronto.");
                     break;
 
                 case "TAM":
                     Registry r = LocateRegistry.createRegistry(4446);
-                    r.rebind("Oi server3!", new server("TAM"));
-                    System.out.println("Server está pronto..." + companhia);
+                    r.rebind("Registro 3", new server("TAM"));
+                    System.out.println("Server " + companhia + " está pronto.");
                     break;
 
                 default:
@@ -106,7 +97,7 @@ public class server extends UnicastRemoteObject implements adder {
 
             }
         } catch (RemoteException e) {
-            System.out.println("Exception" + e);
+            System.out.println("Ocorreu a Exception" + e);
         }
 
     }

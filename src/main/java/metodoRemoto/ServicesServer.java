@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+import model.Caminho;
 
 /**
  * Classe das funções principais que o Servidor tem no sistema.
@@ -39,10 +40,6 @@ public class ServicesServer extends UnicastRemoteObject implements InterfServerT
         return auxsys.getGrafo();
     }
 
-    /*@Override
-    public String getNomeCompanhia() throws RemoteException {
-        return companhia;
-    }*/
     @Override
     public boolean solicitacaoComprarCaminho(String companhia) throws RemoteException {
         Condition myCondition = lock.newCondition();
@@ -61,7 +58,6 @@ public class ServicesServer extends UnicastRemoteObject implements InterfServerT
             lock.unlock();
         }
         return false;
-
     }
 
     @Override
@@ -70,8 +66,23 @@ public class ServicesServer extends UnicastRemoteObject implements InterfServerT
         return auxsys.comprarTrechos(idCidades, companhia);
     }
 
-    /*@Override
+//    @Override
+//    public List<Caminho> add(String texto) throws RemoteException {
+//        //return auxsys.initServer(texto);
+//    }
+    @Override
+    public List<Caminho> add(String texto) throws RemoteException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getNomeCompanhia() throws RemoteException {
+        return companhia;
+    }
+
+    @Override
     public void semaforoPermis(String companhia) throws RemoteException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }*/
+    }
+
 }

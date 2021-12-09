@@ -5,7 +5,9 @@
  */
 package metodoRemoto.testeRMI;
 
+import controller.CompanhiaControllerServer;
 import controller.GrafoController;
+import controller.auxSys;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -20,10 +22,17 @@ import model.Caminho;
  * @author ribei
  */
 public class client {
+        private final auxSys auxiliar;
+
+    public client() {
+        auxiliar = auxSys.getAuxSys();
+    }
+        
 
     public static void main(String args[]) throws RemoteException {
-        client c = new client();
+        client c = new client();        
         c.connectRemote();
+        
     }
 
     private void connectRemote() throws RemoteException {
