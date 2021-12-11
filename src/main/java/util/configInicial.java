@@ -22,13 +22,13 @@ public class configInicial {
      */
     public enum aeroportosEnumeracao {
 
-        ACRE(1, "RBR", "Aeroporto de Rio Branco - Plácido de Castro", "Acre"),
-        ALAGOAS(2, "MCZ", "Aeroporto Internacional de Maceió - Zumbi dos Palmares", "Alagoas"),
-        AMAPA(3, "MCP", "Aeroporto Internacional de Macapá - Alberto Alcolumbre", "Amapá"),
-        AMAZONAS(4, "MAO", "Aeroporto Internacional de Manaus - Eduardo Gomes", "Amazonas"),
+//        ACRE(1, "RBR", "Aeroporto de Rio Branco - Plácido de Castro", "Acre"),
+//        ALAGOAS(2, "MCZ", "Aeroporto Internacional de Maceió - Zumbi dos Palmares", "Alagoas"),
+//        AMAPA(3, "MCP", "Aeroporto Internacional de Macapá - Alberto Alcolumbre", "Amapá"),
+//        AMAZONAS(4, "MAO", "Aeroporto Internacional de Manaus - Eduardo Gomes", "Amazonas"),
         BAHIA(5, "SSA", "Aeroporto Internacional de Salvador - Dep. Luís Eduardo Magalhães", "Bahia"),
         CEARA(6, "FOR", "Aeroporto Internacional Pinto Martins", "Ceará"),
-        DISTRITO_FEDERAL(7, "BSB", "Aeroporto Internacional Presidente Juscelino Kubitschek", "Distrito Federal"),
+//        DISTRITO_FEDERAL(7, "BSB", "Aeroporto Internacional Presidente Juscelino Kubitschek", "Distrito Federal"),
         ESPIRITO_SANTO(8, "VIX", "Aeroporto Eurico de Aguiar Salles", "Espírito Santo"),
         GOIAS(9, "GYN", "Aeroporto de Goiânia - Santa Genoveva", "Goiás"),
         MARANHAO(10, "SLZ", "Aeroporto Internacional de São Luís - Marechal Cunha Machado", "Maranhão"),
@@ -36,17 +36,17 @@ public class configInicial {
         MATO_GROSSO_DO_SUL(12, "CGR", "Aeroporto Internacional de Campo Grande", "Mato Grosso do Sul"),
         MINAS_GERAIS(13, "CNF", "Aeroporto Internacional de Belo Horizonte-Confins", "Minas Gerais"),
         PARA(14, "BEL", "Aeroporto Internacional de Belém", "Pará"),
-        PARAIBA(15, "BSB", "Aeroporto Presidente João Suassuna", "Paraíba"),
+//        PARAIBA(15, "BSB", "Aeroporto Presidente João Suassuna", "Paraíba"),
         PARANA(16, "CWB", "Aeroporto Internacional Afonso Pena", "Paraná"),
         PERNAMBUCO(17, "REC", "Aeroporto Internacional dos Guararapes Gilberto Freyre", "Pernambuco"),
-        PIAUI(18, "THE", "Aeroporto  de Teresina", "Piauí"),
+//        PIAUI(18, "THE", "Aeroporto  de Teresina", "Piauí"),
         RIO_DE_JANEIRO(19, "SDU", "Aeroporto Santos Dumont", "Rio de Janeiro"),
         RIO_GRANDE_DO_NORTE(20, "NAT", "Aeroporto Internacional de Natal", "Rio Grande do Norte"),
         RIO_GRANDE_DO_SUL(21, "POA", "Aeroporto Internacional Salgado Filho", "Rio Grande do Sul"),
-        RONDONIA(22, "PVH", "Aeroporto Internacional de Porto Velho - Gov. Jorge Teixeira de Oliveira", "Rondônia"),
+//        RONDONIA(22, "PVH", "Aeroporto Internacional de Porto Velho - Gov. Jorge Teixeira de Oliveira", "Rondônia"),
         SANTA_CATARINA(23, "FLN", "Aeroporto Internacional de Florianópolis", "Santa Catarina"),
-        SAO_PAULO(24, "GRU", "Aeroporto Internacional de Guarulhos", "São Paulo"),
-        TOCANTINS(25, "PMW", "Aeroporto de Palmas - Brigadeiro Lysias Rodrigues", "Tocantins");
+        SAO_PAULO(24, "GRU", "Aeroporto Internacional de Guarulhos", "São Paulo");
+//        TOCANTINS(25, "PMW", "Aeroporto de Palmas - Brigadeiro Lysias Rodrigues", "Tocantins");
 
         private final int id;
         private final String codigoIATA;
