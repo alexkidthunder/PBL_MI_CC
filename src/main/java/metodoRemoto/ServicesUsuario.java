@@ -6,10 +6,14 @@
 package metodoRemoto;
 
 import controller.auxSys;
+import java.net.MalformedURLException;
+import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import util.Vertice;
 
 /**
@@ -28,11 +32,25 @@ public class ServicesUsuario extends UnicastRemoteObject implements InterfServer
 
     @Override
     public ArrayList<Vertice> getCaminhos(String origem, String destino) throws RemoteException {
-        return auxsys.getGrafo().encontrarMenorCaminhoDijkstra(origem, origem);
+        try {
+            return auxsys.getPossiveisCaminhosCombinados(destino, origem);
+        } catch (NotBoundException ex) {
+            Logger.getLogger(ServicesUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(ServicesUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 
     @Override
-    public boolean comprarCaminhos(List<String> rotas) throws RemoteException {
+    public boolean comprarCaminhos(List<String> caminhos) throws RemoteException {
+        try {
+            return auxsys.comprarTrechos(caminhos);
+        } catch (NotBoundException ex) {
+            Logger.getLogger(ServicesUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(ServicesUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return false;
     }
 }

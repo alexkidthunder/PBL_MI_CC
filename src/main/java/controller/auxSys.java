@@ -14,6 +14,7 @@ import metodoRemoto.InterfServerToServer;
 import metodoRemoto.servidorRMI;
 import model.Caminho;
 import model.Concorrencia;
+import util.Aresta;
 import util.Vertice;
 
 /**
@@ -113,17 +114,44 @@ public class auxSys {
         semaforo.removerPermissaoCompanhia(companhia);
     }
 
-    public boolean comprarTrechos(List<String> idCidades, String companhia) {
-         if(semaforo.getPermissao().equalsIgnoreCase(companhia)){
-//            List<Aresta> arestasByIds = grafo.grafo.indentificarCaminhos(idCidades);
-//            
-//            for (Aresta arestasById : arestasByIds) {
-//                if(!arestasById.getPassagens().get(0).comprarPassagem()){
-//                    return false;
-//                }               
-//            }
-//            return true;
+    public boolean comprarTrechos(List<String> caminhos) throws NotBoundException, MalformedURLException, RemoteException {
+        if (!semaforo.qualquerSoliciatacao()) {
+            semaforo.setPermissao(companhiacontrollerServer.getInitServerNome());
+            InterfServerToServer lookupMethod = null;
+            InterfServerToServer lookupMethod2 = null;
+
+            try {
+                lookupMethod = companhiacontrollerServer.getserverUmLookupMethod();// Os caminhos do servidor Um         
+            } catch (NullPointerException e) {
+            }
+            try {
+                lookupMethod2 = companhiacontrollerServer.getserverDoisLookupMethod();// Os caminhos do servidor Dois
+            } catch (NullPointerException e) {
+            }
+//            try {
+//                List<Aresta> arestas = grafo.getVertices(lookupMethod, lookupMethod2);
+//                List<String> realizarCompra = emOutroServidorComprar.realizarCompraNosOutrosServidores(
+//                        companhiacontrollerServer.getServerUm(), companhiacontrollerServer.getServerDois(), arestas, companhiacontrollerServer.getInitServerNome());
+//                return comprarTrechos(realizarCompra, companhiacontrollerServer.getInitServerNome());
+//            } catch (NullPointerException e) {
+//                return false;
+//            } 
+        finally {
+                semaforo.removerPermissaoCompanhia(companhiacontrollerServer.getInitServerNome());
+            }
+
         }
         return false;
-    }  
+    }
+
+    public boolean comprarTrechos(List<String> aeroportos, String companhia) {
+//        if (semaforo.getPermissao().equalsIgnoreCase(companhia)) {
+//            ArrayList<ArrayList<Vertice>> arestasId = grafo.grafo.indentificarCaminhos(aeroportos);
+//            if (!arestasByIds.stream().noneMatch(arestasId -> (!arestasId.get(0).getBilhete().comprarPassagem()))) {
+//                return false;
+//            }
+//            return true;
+//        }
+        return false;
+    }
 }
