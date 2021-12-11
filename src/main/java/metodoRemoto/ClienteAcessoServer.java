@@ -44,11 +44,13 @@ public class ClienteAcessoServer {
      * @throws RemoteException
      */
     public InterfServerToServer lookupMethod() throws MalformedURLException, NotBoundException, RemoteException {
+        System.out.println("rmi://" + host + ":" + port + "/ServiceServer_" + nome);
         try {
-            return (InterfServerToServer) Naming.lookup("rmi://" + host + ":" + port + "/ServiceServer" + nome);
+            return (InterfServerToServer) Naming.lookup("rmi://" + host + ":" + port + "/ServiceServer_" + nome);
         } catch (ConnectException e) {
+//            System.err.println(e);
             System.err.println("Não foi possível fazer este procedimento no momento ou não teve a devida configuração"
-                    + " verifique os parâmetros.");
+                    + " verifique os parâmetros para "+nome);
         }
         return null;
     }

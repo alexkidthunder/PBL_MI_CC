@@ -8,8 +8,9 @@ package metodoRemoto;
 import controller.auxSys;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 import java.util.List;
-import model.Caminho;
+import util.Vertice;
 
 /**
  * Classe das funções principais que o Usuário tem no sistema.
@@ -26,8 +27,8 @@ public class ServicesUsuario extends UnicastRemoteObject implements InterfServer
     }
 
     @Override
-    public Caminho getCaminhos(String origem, String destino) throws RemoteException {
-        return null;
+    public ArrayList<Vertice> getCaminhos(String origem, String destino) throws RemoteException {
+        return auxsys.getGrafo().encontrarMenorCaminhoDijkstra(origem, origem);
     }
 
     @Override

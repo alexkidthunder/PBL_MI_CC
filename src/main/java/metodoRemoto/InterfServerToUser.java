@@ -7,8 +7,9 @@ package metodoRemoto;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.List;
-import model.Caminho;
+import util.Vertice;
 
 /**
  *
@@ -16,7 +17,7 @@ import model.Caminho;
  */
 public interface InterfServerToUser extends Remote {
 
-    public Caminho getCaminhos(String origem, String destino) throws RemoteException;
+    public ArrayList<Vertice> getCaminhos(String origem, String destino) throws RemoteException;
 
     public boolean comprarCaminhos(List<String> rotas) throws RemoteException;
 

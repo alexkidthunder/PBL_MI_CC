@@ -35,11 +35,12 @@ public class servidorRMI {
 
             ServicesServer InterServers = new ServicesServer(companhia);
             //método vincula o nome da companhia com o objeto remoto
-            Naming.rebind("ServiceServer" + companhia, (Remote) InterServers);
+            Naming.rebind("ServiceServer_" + companhia, (Remote) InterServers);
+            System.out.println("Foi realizado o bind no registro entre os servidore com sucesso...");
 
             ServicesUsuario user = new ServicesUsuario();
-            Naming.rebind("ServiceUser" + companhia, (Remote) user);
-            System.out.println("Foi realizado o bind no registro com sucesso.");
+            Naming.rebind("UserService_" + companhia, (Remote) user);
+            System.out.println("Foi realizado o bind para os clientes no registro com sucesso...");
 
             System.out.println("O servidor da companhia " + companhia + " está pronto para trocar informações.");
 

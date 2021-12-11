@@ -44,8 +44,8 @@ public class ServicesServer extends UnicastRemoteObject implements InterfServerT
     public boolean solicitacaoComprarCaminho(String companhia) throws RemoteException {
         Condition myCondition = lock.newCondition();
         try {
-            //condição de acesso para esse método = 30 segundos
-            myCondition.await(30000L, TimeUnit.MILLISECONDS);
+            //condição de acesso para esse método = 10 segundos
+            myCondition.await(10000L, TimeUnit.MILLISECONDS);
             synchronized (this) {
                 if (!auxsys.alguemQuer()) {
                     auxsys.setPermissao(companhia);

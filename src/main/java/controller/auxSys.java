@@ -14,7 +14,6 @@ import metodoRemoto.InterfServerToServer;
 import metodoRemoto.servidorRMI;
 import model.Caminho;
 import model.Concorrencia;
-import util.Aresta;
 import util.Vertice;
 
 /**
@@ -50,6 +49,7 @@ public class auxSys {
      */
     public void initServer(String servidor) throws MalformedURLException {
         List<Caminho> caminho = companhiacontrollerServer.PegarInformacoesServidores(servidor);
+        //System.out.println(caminho.size());
         servidorRMI = new servidorRMI(companhiacontrollerServer.getInitServerNome(),
                 companhiacontrollerServer.getInitServerHost(),
                 companhiacontrollerServer.getInitServerPorta());

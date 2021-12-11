@@ -112,21 +112,24 @@ public class CompanhiaControllerServer {
     public List<Caminho> PegarInformacoesServidores(String server) {
         switch (server) {
             case "AZUL":
+                initServer = configInicial.Servidores.AZUL;
                 serverUm = new ClienteAcessoServer(GOL.getIphost(), GOL.getNomeCompanhia(), GOL.getPorta());
                 serverDois = new ClienteAcessoServer(TAM.getIphost(), TAM.getNomeCompanhia(), TAM.getPorta());
-                initServer = configInicial.Servidores.AZUL;
+
                 return configInicial.getCaminhosAzul();
 
             case "GOL":
+                initServer = configInicial.Servidores.GOL;
                 serverUm = new ClienteAcessoServer(AZUL.getIphost(), AZUL.getNomeCompanhia(), AZUL.getPorta());
                 serverDois = new ClienteAcessoServer(TAM.getIphost(), TAM.getNomeCompanhia(), TAM.getPorta());
-                initServer = configInicial.Servidores.GOL;
+
                 return configInicial.getCaminhosGol();
 
             case "TAM":
+                initServer = configInicial.Servidores.TAM;
                 serverUm = new ClienteAcessoServer(GOL.getIphost(), GOL.getNomeCompanhia(), GOL.getPorta());
                 serverDois = new ClienteAcessoServer(AZUL.getIphost(), AZUL.getNomeCompanhia(), AZUL.getPorta());
-                initServer = configInicial.Servidores.TAM;
+
                 return configInicial.getCaminhosTam();
 
             default:
