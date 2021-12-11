@@ -172,7 +172,7 @@ public class ClientView extends javax.swing.JFrame {
             // Pegar informações da companhia AZUL
             adder ad = (adder) reg.lookup("Registro 1");
             array.addAll(ad.add("AZUL"));
-            cont.pegarInformações(array);
+          //  cont.pegarInformações(array);
 
 //             Pegar informações da companhia GOL
             adder a2 = (adder) re.lookup("Registro 2");
@@ -211,11 +211,39 @@ public class ClientView extends javax.swing.JFrame {
 //        System.out.println(cont.grafo.acharVertice(destino));
 //        System.out.println(cont.grafo.acharAresta(cont.grafo.acharVertice(origem), cont.grafo.acharVertice(destino)));
 //        ares.add(a);
+        //Azul
+        ArrayList<Aresta> listaAresta = new ArrayList();
+        listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Bahia"), cont.grafo.acharVertice("Pernambuco")));
+        cont.grafo.acharAresta(cont.grafo.acharVertice("Pernambuco"), cont.grafo.acharVertice("Ceará"));
+        cont.grafo.acharAresta(cont.grafo.acharVertice("Ceará"), cont.grafo.acharVertice("Maranhão"));
+        cont.grafo.acharAresta(cont.grafo.acharVertice("Minas Gerais"), cont.grafo.acharVertice("Rio de Janeiro"));
+        cont.grafo.acharAresta(cont.grafo.acharVertice("Goiás"), cont.grafo.acharVertice("Mato Grosso do Sul"));
+        cont.grafo.acharAresta(cont.grafo.acharVertice("Mato Grosso do Sul"), cont.grafo.acharVertice("São Paulo"));
+         
+        //Tam
+        cont.grafo.acharAresta(cont.grafo.acharVertice("Rio Grande do Norte"), cont.grafo.acharVertice("Pernambuco"));
+        cont.grafo.acharAresta(cont.grafo.acharVertice("Pará"), cont.grafo.acharVertice("Ceará"));
+        cont.grafo.acharAresta(cont.grafo.acharVertice("Minas Gerais"), cont.grafo.acharVertice("Espírito Santo"));
+        cont.grafo.acharAresta(cont.grafo.acharVertice("Minas Gerais"), cont.grafo.acharVertice("Goiás"));
+        cont.grafo.acharAresta(cont.grafo.acharVertice("Goiás"), cont.grafo.acharVertice("Mato Grosso"));
+        cont.grafo.acharAresta(cont.grafo.acharVertice("São Paulo"), cont.grafo.acharVertice("Pará"));
+        //Gol
+        cont.grafo.acharAresta(cont.grafo.acharVertice("Bahia"), cont.grafo.acharVertice("Rio Grande do Norte"));
+        cont.grafo.acharAresta(cont.grafo.acharVertice("Rio Grande do Norte"), cont.grafo.acharVertice("Maranhão"));
+        cont.grafo.acharAresta(cont.grafo.acharVertice("Maranhão"), cont.grafo.acharVertice("Pará"));
+        cont.grafo.acharAresta(cont.grafo.acharVertice("Bahia"), cont.grafo.acharVertice("Minas Gerais"));
+        cont.grafo.acharAresta(cont.grafo.acharVertice("Minas Gerais"), cont.grafo.acharVertice("São Paulo"));
+        cont.grafo.acharAresta(cont.grafo.acharVertice("São Paulo"), cont.grafo.acharVertice("Rio de Janeiro"));
+        cont.grafo.acharAresta(cont.grafo.acharVertice("Santa Catarina"), cont.grafo.acharVertice("Pará"));
+        cont.grafo.acharAresta(cont.grafo.acharVertice("Pará"), cont.grafo.acharVertice("Mato Grosso do Sul"));
 
-        Aresta aux1 = cont.grafo.acharAresta(cont.grafo.acharVertice("Bahia"), cont.grafo.acharVertice("Pernambuco"));
-        Aresta aux2 = cont.grafo.acharAresta(cont.grafo.acharVertice("Pernambuco"), cont.grafo.acharVertice("Ceará"));
-        Aresta aux3 = cont.grafo.acharAresta(cont.grafo.acharVertice("Bahia"), cont.grafo.acharVertice("Pernambuco"));
-        Aresta aux4 = cont.grafo.acharAresta(cont.grafo.acharVertice("Pernambuco"), cont.grafo.acharVertice("Ceará"));
+        
+
+        
+
+
+
+        
 //        System.out.println(aux1);
 //        System.out.println(aux1.getBilhete().getPrecoBilhete());
 //        System.out.println(aux2);
@@ -224,7 +252,7 @@ public class ClientView extends javax.swing.JFrame {
 //        System.out.println(aux3);
 //        Float aux;
 
-        ArrayList<ArrayList<Vertice>> arestas = cont.grafo.indentificarCaminhos(origem);
+       ArrayList<ArrayList<Vertice>> arestas = cont.grafo.indentificarCaminhos(origem);
 
         //aux = aux + " - " + ares.get(0).toString();
 //        for(int i = 0; i < vertice.size(); i ++){
