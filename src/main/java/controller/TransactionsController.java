@@ -22,6 +22,18 @@ import util.Aresta;
  */
 public class TransactionsController {
 
+    /**
+     * Função de realizar compra em outro servidor.
+     *
+     * @param serverUm
+     * @param serverDois
+     * @param arestas
+     * @param companhia
+     * @return
+     * @throws MalformedURLException
+     * @throws NotBoundException
+     * @throws RemoteException
+     */
     public List<String> realizarCompraNosOutrosServidores(ClienteAcessoServer serverUm, ClienteAcessoServer serverDois,
             List<Aresta> arestas, String companhia) throws MalformedURLException, NotBoundException, RemoteException {
 

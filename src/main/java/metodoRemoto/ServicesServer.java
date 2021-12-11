@@ -28,6 +28,12 @@ public class ServicesServer extends UnicastRemoteObject implements InterfServerT
     private final Lock lock;
     private final auxSys auxsys;
 
+    /**
+     * Construtor da classe ServicesServer
+     *
+     * @param companhia
+     * @throws RemoteException
+     */
     public ServicesServer(String companhia) throws RemoteException {
         super();
         this.companhia = companhia;
@@ -35,11 +41,24 @@ public class ServicesServer extends UnicastRemoteObject implements InterfServerT
         lock = new ReentrantLock();//trava para garantir a exclusão mutua
     }
 
+    /**
+     * Função que retorna o g´afo
+     *
+     * @return
+     * @throws RemoteException
+     */
     @Override
     public GrafoController getGrafoCompanhia() throws RemoteException {
         return auxsys.getGrafo();
     }
 
+    /**
+     * Função que faz solicita a compra do caminho da companhia passada
+     *
+     * @param companhia
+     * @return
+     * @throws RemoteException
+     */
     @Override
     public boolean solicitacaoComprarCaminho(String companhia) throws RemoteException {
         Condition myCondition = lock.newCondition();
@@ -60,29 +79,51 @@ public class ServicesServer extends UnicastRemoteObject implements InterfServerT
         return false;
     }
 
+    /**
+     * Função de confirmação de comprar o caminho na companhia.
+     *
+     * @param idCidades
+     * @param companhia
+     * @return
+     * @throws RemoteException
+     */
     @Override
     public boolean comprarCaminhoCompanhia(List<String> idCidades, String companhia) throws RemoteException {
 
-        return auxsys.comprarTrechos(idCidades, companhia);
+        return auxsys.comprarCaminhos(idCidades, companhia);
     }
 
-//    @Override
-//    public List<Caminho> add(String texto) throws RemoteException {
-//        //return auxsys.initServer(texto);
-//    }
+    /**
+     *
+     * @param texto
+     * @return
+     * @throws RemoteException
+     */
     @Override
     public List<Caminho> add(String texto) throws RemoteException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (List<Caminho>) auxsys.getGrafo();
     }
 
+    /**
+     * Função que retorna o nome da companhia.
+     *
+     * @return
+     * @throws RemoteException
+     */
     @Override
     public String getNomeCompanhia() throws RemoteException {
         return companhia;
     }
 
+    /**
+     * Função que lida com a permissão da concorrência.
+     *
+     * @param companhia
+     * @throws RemoteException
+     */
     @Override
     public void semaforoPermis(String companhia) throws RemoteException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        auxsys.removePermissao(companhia);
     }
 
 }

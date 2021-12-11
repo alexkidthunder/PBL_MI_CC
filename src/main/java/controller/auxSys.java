@@ -18,6 +18,7 @@ import util.Aresta;
 import util.Vertice;
 
 /**
+ * Classe auxiliar para realização das funções internas do sistema.
  *
  * @author ribei
  */
@@ -31,6 +32,9 @@ public class auxSys {
 
     private static auxSys aux;
 
+    /**
+     * Construtor da classe auxiliar
+     */
     public auxSys() {
         this.companhiacontrollerServer = new CompanhiaControllerServer();
         grafo = new GrafoController();
@@ -72,6 +76,9 @@ public class auxSys {
      * @param inicio
      * @param fim
      * @return
+     * @throws java.rmi.NotBoundException
+     * @throws java.net.MalformedURLException
+     * @throws java.rmi.RemoteException
      */
     public ArrayList<Vertice> getPossiveisCaminhosCombinados(String inicio, String fim) throws NotBoundException, MalformedURLException, RemoteException {
         InterfServerToServer lookupMethod = null;
@@ -97,7 +104,7 @@ public class auxSys {
     }
 
     /**
-     * checa se algum dos três servidores tem interesse em fazer a compra no
+     * Checa se algum dos três servidores tem interesse em fazer a compra no
      * momento
      *
      * @return
@@ -106,15 +113,34 @@ public class auxSys {
         return semaforo.qualquerSoliciatacao();
     }
 
+    /**
+     * Configura a permissão daquela campanhia que é passada como parâmetro.
+     *
+     * @param companhia
+     */
     public void setPermissao(String companhia) {
         semaforo.setPermissao(companhia);
     }
 
+    /**
+     * Função que faz a remoção da permissão da companhia passada
+     *
+     * @param companhia
+     */
     public void removePermissao(String companhia) {
         semaforo.removerPermissaoCompanhia(companhia);
     }
 
-    public boolean comprarTrechos(List<String> caminhos) throws NotBoundException, MalformedURLException, RemoteException {
+    /**
+     * Função que compra os caminhos passando a lista dos caminhos selecionados.
+     *
+     * @param caminhos
+     * @return
+     * @throws NotBoundException
+     * @throws MalformedURLException
+     * @throws RemoteException
+     */
+    public boolean comprarCaminhos(List<String> caminhos) throws NotBoundException, MalformedURLException, RemoteException {
         if (!semaforo.qualquerSoliciatacao()) {
             semaforo.setPermissao(companhiacontrollerServer.getInitServerNome());
             InterfServerToServer lookupMethod = null;
@@ -127,16 +153,15 @@ public class auxSys {
             try {
                 lookupMethod2 = companhiacontrollerServer.getserverDoisLookupMethod();// Os caminhos do servidor Dois
             } catch (NullPointerException e) {
-            }
-//            try {
-//                List<Aresta> arestas = grafo.getVertices(lookupMethod, lookupMethod2);
-//                List<String> realizarCompra = emOutroServidorComprar.realizarCompraNosOutrosServidores(
-//                        companhiacontrollerServer.getServerUm(), companhiacontrollerServer.getServerDois(), arestas, companhiacontrollerServer.getInitServerNome());
-//                return comprarTrechos(realizarCompra, companhiacontrollerServer.getInitServerNome());
-//            } catch (NullPointerException e) {
-//                return false;
-//            } 
-        finally {
+            } //            try {
+            //                List<Aresta> arestas = grafo.getVertices(lookupMethod, lookupMethod2);
+            //                List<String> realizarCompra = emOutroServidorComprar.realizarCompraNosOutrosServidores(
+            //                        companhiacontrollerServer.getServerUm(), companhiacontrollerServer.getServerDois(), arestas, companhiacontrollerServer.getInitServerNome());
+            //                return comprarCaminhos(realizarCompra, companhiacontrollerServer.getInitServerNome());
+            //            } catch (NullPointerException e) {
+            //                return false;
+            //            } 
+            finally {
                 semaforo.removerPermissaoCompanhia(companhiacontrollerServer.getInitServerNome());
             }
 
@@ -144,7 +169,15 @@ public class auxSys {
         return false;
     }
 
-    public boolean comprarTrechos(List<String> aeroportos, String companhia) {
+    /**
+     * Função que compra os caminhos passando a a identificação do aeroporto e a
+     * companhia
+     *
+     * @param aeroportos
+     * @param companhia
+     * @return
+     */
+    public boolean comprarCaminhos(List<String> aeroportos, String companhia) {
 //        if (semaforo.getPermissao().equalsIgnoreCase(companhia)) {
 //            ArrayList<ArrayList<Vertice>> arestasId = grafo.grafo.indentificarCaminhos(aeroportos);
 //            if (!arestasByIds.stream().noneMatch(arestasId -> (!arestasId.get(0).getBilhete().comprarPassagem()))) {

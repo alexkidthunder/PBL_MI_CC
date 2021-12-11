@@ -24,13 +24,14 @@ public class GrafoController {
     public CompanhiaControllerServer servers;
 
     /**
-     *
+     * Construtor da classe GrafoController
      */
     public GrafoController() {
         this.grafo = new Grafo();
     }
 
     /**
+     * Função que adiciona um vertice no gráfico passando como parâmetros:
      *
      * @param nome
      * @param aeroporto
@@ -41,10 +42,12 @@ public class GrafoController {
     }
 
     /**
+     * Função que adiciona uma aresta, passando como parâmetros os:
      *
      * @param peso
      * @param v1
      * @param v2
+     * @param company
      */
     public void addAresta(float peso, String v1, String v2, String company) {
         this.grafo.addAresta(peso, v1, v2, company);
@@ -52,6 +55,7 @@ public class GrafoController {
     }
 
     /**
+     * Função que encontrar o Menor Caminho usando Dijkstra
      *
      * @param ve1
      * @param ve2
@@ -62,6 +66,7 @@ public class GrafoController {
     }
 
     /**
+     * Função que remove os vértices e arestas conectadas.
      *
      * @param nome
      */
@@ -70,6 +75,7 @@ public class GrafoController {
     }
 
     /**
+     * Função que identifica o menor caminho no grafo.
      *
      * @param v1
      * @return ArrayList
@@ -79,8 +85,9 @@ public class GrafoController {
     }
 
     /**
-     * Função para popular o grafo
+     * Função para popular o grafo.
      *
+     * @param caminho
      * @return
      */
     public Grafo pegarInformações(List<Caminho> caminho) {
@@ -92,7 +99,7 @@ public class GrafoController {
         }
 
         for (int i = 0; i < caminho.size(); i++) {
-            this.addAresta(caminho.get(i).getPrecoBilhete(), caminho.get(i).getOrigem(), 
+            this.addAresta(caminho.get(i).getPrecoBilhete(), caminho.get(i).getOrigem(),
                     caminho.get(i).getDestino(), caminho.get(i).getCompanhiAerea());
         }
 //        System.out.println(grafoC.grafo.getArestas().size());
@@ -102,27 +109,34 @@ public class GrafoController {
         //System.out.println(grafo.encontrarMenorCaminhoDijkstra("Bahia", "Ceará"));
         //grafo.getArestas().get(0).getBilhete().comprarPassagem();
         //System.out.println(grafo.getArestas().get(0).getBilhete().getTotalVagas());
-        
 
         return grafo;
     }
 
-    public ArrayList<ArrayList<String>> getMenoresCaminhosParaGUI(String ve1){
+    /**
+     * Função que pega o Menore Caminhos
+     *
+     * @param ve1
+     * @return
+     */
+    public ArrayList<ArrayList<String>> getMenoresCaminhosParaGUI(String ve1) {
         ArrayList<ArrayList<String>> caminhos = new ArrayList();
         ArrayList<ArrayList<Vertice>> caminhosVertices = this.grafo.indentificarCaminhos(ve1);
         for (int i = 0; i < caminhosVertices.size(); i++) {
-            if(caminhosVertices.get(i)!=null){
+            if (caminhosVertices.get(i) != null) {
                 ArrayList<String> novoCaminho = new ArrayList();
-                    for (int j = 0; j < caminhosVertices.get(i).size(); j++) {
-                        novoCaminho.add(caminhosVertices.get(i).get(j).getNome());
-                    }
-                    caminhos.add(novoCaminho);
-                
+                for (int j = 0; j < caminhosVertices.get(i).size(); j++) {
+                    novoCaminho.add(caminhosVertices.get(i).get(j).getNome());
+                }
+                caminhos.add(novoCaminho);
+
             }
         }
         return caminhos;
     }
+
     /**
+     * Função main da classe GrafoController, para testar
      *
      * @param args
      */
