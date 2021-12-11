@@ -172,7 +172,6 @@ public class ClientView extends javax.swing.JFrame {
             // Pegar informações da companhia AZUL
             adder ad = (adder) reg.lookup("Registro 1");
             array.addAll(ad.add("AZUL"));
-          //  cont.pegarInformações(array);
 
 //             Pegar informações da companhia GOL
             adder a2 = (adder) re.lookup("Registro 2");
@@ -183,6 +182,8 @@ public class ClientView extends javax.swing.JFrame {
             adder a3 = (adder) r.lookup("Registro 3");
             array.addAll(ad.add("TAM"));
             System.out.println("addition 1:" + a3.add("TAM").get(0).getPrecoBilhete());
+            cont.pegarInformações(array);
+
             System.out.println(cont.grafo.getArestas());
 
             for (int i = 0; i < cont.grafo.getVertices().size(); i++) {
