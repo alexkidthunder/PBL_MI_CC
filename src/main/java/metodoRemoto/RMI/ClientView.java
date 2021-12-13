@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import metodoRemoto.RMI.adder;
 import model.Caminho;
 import util.Aresta;
@@ -118,10 +119,10 @@ public class ClientView extends javax.swing.JFrame {
 
         jScrollPane3.setViewportView(jList3);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 293, 60));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 293, 70));
 
         jLabel5.setText("ROTAS ADICIONADAS");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, 114, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 114, -1));
 
         jButton3.setText("Adicionar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -129,7 +130,7 @@ public class ClientView extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 275, -1, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 150, -1));
 
         jButton4.setText("Nova passagem");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -137,7 +138,7 @@ public class ClientView extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 380, -1, 39));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 390, 190, 39));
 
         jButton5.setText("Comprar");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -145,14 +146,14 @@ public class ClientView extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, -1, -1));
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 440, -1, -1));
 
         jScrollPane4.setViewportView(jList4);
 
-        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 220, 50));
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 230, 60));
 
         jLabel6.setText("SUGESTÃO DE CAMINHO MAIS BARATO");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, 200, 30));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, 220, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -280,35 +281,12 @@ public class ClientView extends javax.swing.JFrame {
 
         }
         
-        cont.grafo.acharAresta(cont.grafo.acharVertice("Ceará"), cont.grafo.acharVertice("Maranhão"));
-        cont.grafo.acharAresta(cont.grafo.acharVertice("Minas Gerais"), cont.grafo.acharVertice("Rio de Janeiro"));
-        cont.grafo.acharAresta(cont.grafo.acharVertice("Goiás"), cont.grafo.acharVertice("Mato Grosso do Sul"));
-        cont.grafo.acharAresta(cont.grafo.acharVertice("Mato Grosso do Sul"), cont.grafo.acharVertice("São Paulo"));
-        
-        //Tam
-        cont.grafo.acharAresta(cont.grafo.acharVertice("Rio Grande do Norte"), cont.grafo.acharVertice("Pernambuco"));
-        cont.grafo.acharAresta(cont.grafo.acharVertice("Pará"), cont.grafo.acharVertice("Ceará"));
-        cont.grafo.acharAresta(cont.grafo.acharVertice("Minas Gerais"), cont.grafo.acharVertice("Espírito Santo"));
-        cont.grafo.acharAresta(cont.grafo.acharVertice("Minas Gerais"), cont.grafo.acharVertice("Goiás"));
-        cont.grafo.acharAresta(cont.grafo.acharVertice("Goiás"), cont.grafo.acharVertice("Mato Grosso"));
-        cont.grafo.acharAresta(cont.grafo.acharVertice("São Paulo"), cont.grafo.acharVertice("Pará"));
-        //Gol
-        cont.grafo.acharAresta(cont.grafo.acharVertice("Bahia"), cont.grafo.acharVertice("Rio Grande do Norte"));
-        cont.grafo.acharAresta(cont.grafo.acharVertice("Rio Grande do Norte"), cont.grafo.acharVertice("Maranhão"));
-        cont.grafo.acharAresta(cont.grafo.acharVertice("Maranhão"), cont.grafo.acharVertice("Pará"));
-        cont.grafo.acharAresta(cont.grafo.acharVertice("Bahia"), cont.grafo.acharVertice("Minas Gerais"));
-        cont.grafo.acharAresta(cont.grafo.acharVertice("Minas Gerais"), cont.grafo.acharVertice("São Paulo"));
-        cont.grafo.acharAresta(cont.grafo.acharVertice("São Paulo"), cont.grafo.acharVertice("Rio de Janeiro"));
-        cont.grafo.acharAresta(cont.grafo.acharVertice("Santa Catarina"), cont.grafo.acharVertice("Pará"));
-        cont.grafo.acharAresta(cont.grafo.acharVertice("Pará"), cont.grafo.acharVertice("Mato Grosso do Sul"));
-        
- 
-
         for (int i = 0; i < listaAresta.size(); i++) {
             String aux = listaAresta.get(i).getV1().getNome() + " -> " + listaAresta.get(i).getV2().getNome()+ "  Preço: $"+ listaAresta.get(i).getBilhete().getPrecoBilhete();
             model2.addElement(aux );
             jList2.setModel(model2);
         }
+       
         String aux = "";
         for(int i = 0; i < vertice.size(); i ++){
             aux = aux + " - " + vertice.get(i).getNome();
@@ -321,13 +299,23 @@ public class ClientView extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         Object sel =null;
-        int[] selectedIx = this.jList2.getSelectedIndices();
-        for (int i = 0; i < selectedIx.length; i++) {
-            sel = jList2.getModel().getElementAt(selectedIx[i]);
+        for (int i = 0; i < listaAresta.size(); i++) {
+            if (listaAresta.get(i).getBilhete().getTotalVagas() == 0){
+               JOptionPane.showMessageDialog(rootPane, "Não tem vagas disponíveis");
+               break;
+            }
+            else{
+                int[] selectedIx = this.jList2.getSelectedIndices();
+                for (int j = 0; j < selectedIx.length; j++) {
+                    sel = jList2.getModel().getElementAt(selectedIx[j]);
+                }
+                String aux = sel.toString();
+                model3.addElement(aux );
+                jList3.setModel(model3);
+                break;
+            }
         }
-        String aux = sel.toString();
-        model3.addElement(aux );
-        jList3.setModel(model3);
+      
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -341,8 +329,9 @@ public class ClientView extends javax.swing.JFrame {
             model4.clear();
             jList4.setModel(model4);
         }
-          jTextField1.setText("");
-          jTextField2.setText("");
+        listaAresta.clear();
+        jTextField1.setText("");
+        jTextField2.setText("");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -355,8 +344,9 @@ public class ClientView extends javax.swing.JFrame {
             model4.clear();
             jList4.setModel(model4);
         }
-          jTextField1.setText("");
-          jTextField2.setText("");
+        listaAresta.clear();
+        jTextField1.setText("");
+        jTextField2.setText("");
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
