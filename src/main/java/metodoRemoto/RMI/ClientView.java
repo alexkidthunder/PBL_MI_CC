@@ -328,6 +328,8 @@ public class ClientView extends javax.swing.JFrame {
         }
         jTextField1.setText("");
         jTextField2.setText("");
+        listaAresta.clear();
+        somaPreco = 0;
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
