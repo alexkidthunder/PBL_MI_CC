@@ -28,6 +28,8 @@ public class ClientView extends javax.swing.JFrame {
     GrafoController cont = new GrafoController();
     DefaultListModel<String> model = new DefaultListModel<>();
     DefaultListModel<String> model2 = new DefaultListModel<>();
+    List<Caminho> array = new ArrayList<Caminho>();
+
 
     /**
      * Creates new form ClientView
@@ -167,7 +169,6 @@ public class ClientView extends javax.swing.JFrame {
             Registry re = LocateRegistry.getRegistry("localhost", 4445);
             Registry r = LocateRegistry.getRegistry("localhost", 4446);
 
-            List<Caminho> array = new ArrayList<Caminho>();
 
             // Pegar informações da companhia AZUL
             adder ad = (adder) reg.lookup("Registro 1");
@@ -206,6 +207,7 @@ public class ClientView extends javax.swing.JFrame {
         String origem = jTextField1.getText();
         String destino = jTextField2.getText();
         ArrayList<Vertice> vertice = cont.encontrarMenorCaminhoDijkstra(origem, destino);
+        
 //        ArrayList<Aresta> ares = null;
 //        Aresta  a = cont.grafo.acharAresta(cont.grafo.acharVertice(origem), cont.grafo.acharVertice(destino));
 //        System.out.println(cont.grafo.acharVertice(origem));
@@ -214,13 +216,17 @@ public class ClientView extends javax.swing.JFrame {
 //        ares.add(a);
         //Azul
         ArrayList<Aresta> listaAresta = new ArrayList();
-        listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Bahia"), cont.grafo.acharVertice("Pernambuco")));
-        cont.grafo.acharAresta(cont.grafo.acharVertice("Pernambuco"), cont.grafo.acharVertice("Ceará"));
+        if(origem.equals("Bahia") ){
+            listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Bahia"), cont.grafo.acharVertice("Pernambuco")));
+            listaAresta.get(0).getBilhete().comprarPassagem();
+            System.out.println( listaAresta.get(0).getBilhete().getTotalVagas());
+            listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Pernambuco"), cont.grafo.acharVertice("Ceará")));
+        }
         cont.grafo.acharAresta(cont.grafo.acharVertice("Ceará"), cont.grafo.acharVertice("Maranhão"));
         cont.grafo.acharAresta(cont.grafo.acharVertice("Minas Gerais"), cont.grafo.acharVertice("Rio de Janeiro"));
         cont.grafo.acharAresta(cont.grafo.acharVertice("Goiás"), cont.grafo.acharVertice("Mato Grosso do Sul"));
         cont.grafo.acharAresta(cont.grafo.acharVertice("Mato Grosso do Sul"), cont.grafo.acharVertice("São Paulo"));
-         
+        
         //Tam
         cont.grafo.acharAresta(cont.grafo.acharVertice("Rio Grande do Norte"), cont.grafo.acharVertice("Pernambuco"));
         cont.grafo.acharAresta(cont.grafo.acharVertice("Pará"), cont.grafo.acharVertice("Ceará"));
@@ -237,13 +243,19 @@ public class ClientView extends javax.swing.JFrame {
         cont.grafo.acharAresta(cont.grafo.acharVertice("São Paulo"), cont.grafo.acharVertice("Rio de Janeiro"));
         cont.grafo.acharAresta(cont.grafo.acharVertice("Santa Catarina"), cont.grafo.acharVertice("Pará"));
         cont.grafo.acharAresta(cont.grafo.acharVertice("Pará"), cont.grafo.acharVertice("Mato Grosso do Sul"));
-
+        
+         
+//        for(int i = 0; i < vertice.size() ; i++ ){
+//            Vertice aux =  vertice.get(i);
+//            listaAresta.add(cont.grafo.acharAresta(vertice.get(i), vertice.get(i)));
+//        }
+        
+        
+        
+        
         
 
         
-
-
-
         
 //        System.out.println(aux1);
 //        System.out.println(aux1.getBilhete().getPrecoBilhete());
@@ -269,8 +281,11 @@ public class ClientView extends javax.swing.JFrame {
 //            }
 //
 //        }
-        model2.addElement(arestas.toString());
-        jList2.setModel(model2);
+        for (int i = 0; i < listaAresta.size(); i++) {
+            String aux = listaAresta.get(i).getV1().getNome() + " -> " + listaAresta.get(i).getV2().getNome()+ "  Preço: $"+ listaAresta.get(i).getBilhete().getPrecoBilhete();
+            model2.addElement(aux );
+            jList2.setModel(model2);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
