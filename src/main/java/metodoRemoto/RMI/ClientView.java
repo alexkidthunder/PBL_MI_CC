@@ -266,28 +266,6 @@ public class ClientView extends javax.swing.JFrame {
 
         }
 
-        cont.grafo.acharAresta(cont.grafo.acharVertice("Ceará"), cont.grafo.acharVertice("Maranhão"));
-        cont.grafo.acharAresta(cont.grafo.acharVertice("Minas Gerais"), cont.grafo.acharVertice("Rio de Janeiro"));
-        cont.grafo.acharAresta(cont.grafo.acharVertice("Goiás"), cont.grafo.acharVertice("Mato Grosso do Sul"));
-        cont.grafo.acharAresta(cont.grafo.acharVertice("Mato Grosso do Sul"), cont.grafo.acharVertice("São Paulo"));
-
-        //Tam
-        cont.grafo.acharAresta(cont.grafo.acharVertice("Rio Grande do Norte"), cont.grafo.acharVertice("Pernambuco"));
-        cont.grafo.acharAresta(cont.grafo.acharVertice("Pará"), cont.grafo.acharVertice("Ceará"));
-        cont.grafo.acharAresta(cont.grafo.acharVertice("Minas Gerais"), cont.grafo.acharVertice("Espírito Santo"));
-        cont.grafo.acharAresta(cont.grafo.acharVertice("Minas Gerais"), cont.grafo.acharVertice("Goiás"));
-        cont.grafo.acharAresta(cont.grafo.acharVertice("Goiás"), cont.grafo.acharVertice("Mato Grosso"));
-        cont.grafo.acharAresta(cont.grafo.acharVertice("São Paulo"), cont.grafo.acharVertice("Pará"));
-        //Gol
-        cont.grafo.acharAresta(cont.grafo.acharVertice("Bahia"), cont.grafo.acharVertice("Rio Grande do Norte"));
-        cont.grafo.acharAresta(cont.grafo.acharVertice("Rio Grande do Norte"), cont.grafo.acharVertice("Maranhão"));
-        cont.grafo.acharAresta(cont.grafo.acharVertice("Maranhão"), cont.grafo.acharVertice("Pará"));
-        cont.grafo.acharAresta(cont.grafo.acharVertice("Bahia"), cont.grafo.acharVertice("Minas Gerais"));
-        cont.grafo.acharAresta(cont.grafo.acharVertice("Minas Gerais"), cont.grafo.acharVertice("São Paulo"));
-        cont.grafo.acharAresta(cont.grafo.acharVertice("São Paulo"), cont.grafo.acharVertice("Rio de Janeiro"));
-        cont.grafo.acharAresta(cont.grafo.acharVertice("Santa Catarina"), cont.grafo.acharVertice("Pará"));
-        cont.grafo.acharAresta(cont.grafo.acharVertice("Pará"), cont.grafo.acharVertice("Mato Grosso do Sul"));
-
         for (int i = 0; i < listaAresta.size(); i++) {
             String aux = listaAresta.get(i).getV1().getNome() + " -> " + listaAresta.get(i).getV2().getNome() + "  Preço: $" + listaAresta.get(i).getBilhete().getPrecoBilhete();
             somaPreco += listaAresta.get(i).getBilhete().getPrecoBilhete(); // Soma os valores das Arestas
@@ -344,6 +322,7 @@ public class ClientView extends javax.swing.JFrame {
         }
         jTextField1.setText("");
         jTextField2.setText("");
+        listaAresta.clear();
         String aux = "O preço total ficou: R$ " + somaPreco;
         model3.addElement(aux);
         jList3.setModel(model3);
