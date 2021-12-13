@@ -32,7 +32,7 @@ public class ClientView extends javax.swing.JFrame {
     DefaultListModel<String> model4 = new DefaultListModel<>();
     List<Caminho> array = new ArrayList<Caminho>();
     ArrayList<Aresta> listaAresta = new ArrayList();
-    float somaPreco = 0;
+    public float somaPreco = 0;
 
     /**
      * Creates new form ClientView
@@ -276,6 +276,8 @@ public class ClientView extends javax.swing.JFrame {
         }
         jTextField1.setText("");
         jTextField2.setText("");
+        listaAresta.clear();
+        somaPreco = 0;
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
