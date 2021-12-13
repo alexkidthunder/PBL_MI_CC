@@ -278,6 +278,8 @@ public class ClientView extends javax.swing.JFrame {
             jList2.setModel(model2);
             model3.clear();
             jList3.setModel(model3);
+            model4.clear();
+            jList4.setModel(model4);
         }
           jTextField1.setText("");
           jTextField2.setText("");
@@ -290,6 +292,8 @@ public class ClientView extends javax.swing.JFrame {
             jList2.setModel(model2);
             model3.clear();
             jList3.setModel(model3);
+            model4.clear();
+            jList4.setModel(model4);
         }
           jTextField1.setText("");
           jTextField2.setText("");
