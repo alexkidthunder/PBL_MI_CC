@@ -28,6 +28,7 @@ public class ClientView extends javax.swing.JFrame {
     GrafoController cont = new GrafoController();
     DefaultListModel<String> model = new DefaultListModel<>();
     DefaultListModel<String> model2 = new DefaultListModel<>();
+    DefaultListModel<String> model3 = new DefaultListModel<>();
     List<Caminho> array = new ArrayList<Caminho>();
     ArrayList<Aresta> listaAresta = new ArrayList();
 
@@ -318,8 +319,9 @@ public class ClientView extends javax.swing.JFrame {
         for (int i = 0; i < selectedIx.length; i++) {
             sel = jList2.getModel().getElementAt(selectedIx[i]);
         }
-       
-        System.out.println(sel.toString());
+        String aux = sel.toString();
+        model3.addElement(aux );
+        jList3.setModel(model3);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
