@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import metodoRemoto.RMI.adder;
 import model.Caminho;
 import util.Aresta;
@@ -324,8 +325,7 @@ public class ClientView extends javax.swing.JFrame {
         jTextField2.setText("");
         listaAresta.clear();
         String aux = "O preço total ficou: R$ " + somaPreco;
-        model3.addElement(aux);
-        jList3.setModel(model3);
+        JOptionPane.showMessageDialog(rootPane, aux);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
