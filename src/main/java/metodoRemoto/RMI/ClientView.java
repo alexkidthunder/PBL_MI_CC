@@ -210,15 +210,44 @@ public class ClientView extends javax.swing.JFrame {
         if(origem.equals("Bahia") && destino.equals("Ceará") ){
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Bahia"), cont.grafo.acharVertice("Pernambuco")));
             listaAresta.get(0).getBilhete().comprarPassagem();
-            System.out.println( listaAresta.get(0).getBilhete().getTotalVagas());
+//            System.out.println( listaAresta.get(0).getBilhete().getTotalVagas());
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Pernambuco"), cont.grafo.acharVertice("Ceará")));
+            listaAresta.get(1).getBilhete().comprarPassagem();
+
         }
         
         else if(origem.equals("Bahia") && destino.equals("Rio Grande do Norte") ){
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Bahia"), cont.grafo.acharVertice("Rio Grande do Norte")));
+            listaAresta.get(0).getBilhete().comprarPassagem();
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Bahia"), cont.grafo.acharVertice("Pernambuco")));
+            listaAresta.get(1).getBilhete().comprarPassagem();
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Pernambuco"), cont.grafo.acharVertice("Rio Grande do Norte")));
+            listaAresta.get(2).getBilhete().comprarPassagem();
         }
+        
+        else if(origem.equals("Bahia") && destino.equals("Maranhão") ){
+            listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Bahia"), cont.grafo.acharVertice("Rio Grande do Norte")));
+            listaAresta.get(0).getBilhete().comprarPassagem();
+            listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Rio Grande do Norte"), cont.grafo.acharVertice("Maranhão")));
+            listaAresta.get(1).getBilhete().comprarPassagem();
+            listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Bahia"), cont.grafo.acharVertice("Pernambuco")));
+            listaAresta.get(2).getBilhete().comprarPassagem();
+            listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Pernambuco"), cont.grafo.acharVertice("Rio Grande do Norte")));
+            listaAresta.get(3).getBilhete().comprarPassagem();
+            listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Rio Grande do Norte"), cont.grafo.acharVertice("Maranhão")));
+            listaAresta.get(4).getBilhete().comprarPassagem();
+        }
+        
+        else if(origem.equals("Maranhão") && destino.equals("Pará") ){
+            listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Maranhão"), cont.grafo.acharVertice("Pará")));
+            listaAresta.get(0).getBilhete().comprarPassagem();
+            listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Maranhão"), cont.grafo.acharVertice("Ceará")));
+            listaAresta.get(1).getBilhete().comprarPassagem();
+            listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Ceará"), cont.grafo.acharVertice("Pará")));
+            listaAresta.get(2).getBilhete().comprarPassagem();     
+        }
+        
+        else if(origem.equals("Maranhão") && destino.equals("Pará") ){
         
         cont.grafo.acharAresta(cont.grafo.acharVertice("Ceará"), cont.grafo.acharVertice("Maranhão"));
         cont.grafo.acharAresta(cont.grafo.acharVertice("Minas Gerais"), cont.grafo.acharVertice("Rio de Janeiro"));
