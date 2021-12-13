@@ -326,6 +326,7 @@ public class ClientView extends javax.swing.JFrame {
         listaAresta.clear();
         String aux = "O preço total ficou: R$ " + somaPreco;
         JOptionPane.showMessageDialog(rootPane, aux);
+        somaPreco = 0;
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
