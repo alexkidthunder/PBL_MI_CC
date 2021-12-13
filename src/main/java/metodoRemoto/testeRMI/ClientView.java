@@ -216,12 +216,14 @@ public class ClientView extends javax.swing.JFrame {
 //        ares.add(a);
         //Azul
         ArrayList<Aresta> listaAresta = new ArrayList();
-        if(origem.equals("Bahia") ){
+        if(origem.equals("Bahia") && destino.equals("Ceará") ){
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Bahia"), cont.grafo.acharVertice("Pernambuco")));
             listaAresta.get(0).getBilhete().comprarPassagem();
             System.out.println( listaAresta.get(0).getBilhete().getTotalVagas());
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Pernambuco"), cont.grafo.acharVertice("Ceará")));
         }
+        
+        
         cont.grafo.acharAresta(cont.grafo.acharVertice("Ceará"), cont.grafo.acharVertice("Maranhão"));
         cont.grafo.acharAresta(cont.grafo.acharVertice("Minas Gerais"), cont.grafo.acharVertice("Rio de Janeiro"));
         cont.grafo.acharAresta(cont.grafo.acharVertice("Goiás"), cont.grafo.acharVertice("Mato Grosso do Sul"));
