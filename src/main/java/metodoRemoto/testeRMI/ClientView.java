@@ -29,9 +29,10 @@ public class ClientView extends javax.swing.JFrame {
     DefaultListModel<String> model = new DefaultListModel<>();
     DefaultListModel<String> model2 = new DefaultListModel<>();
     DefaultListModel<String> model3 = new DefaultListModel<>();
+    DefaultListModel<String> model4 = new DefaultListModel<>();
     List<Caminho> array = new ArrayList<Caminho>();
     ArrayList<Aresta> listaAresta = new ArrayList();
-
+    
 
     /**
      * Creates new form ClientView
@@ -67,6 +68,9 @@ public class ClientView extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jList4 = new javax.swing.JList<>();
+        jLabel6 = new javax.swing.JLabel();
 
         jLabel4.setText("jLabel4");
 
@@ -101,14 +105,14 @@ public class ClientView extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 60, 75, 31));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 100, 31));
 
         jScrollPane1.setViewportView(jList1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, 166, 208));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 166, 208));
 
         jLabel3.setText("OPÇÕES DE ROTAS");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 122, 23));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 122, 23));
 
         jScrollPane2.setViewportView(jList2);
 
@@ -135,7 +139,7 @@ public class ClientView extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, -1, 39));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 380, -1, 39));
 
         jButton5.setText("Comprar");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -144,6 +148,13 @@ public class ClientView extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, -1, -1));
+
+        jScrollPane4.setViewportView(jList4);
+
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 220, 50));
+
+        jLabel6.setText("SUGESTÃO DE CAMINHO MAIS BARATO");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, 200, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -235,8 +246,13 @@ public class ClientView extends javax.swing.JFrame {
             model2.addElement(aux );
             jList2.setModel(model2);
         }
-        
-       //  jTextArea1.append(sel.toString()+"\n");
+        String aux = "";
+        for(int i = 0; i < vertice.size(); i ++){
+            aux = aux + " - " + vertice.get(i).getNome();
+        }
+        model4.addElement(aux );
+        jList4.setModel(model4);
+      
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -323,12 +339,15 @@ public class ClientView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JList<String> jList1;
     private javax.swing.JList<String> jList2;
     private javax.swing.JList<String> jList3;
+    private javax.swing.JList<String> jList4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
