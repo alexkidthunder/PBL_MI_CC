@@ -201,16 +201,11 @@ public class ClientView extends javax.swing.JFrame {
         // TODO add your handling code here:
         String origem = jTextField1.getText();
         String destino = jTextField2.getText();
-       
         ArrayList<Vertice> vertice = cont.encontrarMenorCaminhoDijkstra(origem, destino);
-              
-        
-        //Azul
        
         if(origem.equals("Bahia") && destino.equals("Ceará") ){
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Bahia"), cont.grafo.acharVertice("Pernambuco")));
             listaAresta.get(0).getBilhete().comprarPassagem();
-//            System.out.println( listaAresta.get(0).getBilhete().getTotalVagas());
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Pernambuco"), cont.grafo.acharVertice("Ceará")));
             listaAresta.get(1).getBilhete().comprarPassagem();
 
@@ -247,7 +242,36 @@ public class ClientView extends javax.swing.JFrame {
             listaAresta.get(2).getBilhete().comprarPassagem();     
         }
         
-        else if(origem.equals("Maranhão") && destino.equals("Pará") ){
+        else if(origem.equals("São Paulo") && destino.equals("Mato Grosso do Sul") ){
+            listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("São Paulo"), cont.grafo.acharVertice("Mato Grosso do Sul")));
+            listaAresta.get(0).getBilhete().comprarPassagem();
+            listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("São Paulo"), cont.grafo.acharVertice("Paraná")));
+            listaAresta.get(1).getBilhete().comprarPassagem();
+            listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Paraná"), cont.grafo.acharVertice("Mato Grosso do Sul")));
+            listaAresta.get(2).getBilhete().comprarPassagem();     
+        }
+        
+        else if(origem.equals("Minas Gerais") && destino.equals("Santa Catarina") ){
+            listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Minas Gerais"), cont.grafo.acharVertice("Rio de Janeiro")));
+            listaAresta.get(0).getBilhete().comprarPassagem();
+            listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Rio de Janeiro"), cont.grafo.acharVertice("São Paulo")));
+            listaAresta.get(1).getBilhete().comprarPassagem();
+            listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("São Paulo"), cont.grafo.acharVertice("Paraná")));
+            listaAresta.get(2).getBilhete().comprarPassagem();
+            listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Paraná"), cont.grafo.acharVertice("Santa Catarina")));
+            listaAresta.get(3).getBilhete().comprarPassagem(); 
+            
+            listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Minas Gerais"), cont.grafo.acharVertice("Rio de Janeiro")));
+            listaAresta.get(4).getBilhete().comprarPassagem();
+            listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Rio de Janeiro"), cont.grafo.acharVertice("São Paulo")));
+            listaAresta.get(5).getBilhete().comprarPassagem();
+            listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("São Paulo"), cont.grafo.acharVertice("Mato Grosso do Sul")));
+            listaAresta.get(6).getBilhete().comprarPassagem();
+            listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Mato Grosso do Sul"), cont.grafo.acharVertice("Paraná")));
+            listaAresta.get(7).getBilhete().comprarPassagem();
+            listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Paraná"), cont.grafo.acharVertice("Santa Catarina")));
+            listaAresta.get(8).getBilhete().comprarPassagem(); 
+        }
         
         cont.grafo.acharAresta(cont.grafo.acharVertice("Ceará"), cont.grafo.acharVertice("Maranhão"));
         cont.grafo.acharAresta(cont.grafo.acharVertice("Minas Gerais"), cont.grafo.acharVertice("Rio de Janeiro"));

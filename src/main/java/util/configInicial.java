@@ -346,8 +346,8 @@ public class configInicial {
         caminhoD("Bahia", "Minas Gerais", (float) 652.00),
         caminhoE("Minas Gerais", "São Paulo", (float) 284.00),
         caminhoF("São Paulo", "Rio de Janeiro", (float) 396.00),
-        caminhoG("Santa Catarina", "Pará", (float) 648.00),
-        caminhoH("Pará", "Mato Grosso do Sul", (float) 983.00);
+        caminhoG("Santa Catarina", "Paraná", (float) 648.00),
+        caminhoH("Paraná", "Mato Grosso do Sul", (float) 983.00);
 
         private final String origem;
         private final String destino;
