@@ -214,7 +214,7 @@ public class ClientView extends javax.swing.JFrame {
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Pernambuco"), cont.grafo.acharVertice("Ceará")));
         }
         
-        if(origem.equals("Bahia") && destino.equals("Rio Grande do Norte") ){
+        else if(origem.equals("Bahia") && destino.equals("Rio Grande do Norte") ){
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Bahia"), cont.grafo.acharVertice("Rio Grande do Norte")));
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Bahia"), cont.grafo.acharVertice("Pernambuco")));
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Pernambuco"), cont.grafo.acharVertice("Rio Grande do Norte")));
