@@ -24,9 +24,9 @@ import static util.configInicial.Servidores.TAM;
  */
 public class CompanhiaControllerServer {
 
-    private configInicial.Servidores initServer;
     private ClienteAcessoServer serverUm;
     private ClienteAcessoServer serverDois;
+    private configInicial.Servidores initServer;
 
     /**
      * Construtor da classe
@@ -104,10 +104,11 @@ public class CompanhiaControllerServer {
     }
 
     /**
-     * Da inicio aos servidores
+     * Da inicio aos servidores com os parâmetros do nome da companhia, onde um
+     * servidor sabe dos outro, mas conhece as suas rotas ainda
      *
      * @param server
-     * @return
+     * @return A lista das rotas de cada servidor específico
      */
     public List<Caminho> PegarInformacoesServidores(String server) {
         switch (server) {

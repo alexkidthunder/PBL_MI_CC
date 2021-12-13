@@ -28,63 +28,61 @@ public class TransactionsController {
      * @param serverUm
      * @param serverDois
      * @param arestas
-     * @param companhia
+     * @param nomeCompanhia
      * @return
      * @throws MalformedURLException
      * @throws NotBoundException
      * @throws RemoteException
      */
     public List<String> realizarCompraNosOutrosServidores(ClienteAcessoServer serverUm, ClienteAcessoServer serverDois,
-            List<Aresta> arestas, String companhia) throws MalformedURLException, NotBoundException, RemoteException {
+            List<Aresta> arestas, String nomeCompanhia) throws MalformedURLException, NotBoundException, RemoteException {
 
-        //Listas para conter as identificações dos caminhos em cada servidor
-        List<String> comPrincipal = new ArrayList<>();
-        List<String> compUm = new ArrayList<>();
-        List<String> compDois = new ArrayList<>();
+        List<String> compraPrincipal = new ArrayList<>();
+        List<String> compraUm = new ArrayList<>();
+        List<String> compraDois = new ArrayList<>();
 
-        //Percorrer as arestas e checar quem disponibiliza o bilhete e com isso colocar o id da aresta na lista
-        arestas.forEach((aresta) -> {
-            if (companhia.equals(serverUm.getNome())) {
-                compUm.add(aresta.getId());
-            } else if (companhia.equals(serverDois.getNome())) {
-                compDois.add(aresta.getId());
+        arestas.forEach((aresta) -> { // Percorrer arestas
+            if (nomeCompanhia.equals(serverUm.getNome())) { // Confere quem disponibiliza o bilhete no serverUm
+                compraUm.add(aresta.getId());
+            } else if (nomeCompanhia.equals(serverDois.getNome())) { // Confere quem disponibiliza o bilhete no serverDois
+                compraDois.add(aresta.getId());
             } else {
-                comPrincipal.add(aresta.getId());
+                compraPrincipal.add(aresta.getId());// Adiciona o id na lista
             }
         });
 
-        // Se tiver algum Id na lista, um dos servidores tem permissão para realizar a compra
-        if (compUm.size() > 0) {
+        // Se tiver algum Id na lista no Um, checa se ele tem permissão
+        if (compraUm.size() > 0) {
             InterfServerToServer lookupMethod = serverUm.lookupMethod();
-            if (!lookupMethod.solicitacaoComprarCaminho(companhia)) {
+            if (!lookupMethod.solicitacaoComprarCaminho(nomeCompanhia)) {
                 return null;
             }
         }
 
-        // Realiza a compra do caminho no servidor Um se apresentar Id
-        if (compUm.size() > 0) {
+        // Se ele tiver, realiza a compra do caminho no servidor Um se apresentar Id
+        if (compraUm.size() > 0) {
             InterfServerToServer lookupMethod = serverUm.lookupMethod();
-            if (!lookupMethod.comprarCaminhoCompanhia(compUm, companhia)) {
+            if (!lookupMethod.comprarCaminhoCompanhia(compraUm, nomeCompanhia)) {
                 return null;
             }
         }
 
-        // Se tiver algum Id na lista, o outro servidores tem permissão para realizar a compra
-        if (compDois.size() > 0) {
+        // Se tiver algum Id na lista no Dois, checa se ele tem permissão
+        if (compraDois.size() > 0) {
             InterfServerToServer lookupMethod = serverDois.lookupMethod();
-            if (!lookupMethod.solicitacaoComprarCaminho(companhia)) {
+            if (!lookupMethod.solicitacaoComprarCaminho(nomeCompanhia)) {
                 return null;
             }
         }
 
-        // Realiza a compra do caminho no servidor Dois se apresentar Id
-        if (compDois.size() > 0) {
+        // Se ele tiver, realiza a compra do caminho no servidor Dois
+        if (compraDois.size() > 0) {
             InterfServerToServer lookupMethod = serverDois.lookupMethod();
-            if (!lookupMethod.comprarCaminhoCompanhia(compDois, companhia)) {
+            if (!lookupMethod.comprarCaminhoCompanhia(compraDois, nomeCompanhia)) {
                 return null;
             }
         }
-        // Retorna a lista do servidor contendo os Ids a ser comprados
-        return comPrincipal;
+        // No final, faz o retorno da lista daqueles a serem comprados
+        return compraPrincipal;
     }
 }
