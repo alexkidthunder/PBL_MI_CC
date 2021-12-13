@@ -1,7 +1,5 @@
 package metodoRemoto.RMI;
 
-
-
 import controller.GrafoController;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -30,7 +28,7 @@ public class ClientView extends javax.swing.JFrame {
     DefaultListModel<String> model4 = new DefaultListModel<>();
     List<Caminho> array = new ArrayList<Caminho>();
     ArrayList<Aresta> listaAresta = new ArrayList();
-    
+    float somaPreco = 0;
 
     /**
      * Creates new form ClientView
@@ -164,7 +162,6 @@ public class ClientView extends javax.swing.JFrame {
             Registry re = LocateRegistry.getRegistry("localhost", 4445);
             Registry r = LocateRegistry.getRegistry("localhost", 4446);
 
-
             // Pegar informações da companhia AZUL
             adder ad = (adder) reg.lookup("Registro 1");
             array.addAll(ad.add("AZUL"));
@@ -202,25 +199,21 @@ public class ClientView extends javax.swing.JFrame {
         String origem = jTextField1.getText();
         String destino = jTextField2.getText();
         ArrayList<Vertice> vertice = cont.encontrarMenorCaminhoDijkstra(origem, destino);
-       
-        if(origem.equals("Bahia") && destino.equals("Ceará") ){
+
+        if (origem.equals("Bahia") && destino.equals("Ceará")) {
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Bahia"), cont.grafo.acharVertice("Pernambuco")));
             listaAresta.get(0).getBilhete().comprarPassagem();
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Pernambuco"), cont.grafo.acharVertice("Ceará")));
             listaAresta.get(1).getBilhete().comprarPassagem();
 
-        }
-        
-        else if(origem.equals("Bahia") && destino.equals("Rio Grande do Norte") ){
+        } else if (origem.equals("Bahia") && destino.equals("Rio Grande do Norte")) {
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Bahia"), cont.grafo.acharVertice("Rio Grande do Norte")));
             listaAresta.get(0).getBilhete().comprarPassagem();
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Bahia"), cont.grafo.acharVertice("Pernambuco")));
             listaAresta.get(1).getBilhete().comprarPassagem();
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Pernambuco"), cont.grafo.acharVertice("Rio Grande do Norte")));
             listaAresta.get(2).getBilhete().comprarPassagem();
-        }
-        
-        else if(origem.equals("Bahia") && destino.equals("Maranhão") ){
+        } else if (origem.equals("Bahia") && destino.equals("Maranhão")) {
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Bahia"), cont.grafo.acharVertice("Rio Grande do Norte")));
             listaAresta.get(0).getBilhete().comprarPassagem();
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Rio Grande do Norte"), cont.grafo.acharVertice("Maranhão")));
@@ -231,27 +224,21 @@ public class ClientView extends javax.swing.JFrame {
             listaAresta.get(3).getBilhete().comprarPassagem();
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Rio Grande do Norte"), cont.grafo.acharVertice("Maranhão")));
             listaAresta.get(4).getBilhete().comprarPassagem();
-        }
-        
-        else if(origem.equals("Maranhão") && destino.equals("Pará") ){
+        } else if (origem.equals("Maranhão") && destino.equals("Pará")) {
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Maranhão"), cont.grafo.acharVertice("Pará")));
             listaAresta.get(0).getBilhete().comprarPassagem();
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Maranhão"), cont.grafo.acharVertice("Ceará")));
             listaAresta.get(1).getBilhete().comprarPassagem();
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Ceará"), cont.grafo.acharVertice("Pará")));
-            listaAresta.get(2).getBilhete().comprarPassagem();     
-        }
-        
-        else if(origem.equals("São Paulo") && destino.equals("Mato Grosso do Sul") ){
+            listaAresta.get(2).getBilhete().comprarPassagem();
+        } else if (origem.equals("São Paulo") && destino.equals("Mato Grosso do Sul")) {
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("São Paulo"), cont.grafo.acharVertice("Mato Grosso do Sul")));
             listaAresta.get(0).getBilhete().comprarPassagem();
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("São Paulo"), cont.grafo.acharVertice("Paraná")));
             listaAresta.get(1).getBilhete().comprarPassagem();
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Paraná"), cont.grafo.acharVertice("Mato Grosso do Sul")));
-            listaAresta.get(2).getBilhete().comprarPassagem();     
-        }
-        
-        else if(origem.equals("Minas Gerais") && destino.equals("Santa Catarina") ){
+            listaAresta.get(2).getBilhete().comprarPassagem();
+        } else if (origem.equals("Minas Gerais") && destino.equals("Santa Catarina")) {
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Minas Gerais"), cont.grafo.acharVertice("Rio de Janeiro")));
             listaAresta.get(0).getBilhete().comprarPassagem();
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Rio de Janeiro"), cont.grafo.acharVertice("São Paulo")));
@@ -259,8 +246,8 @@ public class ClientView extends javax.swing.JFrame {
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("São Paulo"), cont.grafo.acharVertice("Paraná")));
             listaAresta.get(2).getBilhete().comprarPassagem();
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Paraná"), cont.grafo.acharVertice("Santa Catarina")));
-            listaAresta.get(3).getBilhete().comprarPassagem(); 
-            
+            listaAresta.get(3).getBilhete().comprarPassagem();
+
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Minas Gerais"), cont.grafo.acharVertice("Rio de Janeiro")));
             listaAresta.get(4).getBilhete().comprarPassagem();
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Rio de Janeiro"), cont.grafo.acharVertice("São Paulo")));
@@ -270,21 +257,20 @@ public class ClientView extends javax.swing.JFrame {
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Mato Grosso do Sul"), cont.grafo.acharVertice("Paraná")));
             listaAresta.get(7).getBilhete().comprarPassagem();
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Paraná"), cont.grafo.acharVertice("Santa Catarina")));
-            listaAresta.get(8).getBilhete().comprarPassagem(); 
-        }
-        else if (origem.equals("Minas Gerais") && destino.equals("Mato Grosso")) {
+            listaAresta.get(8).getBilhete().comprarPassagem();
+        } else if (origem.equals("Minas Gerais") && destino.equals("Mato Grosso")) {
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Minas Gerais"), cont.grafo.acharVertice("Goiás")));
             listaAresta.get(0).getBilhete().comprarPassagem();
             listaAresta.add(cont.grafo.acharAresta(cont.grafo.acharVertice("Goiás"), cont.grafo.acharVertice("Mato Grosso")));
             listaAresta.get(0).getBilhete().comprarPassagem();
 
         }
-        
+
         cont.grafo.acharAresta(cont.grafo.acharVertice("Ceará"), cont.grafo.acharVertice("Maranhão"));
         cont.grafo.acharAresta(cont.grafo.acharVertice("Minas Gerais"), cont.grafo.acharVertice("Rio de Janeiro"));
         cont.grafo.acharAresta(cont.grafo.acharVertice("Goiás"), cont.grafo.acharVertice("Mato Grosso do Sul"));
         cont.grafo.acharAresta(cont.grafo.acharVertice("Mato Grosso do Sul"), cont.grafo.acharVertice("São Paulo"));
-        
+
         //Tam
         cont.grafo.acharAresta(cont.grafo.acharVertice("Rio Grande do Norte"), cont.grafo.acharVertice("Pernambuco"));
         cont.grafo.acharAresta(cont.grafo.acharVertice("Pará"), cont.grafo.acharVertice("Ceará"));
@@ -301,39 +287,38 @@ public class ClientView extends javax.swing.JFrame {
         cont.grafo.acharAresta(cont.grafo.acharVertice("São Paulo"), cont.grafo.acharVertice("Rio de Janeiro"));
         cont.grafo.acharAresta(cont.grafo.acharVertice("Santa Catarina"), cont.grafo.acharVertice("Pará"));
         cont.grafo.acharAresta(cont.grafo.acharVertice("Pará"), cont.grafo.acharVertice("Mato Grosso do Sul"));
-        
- 
 
         for (int i = 0; i < listaAresta.size(); i++) {
-            String aux = listaAresta.get(i).getV1().getNome() + " -> " + listaAresta.get(i).getV2().getNome()+ "  Preço: $"+ listaAresta.get(i).getBilhete().getPrecoBilhete();
-            model2.addElement(aux );
+            String aux = listaAresta.get(i).getV1().getNome() + " -> " + listaAresta.get(i).getV2().getNome() + "  Preço: $" + listaAresta.get(i).getBilhete().getPrecoBilhete();
+            somaPreco += listaAresta.get(i).getBilhete().getPrecoBilhete(); // Soma os valores das Arestas
+            model2.addElement(aux);
             jList2.setModel(model2);
         }
         String aux = "";
-        for(int i = 0; i < vertice.size(); i ++){
+        for (int i = 0; i < vertice.size(); i++) {
             aux = aux + " - " + vertice.get(i).getNome();
         }
-        model4.addElement(aux );
+        model4.addElement(aux);
         jList4.setModel(model4);
-      
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        Object sel =null;
+        Object sel = null;
         int[] selectedIx = this.jList2.getSelectedIndices();
         for (int i = 0; i < selectedIx.length; i++) {
             sel = jList2.getModel().getElementAt(selectedIx[i]);
         }
         String aux = sel.toString();
-        model3.addElement(aux );
+        model3.addElement(aux);
         jList3.setModel(model3);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        
-         for(int j = 0; j < listaAresta.size() ; j++){ 
+
+        for (int j = 0; j < listaAresta.size(); j++) {
             model2.clear();
             jList2.setModel(model2);
             model3.clear();
@@ -341,13 +326,13 @@ public class ClientView extends javax.swing.JFrame {
             model4.clear();
             jList4.setModel(model4);
         }
-          jTextField1.setText("");
-          jTextField2.setText("");
+        jTextField1.setText("");
+        jTextField2.setText("");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        for(int j = 0; j < listaAresta.size() ; j++){ 
+        for (int j = 0; j < listaAresta.size(); j++) {
             model2.clear();
             jList2.setModel(model2);
             model3.clear();
@@ -355,8 +340,11 @@ public class ClientView extends javax.swing.JFrame {
             model4.clear();
             jList4.setModel(model4);
         }
-          jTextField1.setText("");
-          jTextField2.setText("");
+        jTextField1.setText("");
+        jTextField2.setText("");
+        String aux = "O preço total ficou: R$ " + somaPreco;
+        model3.addElement(aux);
+        jList3.setModel(model3);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
