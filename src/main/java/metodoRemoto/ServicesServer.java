@@ -36,13 +36,14 @@ public class ServicesServer extends UnicastRemoteObject implements InterfServerT
      */
     public ServicesServer(String companhia) throws RemoteException {
         super();
-        this.companhia = companhia;
-        auxsys = auxSys.getAuxSys();
+
         lock = new ReentrantLock();//trava para garantir a exclusão mutua
+        auxsys = auxSys.getAuxSys();
+        this.companhia = companhia;
     }
 
     /**
-     * Função que retorna o g´afo
+     * Função que retorna o grafo
      *
      * @return
      * @throws RemoteException
@@ -50,6 +51,31 @@ public class ServicesServer extends UnicastRemoteObject implements InterfServerT
     @Override
     public GrafoController getGrafoCompanhia() throws RemoteException {
         return auxsys.getGrafo();
+    }
+
+    /**
+     * Função de confirmação de comprar o caminho na companhia.
+     *
+     * @param idCidades
+     * @param companhia
+     * @return
+     * @throws RemoteException
+     */
+    @Override
+    public boolean comprarCaminhoCompanhia(List<String> idCidades, String companhia) throws RemoteException {
+
+        return auxsys.comprarCaminhos(idCidades, companhia);
+    }
+
+    /**
+     * Função que lida com a permissão da concorrência.
+     *
+     * @param companhia
+     * @throws RemoteException
+     */
+    @Override
+    public void semaforoPermis(String companhia) throws RemoteException {
+        auxsys.removePermissao(companhia);
     }
 
     /**
@@ -80,20 +106,6 @@ public class ServicesServer extends UnicastRemoteObject implements InterfServerT
     }
 
     /**
-     * Função de confirmação de comprar o caminho na companhia.
-     *
-     * @param idCidades
-     * @param companhia
-     * @return
-     * @throws RemoteException
-     */
-    @Override
-    public boolean comprarCaminhoCompanhia(List<String> idCidades, String companhia) throws RemoteException {
-
-        return auxsys.comprarCaminhos(idCidades, companhia);
-    }
-
-    /**
      *
      * @param texto
      * @return
@@ -114,16 +126,4 @@ public class ServicesServer extends UnicastRemoteObject implements InterfServerT
     public String getNomeCompanhia() throws RemoteException {
         return companhia;
     }
-
-    /**
-     * Função que lida com a permissão da concorrência.
-     *
-     * @param companhia
-     * @throws RemoteException
-     */
-    @Override
-    public void semaforoPermis(String companhia) throws RemoteException {
-        auxsys.removePermissao(companhia);
-    }
-
 }

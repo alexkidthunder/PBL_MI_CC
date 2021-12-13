@@ -36,26 +36,6 @@ public class ServicesUsuario extends UnicastRemoteObject implements InterfServer
     }
 
     /**
-     * Função que pega os caminhos passando a origem e o destino.
-     *
-     * @param origem
-     * @param destino
-     * @return
-     * @throws RemoteException
-     */
-    @Override
-    public ArrayList<Vertice> getCaminhos(String origem, String destino) throws RemoteException {
-        try {
-            return auxsys.getPossiveisCaminhosCombinados(destino, origem);
-        } catch (NotBoundException ex) {
-            Logger.getLogger(ServicesUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(ServicesUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
-    }
-
-    /**
      * Função que compra o caminho passando a lita dos caminhos selecionados.
      *
      * @param caminhos
@@ -67,10 +47,31 @@ public class ServicesUsuario extends UnicastRemoteObject implements InterfServer
         try {
             return auxsys.comprarCaminhos(caminhos);
         } catch (NotBoundException ex) {
-            Logger.getLogger(ServicesUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            System.err.println(ex);
         } catch (MalformedURLException ex) {
-            Logger.getLogger(ServicesUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            System.err.println(ex);
         }
         return false;
     }
+
+    /**
+     * Função que pega os caminhos passando a origem e o destino.
+     *
+     * @param origem
+     * @param destino
+     * @return
+     * @throws RemoteException
+     */
+    @Override
+    public ArrayList<Vertice> getCaminhos(String origem, String destino) throws RemoteException {
+        try {
+            return auxsys.pegarPossiveisCaminhos(destino, origem);
+        } catch (NotBoundException ex) {
+            System.err.println(ex);
+        } catch (MalformedURLException ex) {
+            System.err.println(ex);
+        }
+        return null;
+    }
+
 }

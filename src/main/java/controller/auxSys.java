@@ -24,12 +24,11 @@ import util.Vertice;
  */
 public class auxSys {
 
-    private final CompanhiaControllerServer companhiacontrollerServer;
     private servidorRMI servidorRMI;
+    private final Concorrencia semaforo;
     private final GrafoController grafo;
     private final TransactionsController emOutroServidorComprar;
-    private final Concorrencia semaforo;
-
+    private final CompanhiaControllerServer companhiacontrollerServer;
     private static auxSys aux;
 
     /**
@@ -37,8 +36,8 @@ public class auxSys {
      */
     public auxSys() {
         this.companhiacontrollerServer = new CompanhiaControllerServer();
-        grafo = new GrafoController();
         emOutroServidorComprar = new TransactionsController();
+        grafo = new GrafoController();
         semaforo = new Concorrencia();
     }
 
@@ -53,8 +52,9 @@ public class auxSys {
      * @throws java.net.MalformedURLException
      */
     public void initServer(String servidor) throws MalformedURLException {
+        // Pega as informações dos caminhos do servidor passado como parâmetro
         List<Caminho> caminho = companhiacontrollerServer.PegarInformacoesServidores(servidor);
-        //System.out.println(caminho.size());
+        // Configura as propriedades do sistema  
         servidorRMI = new servidorRMI(companhiacontrollerServer.getInitServerNome(),
                 companhiacontrollerServer.getInitServerHost(),
                 companhiacontrollerServer.getInitServerPorta());
@@ -71,7 +71,8 @@ public class auxSys {
     }
 
     /**
-     * Pega os caminhos possíveis entre dois pontos de todos os servidores
+     * Pega os caminhos possíveis entre dois pontos de todos os servidores,
+     * através dos métodos remotos de cada servidor
      *
      * @param inicio
      * @param fim
@@ -80,7 +81,7 @@ public class auxSys {
      * @throws java.net.MalformedURLException
      * @throws java.rmi.RemoteException
      */
-    public ArrayList<Vertice> getPossiveisCaminhosCombinados(String inicio, String fim) throws NotBoundException, MalformedURLException, RemoteException {
+    public ArrayList<Vertice> pegarPossiveisCaminhos(String inicio, String fim) throws NotBoundException, MalformedURLException, RemoteException {
         InterfServerToServer lookupMethod = null;
         List<Caminho> array = new ArrayList<>();
         InterfServerToServer lookupMethod2 = null;
@@ -132,7 +133,7 @@ public class auxSys {
     }
 
     /**
-     * Função que compra os caminhos passando a lista dos caminhos selecionados.
+     * Função que compra os caminhos e utiliza da concorrência entre servidores
      *
      * @param caminhos
      * @return
@@ -142,9 +143,12 @@ public class auxSys {
      */
     public boolean comprarCaminhos(List<String> caminhos) throws NotBoundException, MalformedURLException, RemoteException {
         if (!semaforo.qualquerSoliciatacao()) {
-            semaforo.setPermissao(companhiacontrollerServer.getInitServerNome());
+
             InterfServerToServer lookupMethod = null;
             InterfServerToServer lookupMethod2 = null;
+            semaforo.setPermissao(companhiacontrollerServer.getInitServerNome());
+            List<Aresta> arestas = null;
+            List<String> realizarCompra = null;
 
             try {
                 lookupMethod = companhiacontrollerServer.getserverUmLookupMethod();// Os caminhos do servidor Um         
@@ -154,8 +158,8 @@ public class auxSys {
                 lookupMethod2 = companhiacontrollerServer.getserverDoisLookupMethod();// Os caminhos do servidor Dois
             } catch (NullPointerException e) {
             } //            try {
-            //                List<Aresta> arestas = grafo.getVertices(lookupMethod, lookupMethod2);
-            //                List<String> realizarCompra = emOutroServidorComprar.realizarCompraNosOutrosServidores(
+            //                arestas = grafo.getVertices(lookupMethod, lookupMethod2);
+            //                realizarCompra = emOutroServidorComprar.realizarCompraNosOutrosServidores(
             //                        companhiacontrollerServer.getServerUm(), companhiacontrollerServer.getServerDois(), arestas, companhiacontrollerServer.getInitServerNome());
             //                return comprarCaminhos(realizarCompra, companhiacontrollerServer.getInitServerNome());
             //            } catch (NullPointerException e) {
@@ -178,13 +182,14 @@ public class auxSys {
      * @return
      */
     public boolean comprarCaminhos(List<String> aeroportos, String companhia) {
-//        if (semaforo.getPermissao().equalsIgnoreCase(companhia)) {
-//            ArrayList<ArrayList<Vertice>> arestasId = grafo.grafo.indentificarCaminhos(aeroportos);
+        ArrayList<ArrayList<Vertice>> arestasId = null;
+        if (semaforo.getPermissao().equalsIgnoreCase(companhia)) {
+//            arestasId = grafo.grafo.indentificarCaminhos(aeroportos);
 //            if (!arestasByIds.stream().noneMatch(arestasId -> (!arestasId.get(0).getBilhete().comprarPassagem()))) {
 //                return false;
 //            }
 //            return true;
-//        }
+        }
         return false;
     }
 }

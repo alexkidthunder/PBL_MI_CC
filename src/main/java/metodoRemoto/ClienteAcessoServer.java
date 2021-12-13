@@ -12,7 +12,7 @@ import java.rmi.Naming;
 import java.net.MalformedURLException;
 
 /**
- * Classe para acessar outro servidor como cliente
+ * Classe para acessar outro servidor
  *
  * @authors Alexandre & Bianca
  */
@@ -36,6 +36,15 @@ public class ClienteAcessoServer {
     }
 
     /**
+     * Pega o nome da Companhia
+     *
+     * @return
+     */
+    public String getNome() {
+        return nome;
+    }
+
+    /**
      * Método LookUp utilizado para pagar as informações
      *
      * @return
@@ -50,18 +59,8 @@ public class ClienteAcessoServer {
         } catch (ConnectException e) {
 //            System.err.println(e);
             System.err.println("Não foi possível fazer este procedimento no momento ou não teve a devida configuração"
-                    + " verifique os parâmetros para "+nome);
+                    + " verifique os parâmetros para " + nome);
         }
         return null;
     }
-
-    /**
-     * Pega o nome da Companhia
-     *
-     * @return
-     */
-    public String getNome() {
-        return nome;
-    }
-
 }

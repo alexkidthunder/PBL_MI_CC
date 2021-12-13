@@ -21,7 +21,7 @@ public class servidorRMI {
     /**
      * Servidor RMI que define as configurações do sistema, salva a porta do
      * servidor, define os serviços que serão acessados.Ele faz a chamadas das
- classes usadas entre servidot-servidor e cliente-servidor
+     * classes usadas entre servidot-servidor e cliente-servidor
      *
      * @param companhia
      * @param host

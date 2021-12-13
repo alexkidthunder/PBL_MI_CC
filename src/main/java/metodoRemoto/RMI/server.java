@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package metodoRemoto.testeRMI;
+package metodoRemoto.RMI;
 
 import controller.CompanhiaControllerServer;
 import controller.auxSys;
