@@ -268,7 +268,7 @@ public class ClientView extends javax.swing.JFrame {
         }
 
         for (int i = 0; i < listaAresta.size(); i++) {
-            String aux = listaAresta.get(i).getV1().getNome() + " -> " + listaAresta.get(i).getV2().getNome() + "  Preço: $" + listaAresta.get(i).getBilhete().getPrecoBilhete();
+            String aux = listaAresta.get(i).getV1().getNome() + " - " + listaAresta.get(i).getV2().getNome() + "  Preço: $" + listaAresta.get(i).getBilhete().getPrecoBilhete();
             somaPreco += listaAresta.get(i).getBilhete().getPrecoBilhete(); // Soma os valores das Arestas
             model2.addElement(aux);
             jList2.setModel(model2);
