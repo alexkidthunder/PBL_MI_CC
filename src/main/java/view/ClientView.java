@@ -73,6 +73,7 @@ public class ClientView extends javax.swing.JFrame {
         jLabel4.setText("jLabel4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(600, 500));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setText("Entrar");
@@ -121,7 +122,7 @@ public class ClientView extends javax.swing.JFrame {
         getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 293, 70));
 
         jLabel5.setText("ROTAS ADICIONADAS");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 114, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 130, -1));
 
         jButton3.setText("Adicionar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -152,7 +153,7 @@ public class ClientView extends javax.swing.JFrame {
         getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 230, 60));
 
         jLabel6.setText("SUGESTÃO DE CAMINHO MAIS BARATO");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, 220, 30));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, 230, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
