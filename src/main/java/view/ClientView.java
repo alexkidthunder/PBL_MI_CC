@@ -1,4 +1,4 @@
-package metodoRemoto.RMI;
+package view;
 
 import controller.GrafoController;
 import java.rmi.NotBoundException;
@@ -11,7 +11,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
-import metodoRemoto.RMI.adder;
+import metodoRemoto.adder;
+import metodoRemoto.adder;
 import model.Caminho;
 import util.Aresta;
 import util.Vertice;
@@ -117,10 +118,10 @@ public class ClientView extends javax.swing.JFrame {
 
         jScrollPane3.setViewportView(jList3);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 293, 60));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 293, 70));
 
         jLabel5.setText("ROTAS ADICIONADAS");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, 114, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 114, -1));
 
         jButton3.setText("Adicionar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -128,7 +129,7 @@ public class ClientView extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 275, -1, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 150, -1));
 
         jButton4.setText("Nova passagem");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -136,7 +137,7 @@ public class ClientView extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 380, -1, 39));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 390, 190, 39));
 
         jButton5.setText("Comprar");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -144,14 +145,14 @@ public class ClientView extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, -1, -1));
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 440, -1, -1));
 
         jScrollPane4.setViewportView(jList4);
 
-        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 220, 50));
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 230, 60));
 
         jLabel6.setText("SUGESTÃO DE CAMINHO MAIS BARATO");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, 200, 30));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, 220, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

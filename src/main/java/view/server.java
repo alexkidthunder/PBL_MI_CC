@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package metodoRemoto.RMI;
+package view;
 
 import controller.CompanhiaControllerServer;
 import controller.auxSys;
@@ -14,6 +14,7 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
 import java.util.Scanner;
+import metodoRemoto.adder;
 import model.Caminho;
 
 /**
