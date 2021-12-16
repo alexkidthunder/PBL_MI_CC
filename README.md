@@ -7,6 +7,8 @@ O projeto foi construído utilizando Maven, por isso é necessário compilar o s
 
 É necessário compilar o arquivo do servidor para poder funcionar o sistema.
 
+Cada servidor tem que especificar o nome da companhia que quer inicializar.
+
 Depois de ativar os 3 servidores das companhias basta executar o cliente da classe ClientView. 
 
 Depois da execução e aparecer a interface gráfica, clica no botão Entrar para carregar as rotas.

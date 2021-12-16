@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 import metodoRemoto.ClienteAcessoServer;
 import metodoRemoto.InterfServerToServer;
-import model.Concorrencia;
 import util.Aresta;
 
 /**

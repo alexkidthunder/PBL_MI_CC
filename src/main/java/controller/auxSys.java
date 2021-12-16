@@ -157,14 +157,14 @@ public class auxSys {
             try {
                 lookupMethod2 = companhiacontrollerServer.getserverDoisLookupMethod();// Os caminhos do servidor Dois
             } catch (NullPointerException e) {
-            } //            try {
-            //                arestas = grafo.getVertices(lookupMethod, lookupMethod2);
-            //                realizarCompra = emOutroServidorComprar.realizarCompraNosOutrosServidores(
-            //                        companhiacontrollerServer.getServerUm(), companhiacontrollerServer.getServerDois(), arestas, companhiacontrollerServer.getInitServerNome());
-            //                return comprarCaminhos(realizarCompra, companhiacontrollerServer.getInitServerNome());
-            //            } catch (NullPointerException e) {
-            //                return false;
-            //            } 
+            }            try {
+//                            arestas = grafo.getVertices(lookupMethod, lookupMethod2);
+                            realizarCompra = emOutroServidorComprar.realizarCompraNosOutrosServidores(
+                                    companhiacontrollerServer.getServerUm(), companhiacontrollerServer.getServerDois(), arestas, companhiacontrollerServer.getInitServerNome());
+                            return comprarCaminhos(realizarCompra, companhiacontrollerServer.getInitServerNome());
+                        } catch (NullPointerException e) {
+                            return false;
+                        } 
             finally {
                 semaforo.removerPermissaoCompanhia(companhiacontrollerServer.getInitServerNome());
             }
